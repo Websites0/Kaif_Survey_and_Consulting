@@ -92,6 +92,37 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
+// Navbar transparency on scroll
+window.addEventListener('scroll', function() {
+    const header = document.querySelector('header');
+    const navLinks = document.querySelectorAll('nav a');
+    const companyName = document.getElementById('company-name');
+    const tagline = document.getElementById('tagline');
+    if (window.scrollY > 50) {
+        header.classList.add('bg-transparent', 'shadow-none');
+        header.classList.remove('bg-white', 'shadow-lg');
+        navLinks.forEach(link => {
+            link.classList.add('text-white');
+            link.classList.remove('text-gray-700');
+        });
+        companyName.classList.add('text-white');
+        companyName.classList.remove('text-gray-900');
+        tagline.classList.add('text-white');
+        tagline.classList.remove('text-gray-600');
+    } else {
+        header.classList.add('bg-white', 'shadow-lg');
+        header.classList.remove('bg-transparent', 'shadow-none');
+        navLinks.forEach(link => {
+            link.classList.add('text-gray-700');
+            link.classList.remove('text-white');
+        });
+        companyName.classList.add('text-gray-900');
+        companyName.classList.remove('text-white');
+        tagline.classList.add('text-gray-600');
+        tagline.classList.remove('text-white');
+    }
+});
+
 // Initialize Element SDK
 if (window.elementSdk) {
     window.elementSdk.init({
