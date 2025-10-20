@@ -55,10 +55,12 @@ document.querySelectorAll('#mobile-menu a').forEach(link => {
 });
 
 // Form submission handler
-document.querySelector('form').addEventListener('submit', function(e) {
-    e.preventDefault();
+const contactForm = document.querySelector('form');
+if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
 
-    // Get form data
+        // Get form data
     const formData = new FormData(this);
     const data = Object.fromEntries(formData);
 
@@ -76,7 +78,8 @@ document.querySelector('form').addEventListener('submit', function(e) {
         button.classList.remove('bg-green-600');
         button.classList.add('bg-blue-600', 'hover:bg-blue-700');
     }, 3000);
-});
+    });
+}
 
 // Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
