@@ -137,21 +137,21 @@ if (window.elementSdk) {
 }
 
 // Theme toggle functionality
-const themeToggleButton = document.getElementById('theme-toggle');
-const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
-const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+const themeToggleButtons = document.querySelectorAll('.theme-toggle');
+const themeToggleDarkIcons = document.querySelectorAll('.theme-toggle-dark-icon');
+const themeToggleLightIcons = document.querySelectorAll('.theme-toggle-light-icon');
 const body = document.body;
 
 // Function to apply theme
 const applyTheme = (theme) => {
     if (theme === 'dark') {
         body.classList.add('dark-mode');
-        themeToggleDarkIcon.classList.add('hidden');
-        themeToggleLightIcon.classList.remove('hidden');
+        themeToggleDarkIcons.forEach(icon => icon.classList.add('hidden'));
+        themeToggleLightIcons.forEach(icon => icon.classList.remove('hidden'));
     } else {
         body.classList.remove('dark-mode');
-        themeToggleDarkIcon.classList.remove('hidden');
-        themeToggleLightIcon.classList.add('hidden');
+        themeToggleDarkIcons.forEach(icon => icon.classList.remove('hidden'));
+        themeToggleLightIcons.forEach(icon => icon.classList.add('hidden'));
     }
 };
 
@@ -160,10 +160,12 @@ const savedTheme = localStorage.getItem('theme') || 'light';
 applyTheme(savedTheme);
 
 // Theme toggle button event listener
-themeToggleButton.addEventListener('click', () => {
-    const currentTheme = body.classList.contains('dark-mode') ? 'dark' : 'light';
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+themeToggleButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        const currentTheme = body.classList.contains('dark-mode') ? 'dark' : 'light';
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
 
-    localStorage.setItem('theme', newTheme);
-    applyTheme(newTheme);
+        localStorage.setItem('theme', newTheme);
+        applyTheme(newTheme);
+    });
 });
