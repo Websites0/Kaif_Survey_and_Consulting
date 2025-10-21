@@ -1,0 +1,56 @@
+body.dark-mode {
+    background-color: #1a202c;
+    color: #cbd5e0;
+}
+
+body.dark-mode header {
+    background-color: #2d3748;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+body.dark-mode #company-name,
+body.dark-mode #tagline {
+    color: #e2e8f0;
+}
+
+body.dark-mode a {
+    color: #e2e8f0;
+}
+
+body.dark-mode a:hover {
+    color: #63b3ed;
+}
+
+body.dark-mode #mobile-menu-button {
+    color: #e2e8f0;
+}
+
+body.dark-mode #mobile-menu {
+    background-color: #2d3748;
+}
+
+body.dark-mode #hero-title,
+body.dark-mode #hero-subtitle {
+    color: #e2e8f0;
+}
+
+body.dark-mode .gradient-bg {
+    background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+}
+
+body.dark-mode .gradient-card {
+    background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
+}
+
+body.dark-mode .service-card {
+    border: 1px solid #4a5568;
+}
+
+body.dark-mode .service-card h4,
+body.dark-mode .service-card p {
+    color: #e2e8f0;
+}
+
+body.dark-mode footer {
+    background-color: #1a202c;
+}
