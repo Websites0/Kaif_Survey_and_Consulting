@@ -62,19 +62,37 @@
 <a class="text-sm font-medium hover:text-primary dark:hover:text-secondary transition-colors" href="#">About Us</a>
 <a class="text-sm font-medium hover:text-primary dark:hover:text-secondary transition-colors" href="#">Contact Us</a>
 </nav>
+<div class="hidden md:flex items-center gap-4">
 <button class="hidden md:flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-opacity-90 transition-colors">
 <span class="truncate">Get a Quote</span>
 </button>
-<button class="md:hidden text-text-light dark:text-text-dark">
+<button class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700" id="theme-toggle">
+<span class="material-symbols-outlined text-text-light dark:text-text-dark" id="theme-icon">light_mode</span>
+</button>
+</div>
+<button class="md:hidden text-text-light dark:text-text-dark" id="mobile-menu-button">
 <span class="material-symbols-outlined">menu</span>
 </button>
+</div>
+<div class="hidden md:hidden" id="mobile-menu">
+<nav class="flex flex-col gap-4 p-4">
+<a class="text-sm font-medium hover:text-primary dark:hover:text-secondary transition-colors" href="#">Services</a>
+<a class="text-sm font-medium hover:text-primary dark:hover:text-secondary transition-colors" href="#">About Us</a>
+<a class="text-sm font-medium hover:text-primary dark:hover:text-secondary transition-colors" href="#">Contact Us</a>
+<button class="w-full min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-opacity-90 transition-colors">
+<span class="truncate">Get a Quote</span>
+</button>
+<button class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 self-center" id="mobile-theme-toggle">
+<span class="material-symbols-outlined text-text-light dark:text-text-dark" id="mobile-theme-icon">light_mode</span>
+</button>
+</nav>
 </div>
 </div>
 </header>
 <main class="flex-1">
 <div class="relative">
 <div class="absolute inset-0 bg-gradient-to-r from-primary to-secondary opacity-80"></div>
-<div class="relative px-4 md:px-10 lg:px-20 py-24 md:py-32 lg:py-40 flex flex-col items-center justify-center text-center text-custom bg-cover bg-center" data-alt="Abstract background with geometric shapes" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCnCAb3rnXXPZl-NU8arn-xUaLW_r83gc0zaQGroXdhRm3sM0rlB_OtZqu7-EgUoq0xIl82PcDUCbE6fxiY_cWS4f48XBx_qQoxqxRG22wlt513K021GXFaWZVrH1tI99pDhPBcPtvCzr-PjZPgkcW6ER7CRpqaEMZmAyb_XlA6sYY49Xq1tKmgphLimMBYziAh96Z_z4dzp07SqR9BoGPci6L9p7mPQHQSwJAErLThsimeN0jo_I3Z8mXAbHwtkJzrzGJQ4o51lQhi");'>
+<div class="relative px-4 md:px-10 lg:px-20 py-24 md:py-32 lg:py-40 flex flex-col items-center justify-center text-center text-white bg-cover bg-center" data-alt="Abstract background with geometric shapes" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCnCAb3rnXXPZl-NU8arn-xUaLW_r83gc0zaQGroXdhRm3sM0rlB_OtZqu7-EgUoq0xIl82PcDUCbE6fxiY_cWS4f48XBx_qQoxqxRG22wlt513K021GXFaWZVrH1tI99pDhPBcPtvCzr-PjZPgkcW6ER7CRpqaEMZmAyb_XlA6sYY49Xq1tKmgphLimMBYziAh96Z_z4dzp07SqR9BoGPci6L9p7mPQHQSwJAErLThsimeN0jo_I3Z8mXAbHwtkJzrzGJQ4o51lQhi");'>
 <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold font-display tracking-tighter leading-tight max-w-4xl">
                             Precision, Reliability, and Expertise in Every Survey
                         </h1>
@@ -117,7 +135,7 @@
 <section class="px-4 md:px-10 lg:px-20 py-16 md:py-24">
 <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
 <div>
-<img class="rounded-xl shadow-lg" data-alt="Professional photo of the surveying team in action." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnVV_kleydXXhFiGNPhkze6ZYDtDp2EobVTJP70s9BI4HLa6ebC-vZ0qs16iW9AAbzUuDBOUImLvpUrvc1jUfqNiKfZJ1s8ZvgOQTy-VydV84fGaN0WC-xdRqrFRwWZ4OfV3BCcmIYm5nQwKVD9Y-HQ8YEhoyNX5A4k988WEph6ImFMVV3DHaWdusfFBHXzGPcYmhkxfvmOSuFDziIQpJGY8MrNgrhwT682AL0faR2Z4G7nCJ5GX2MpJKZSML0rj5h_Lq5GDcqzjY7"/>
+<img class="w-full h-auto rounded-xl shadow-lg" data-alt="Professional photo of the surveying team in action." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnVV_kleydXXhFiGNPhkze6ZYDtDp2EobVTJP70s9BI4HLa6ebC-vZ0qs16iW9AAbzUuDBOUImLvpUrvc1jUfqNiKfZJ1s8ZvgOQTy-VydV84fGaN0WC-xdRqrFRwWZ4OfV3BCcmIYm5nQwKVD9Y-HQ8YEhoyNX5A4k988WEph6ImFMVV3DHaWdusfFBHXzGPcYmhkxfvmOSuFDziIQpJGY8MrNgrhwT682AL0faR2Z4G7nCJ5GX2MpJKZSML0rj5h_Lq5GDcqzjY7"/>
 </div>
 <div>
 <h2 class="text-3xl md:text-4xl font-bold font-display text-text-light dark:text-text-dark">About Kaif Survey &amp; Consulting</h2>
@@ -178,6 +196,48 @@
 </div>
 </div>
 <script>
-  document.getElementById('copyright-year').textContent = new Date().getFullYear();
-</script>
+        document.getElementById('copyright-year').textContent = new Date().getFullYear();
+
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        const themeToggle = document.getElementById('theme-toggle');
+        const mobileThemeToggle = document.getElementById('mobile-theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const mobileThemeIcon = document.getElementById('mobile-theme-icon');
+        const html = document.documentElement;
+
+        const setTheme = (theme) => {
+            if (theme === 'dark') {
+                html.classList.add('dark');
+                themeIcon.textContent = 'dark_mode';
+                mobileThemeIcon.textContent = 'dark_mode';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                html.classList.remove('dark');
+                themeIcon.textContent = 'light_mode';
+                mobileThemeIcon.textContent = 'light_mode';
+                localStorage.setItem('theme', 'light');
+            }
+        };
+
+        const toggleTheme = () => {
+            const currentTheme = localStorage.getItem('theme') || 'light';
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            setTheme(newTheme);
+        };
+
+        themeToggle.addEventListener('click', toggleTheme);
+        mobileThemeToggle.addEventListener('click', toggleTheme);
+
+        // On page load, set the theme
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            setTheme(savedTheme);
+        }
+    </script>
 </body></html>
