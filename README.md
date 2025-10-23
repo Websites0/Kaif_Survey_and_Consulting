@@ -1,4 +1,4 @@
-# Kaif Survey and Consulting
+## Kaif Survey and Consulting
 
 This is a website for Kaif Survey and Consulting, a company that provides survey and consulting services.
 
