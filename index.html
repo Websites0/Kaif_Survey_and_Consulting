@@ -50,87 +50,87 @@
 <body class="bg-background-light dark:bg-background-dark font-body text-text-light dark:text-text-dark">
 <div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
 <div class="layout-container flex h-full grow flex-col">
-<header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm">
-<div class="px-4 md:px-10 lg:px-20 mx-auto">
-<div class="flex items-center justify-between whitespace-nowrap border-b border-solid border-gray-200 dark:border-gray-700 py-4">
-<div class="flex items-center gap-4 text-primary dark:text-secondary">
-<img alt="Kaif Survey & Consulting Logo" class="h-12 w-12" src="logo.png"/>
-<h2 class="text-xl font-bold font-display tracking-tight">Kaif Survey &amp; Consulting</h2>
-</div>
-<nav class="hidden md:flex items-center gap-8">
-<a class="text-sm font-medium hover:text-primary dark:hover:text-secondary transition-colors" href="#">Services</a>
-<a class="text-sm font-medium hover:text-primary dark:hover:text-secondary transition-colors" href="#">About Us</a>
-<a class="text-sm font-medium hover:text-primary dark:hover:text-secondary transition-colors" href="#">Contact Us</a>
-</nav>
-<div class="hidden md:flex items-center gap-4">
-<button class="hidden md:flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-opacity-90 transition-colors">
-<span class="truncate">Get a Quote</span>
-</button>
-<button class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700" id="theme-toggle">
-<span class="material-symbols-outlined text-text-light dark:text-text-dark" id="theme-icon">light_mode</span>
-</button>
-</div>
-<button class="md:hidden text-text-light dark:text-text-dark" id="mobile-menu-button">
-<span class="material-symbols-outlined">menu</span>
-</button>
-</div>
-<div class="hidden md:hidden" id="mobile-menu">
-<nav class="flex flex-col gap-4 p-4">
-<a class="text-sm font-medium hover:text-primary dark:hover:text-secondary transition-colors" href="#">Services</a>
-<a class="text-sm font-medium hover:text-primary dark:hover:text-secondary transition-colors" href="#">About Us</a>
-<a class="text-sm font-medium hover:text-primary dark:hover:text-secondary transition-colors" href="#">Contact Us</a>
-<button class="w-full min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-opacity-90 transition-colors">
-<span class="truncate">Get a Quote</span>
-</button>
-<button class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 self-center" id="mobile-theme-toggle">
-<span class="material-symbols-outlined text-text-light dark:text-text-dark" id="mobile-theme-icon">light_mode</span>
-</button>
-</nav>
-</div>
-</div>
+<header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm shadow-md transition-all duration-300">
+    <div class="px-4 md:px-10 lg:px-20 mx-auto">
+        <div class="flex items-center justify-between whitespace-nowrap py-4">
+            <div class="flex items-center gap-4 text-primary dark:text-secondary">
+                <img alt="Kaif Survey & Consulting Logo" class="h-12 w-12" src="logo.png"/>
+                <h2 class="text-xl font-bold font-display tracking-tight">Kaif Survey & Consulting</h2>
+            </div>
+            <div class="flex items-center gap-4">
+                <nav class="hidden md:flex items-center gap-8">
+                    <a class="text-sm font-medium hover:text-primary dark:hover:text-secondary transition-colors" href="#">Services</a>
+                    <a class="text-sm font-medium hover:text-primary dark:hover:text-secondary transition-colors" href="#">About Us</a>
+                    <a class="text-sm font-medium hover:text-primary dark:hover:text-secondary transition-colors" href="#">Contact Us</a>
+                </nav>
+                <button class="hidden md:flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-opacity-90 transition-colors">
+                    <span class="truncate">Get a Quote</span>
+                </button>
+                <button class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700" id="theme-toggle">
+                    <span class="material-symbols-outlined text-text-light dark:text-text-dark theme-icon">light_mode</span>
+                </button>
+                <button class="md:hidden text-text-light dark:text-text-dark" id="mobile-menu-button">
+                    <span class="material-symbols-outlined">menu</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="hidden md:hidden" id="mobile-menu">
+        <nav class="flex flex-col gap-4 p-4">
+            <a class="text-sm font-medium hover:text-primary dark:hover:text-secondary transition-colors" href="#">Services</a>
+            <a class="text-sm font-medium hover:text-primary dark:hover:text-secondary transition-colors" href="#">About Us</a>
+            <a class="text-sm font-medium hover:text-primary dark:hover:text-secondary transition-colors" href="#">Contact Us</a>
+            <button class="w-full min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-opacity-90 transition-colors">
+                <span class="truncate">Get a Quote</span>
+            </button>
+            <button class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 self-center" id="mobile-theme-toggle">
+                <span class="material-symbols-outlined text-text-light dark:text-text-dark theme-icon">light_mode</span>
+            </button>
+        </nav>
+    </div>
 </header>
 <main class="flex-1">
 <div class="relative">
-<div class="absolute inset-0 bg-gradient-to-r from-primary to-secondary opacity-80"></div>
-<div class="relative px-4 md:px-10 lg:px-20 py-24 md:py-32 lg:py-40 flex flex-col items-center justify-center text-center text-white bg-cover bg-center" data-alt="Abstract background with geometric shapes" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCnCAb3rnXXPZl-NU8arn-xUaLW_r83gc0zaQGroXdhRm3sM0rlB_OtZqu7-EgUoq0xIl82PcDUCbE6fxiY_cWS4f48XBx_qQoxqxRG22wlt513K021GXFaWZVrH1tI99pDhPBcPtvCzr-PjZPgkcW6ER7CRpqaEMZmAyb_XlA6sYY49Xq1tKmgphLimMBYziAh96Z_z4dzp07SqR9BoGPci6L9p7mPQHQSwJAErLThsimeN0jo_I3Z8mXAbHwtkJzrzGJQ4o51lQhi");'>
-<h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold font-display tracking-tighter leading-tight max-w-4xl">
-                            Precision, Reliability, and Expertise in Every Survey
-                        </h1>
-<p class="mt-4 text-lg md:text-xl max-w-2xl">
-                            Your trusted partner for accurate and comprehensive surveying solutions tailored to your project's needs.
-                        </p>
-<button class="mt-8 flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-6 bg-white text-primary text-base font-bold leading-normal tracking-[0.015em] hover:bg-gray-100 transition-colors">
-<span class="truncate">Get a Quote</span>
-</button>
-</div>
+    <div class="absolute inset-0 bg-primary opacity-60"></div>
+    <div class="relative px-4 md:px-10 lg:px-20 py-24 md:py-32 lg:py-40 flex flex-col items-center justify-center text-center text-white bg-cover bg-center" style='background-image: url("https://media.gettyimages.com/id/1365378726/photo/surveyor-works-with-theodolite.jpg?s=612x612&w=gi&k=20&c=p-b-c-g-j-a-n-d-s-o-u-r-c-e-t-h-e-o-d-o-l-i-t-e");'>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold font-display tracking-tighter leading-tight max-w-4xl">
+            Modernizing Land Surveying with Advanced Technology
+        </h1>
+        <p class="mt-4 text-lg md:text-xl max-w-2xl">
+            We deliver precise, reliable, and efficient surveying services to help you achieve your project goals with confidence.
+        </p>
+        <button class="mt-8 flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-8 bg-secondary text-white text-base font-bold leading-normal tracking-[0.015em] hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105">
+            <span class="truncate">Request a Consultation</span>
+        </button>
+    </div>
 </div>
 <section class="px-4 md:px-10 lg:px-20 py-16 md:py-24 bg-white dark:bg-gray-800">
-<div class="max-w-7xl mx-auto">
-<div class="text-center mb-12">
-<h2 class="text-3xl md:text-4xl font-bold font-display text-text-light dark:text-text-dark">Our Services</h2>
-<p class="mt-4 text-lg text-gray-600 dark:text-gray-400">We offer a wide range of surveying services to meet the diverse needs of our clients.</p>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-<div class="flex flex-col gap-4 rounded-xl border border-gray-200 dark:border-gray-700 bg-background-light dark:bg-background-dark p-6 text-center items-center hover:shadow-lg transition-shadow">
-<span class="material-symbols-outlined text-4xl text-primary">public</span>
-<h3 class="text-xl font-bold font-display">Land Surveys</h3>
-<p class="text-sm">Accurate boundary and land surveys for legal and planning purposes.</p>
-<a class="text-sm font-bold text-primary dark:text-secondary hover:underline" href="#">Learn More</a>
-</div>
-<div class="flex flex-col gap-4 rounded-xl border border-gray-200 dark:border-gray-700 bg-background-light dark:bg-background-dark p-6 text-center items-center hover:shadow-lg transition-shadow">
-<span class="material-symbols-outlined text-4xl text-primary">landscape</span>
-<h3 class="text-xl font-bold font-display">Topographical Surveys</h3>
-<p class="text-sm">Detailed topographical maps for engineering and design projects.</p>
-<a class="text-sm font-bold text-primary dark:text-secondary hover:underline" href="#">Learn More</a>
-</div>
-<div class="flex flex-col gap-4 rounded-xl border border-gray-200 dark:border-gray-700 bg-background-light dark:bg-background-dark p-6 text-center items-center hover:shadow-lg transition-shadow">
-<span class="material-symbols-outlined text-4xl text-primary">domain</span>
-<h3 class="text-xl font-bold font-display">Construction Surveys</h3>
-<p class="text-sm">Precise construction staking and layout to ensure your project is built to specification.</p>
-<a class="text-sm font-bold text-primary dark:text-secondary hover:underline" href="#">Learn More</a>
-</div>
-</div>
-</div>
+    <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold font-display text-text-light dark:text-text-dark">Our Services</h2>
+            <p class="mt-4 text-lg text-gray-600 dark:text-gray-400">We offer a wide range of surveying services to meet the diverse needs of our clients.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="flex flex-col gap-4 rounded-xl border border-gray-200 dark:border-gray-700 bg-background-light dark:bg-background-dark p-6 text-center items-center transition-all duration-300 transform hover:-translate-y-2 hover:shadow-2xl">
+                <span class="material-symbols-outlined text-5xl text-secondary">layers</span>
+                <h3 class="text-xl font-bold font-display">Land Surveys</h3>
+                <p class="text-sm">Accurate boundary and land surveys for legal and planning purposes.</p>
+                <a class="mt-4 inline-block text-sm font-bold text-primary dark:text-secondary hover:underline" href="#">Learn More</a>
+            </div>
+            <div class="flex flex-col gap-4 rounded-xl border border-gray-200 dark:border-gray-700 bg-background-light dark:bg-background-dark p-6 text-center items-center transition-all duration-300 transform hover:-translate-y-2 hover:shadow-2xl">
+                <span class="material-symbols-outlined text-5xl text-secondary">map</span>
+                <h3 class="text-xl font-bold font-display">Topographical Surveys</h3>
+                <p class="text-sm">Detailed topographical maps for engineering and design projects.</p>
+                <a class="mt-4 inline-block text-sm font-bold text-primary dark:text-secondary hover:underline" href="#">Learn More</a>
+            </div>
+            <div class="flex flex-col gap-4 rounded-xl border border-gray-200 dark:border-gray-700 bg-background-light dark:bg-background-dark p-6 text-center items-center transition-all duration-300 transform hover:-translate-y-2 hover:shadow-2xl">
+                <span class="material-symbols-outlined text-5xl text-secondary">construction</span>
+                <h3 class="text-xl font-bold font-display">Construction Surveys</h3>
+                <p class="text-sm">Precise construction staking and layout to ensure your project is built to specification.</p>
+                <a class="mt-4 inline-block text-sm font-bold text-primary dark:text-secondary hover:underline" href="#">Learn More</a>
+            </div>
+        </div>
+    </div>
 </section>
 <section class="px-4 md:px-10 lg:px-20 py-16 md:py-24">
 <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
@@ -161,37 +161,51 @@
 </section>
 </main>
 <footer class="bg-gray-800 dark:bg-black text-white">
-<div class="px-4 md:px-10 lg:px-20 py-12">
-<div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-<div>
-<div class="flex items-center gap-3">
-<img alt="Kaif Survey & Consulting Logo" class="h-12 w-12" src="logo.png"/>
-<h3 class="text-lg font-bold font-display">Kaif Survey &amp; Consulting</h3>
-</div>
-<p class="mt-4 text-sm text-gray-400">Your trusted partner for accurate and comprehensive surveying solutions.</p>
-</div>
-<div>
-<h3 class="text-lg font-bold font-display">Contact Us</h3>
-<ul class="mt-4 space-y-2 text-sm">
-<li class="flex items-center gap-2"><span class="material-symbols-outlined text-lg">location_on</span>Plot-229, Zaman Tower, Azampur Road, Uttarkhan, Uttara, Dhaka-1230.</li>
-<li class="flex items-center gap-2"><span class="material-symbols-outlined text-lg">phone</span>+880 1712-345678</li>
-<li class="flex items-center gap-2"><span class="material-symbols-outlined text-lg">email</span>alamgirwss@gmail.com</li>
-</ul>
-</div>
-<div>
-<h3 class="text-lg font-bold font-display">Quick Links</h3>
-<ul class="mt-4 space-y-2 text-sm">
-<li><a class="hover:text-secondary transition-colors" href="#">Services</a></li>
-<li><a class="hover:text-secondary transition-colors" href="#">About Us</a></li>
-<li><a class="hover:text-secondary transition-colors" href="#">Contact Us</a></li>
-<li><a class="hover:text-secondary transition-colors" href="#">Privacy Policy</a></li>
-</ul>
-</div>
-</div>
-<div class="mt-12 border-t border-gray-700 pt-8 text-center text-sm text-gray-500">
-<p>© <span id="copyright-year"></span> Kaif Survey &amp; Consulting. All Rights Reserved.</p>
-</div>
-</div>
+    <div class="px-4 md:px-10 lg:px-20 py-12">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="md:col-span-1">
+                <div class="flex items-center gap-3">
+                    <img alt="Kaif Survey & Consulting Logo" class="h-12 w-12" src="logo.png"/>
+                    <h3 class="text-lg font-bold font-display">Kaif Survey & Consulting</h3>
+                </div>
+                <p class="mt-4 text-sm text-gray-400">Your trusted partner for accurate and comprehensive surveying solutions.</p>
+                <div class="mt-4 flex space-x-4">
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors"><svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" /></svg></a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors"><svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.71v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" /></svg></a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors"><svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12.019c0 4.438 2.865 8.229 6.737 9.574.5.092.682-.217.682-.482 0-.237-.009-1.02-.013-1.862-2.585.562-3.129-1.24-3.129-1.24-.454-1.155-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.031-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.03 1.595 1.03 2.688 0 3.848-2.338 4.695-4.566 4.942.359.308.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.001 10.001 0 0022 12.019C22 6.477 17.523 2 12 2z" clip-rule="evenodd" /></svg></a>
+                </div>
+            </div>
+            <div>
+                <h3 class="text-lg font-bold font-display">Contact Us</h3>
+                <ul class="mt-4 space-y-2 text-sm">
+                    <li class="flex items-center gap-2"><span class="material-symbols-outlined text-lg">location_on</span>Plot-229, Zaman Tower, Azampur Road, Uttarkhan, Uttara, Dhaka-1230.</li>
+                    <li class="flex items-center gap-2"><span class="material-symbols-outlined text-lg">phone</span>+880 1712-345678</li>
+                    <li class="flex items-center gap-2"><span class="material-symbols-outlined text-lg">email</span>alamgirwss@gmail.com</li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="text-lg font-bold font-display">Quick Links</h3>
+                <ul class="mt-4 space-y-2 text-sm">
+                    <li><a class="hover:text-secondary transition-colors" href="#">Services</a></li>
+                    <li><a class="hover:text-secondary transition-colors" href="#">About Us</a></li>
+                    <li><a class="hover:text-secondary transition-colors" href="#">Contact Us</a></li>
+                    <li><a class="hover:text-secondary transition-colors" href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="text-lg font-bold font-display">Newsletter</h3>
+                <p class="mt-4 text-sm text-gray-400">Subscribe to our newsletter for the latest updates.</p>
+                <form class="mt-4 flex">
+                    <input type="email" placeholder="Your Email" class="w-full px-4 py-2 rounded-l-lg bg-gray-700 border-gray-600 focus:outline-none focus:ring-2 focus:ring-secondary">
+                    <button class="px-4 py-2 bg-secondary rounded-r-lg hover:bg-opacity-90">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="mt-12 border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
+            <p>© <span id="copyright-year"></span> Kaif Survey & Consulting. All Rights Reserved.</p>
+            <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="mt-4 md:mt-0 text-gray-400 hover:text-white transition-colors">Back to Top ↑</button>
+        </div>
+    </div>
 </footer>
 </div>
 </div>
@@ -205,24 +219,15 @@
             mobileMenu.classList.toggle('hidden');
         });
 
-        const themeToggle = document.getElementById('theme-toggle');
-        const mobileThemeToggle = document.getElementById('mobile-theme-toggle');
-        const themeIcon = document.getElementById('theme-icon');
-        const mobileThemeIcon = document.getElementById('mobile-theme-icon');
+        const themeToggles = document.querySelectorAll('#theme-toggle, #mobile-theme-toggle');
+        const themeIcons = document.querySelectorAll('.theme-icon');
         const html = document.documentElement;
 
         const setTheme = (theme) => {
-            if (theme === 'dark') {
-                html.classList.add('dark');
-                themeIcon.textContent = 'dark_mode';
-                mobileThemeIcon.textContent = 'dark_mode';
-                localStorage.setItem('theme', 'dark');
-            } else {
-                html.classList.remove('dark');
-                themeIcon.textContent = 'light_mode';
-                mobileThemeIcon.textContent = 'light_mode';
-                localStorage.setItem('theme', 'light');
-            }
+            const isDark = theme === 'dark';
+            html.classList.toggle('dark', isDark);
+            themeIcons.forEach(icon => icon.textContent = isDark ? 'dark_mode' : 'light_mode');
+            localStorage.setItem('theme', theme);
         };
 
         const toggleTheme = () => {
@@ -231,8 +236,7 @@
             setTheme(newTheme);
         };
 
-        themeToggle.addEventListener('click', toggleTheme);
-        mobileThemeToggle.addEventListener('click', toggleTheme);
+        themeToggles.forEach(toggle => toggle.addEventListener('click', toggleTheme));
 
         // On page load, set the theme
         const savedTheme = localStorage.getItem('theme');
