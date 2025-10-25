@@ -66,7 +66,7 @@
                 <button class="hidden md:flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-opacity-90 transition-colors">
                     <span class="truncate">Get a Quote</span>
                 </button>
-                <button class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700" id="theme-toggle">
+                <button class="hidden md:flex p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700" id="theme-toggle">
                     <span class="material-symbols-outlined text-text-light dark:text-text-dark theme-icon">light_mode</span>
                 </button>
                 <button class="md:hidden text-text-light dark:text-text-dark" id="mobile-menu-button">
@@ -83,12 +83,12 @@
             <button class="w-full min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-opacity-90 transition-colors">
                 <span class="truncate">Get a Quote</span>
             </button>
-            <button class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 self-center" id="mobile-theme-toggle">
-                <span class="material-symbols-outlined text-text-light dark:text-text-dark theme-icon">light_mode</span>
-            </button>
         </nav>
     </div>
 </header>
+<button class="md:hidden fixed top-20 right-4 p-2 rounded-full bg-gray-800/40 z-50" id="mobile-theme-toggle">
+    <span class="material-symbols-outlined theme-icon text-text-light dark:text-text-dark">light_mode</span>
+</button>
 <main class="flex-1">
 <div class="relative">
     <div class="absolute inset-0 bg-primary opacity-60"></div>
