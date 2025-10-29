@@ -1,214 +1,1019 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kaif Survey & Consulting - Expert Surveying Solutions</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts - Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-<html class="light" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-PVriK7u++V2CWF84RsPO8YNI7+cMax/PjMtuJp+mDF8=' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' https://media.gettyimages.com https://lh3.googleusercontent.com; connect-src 'self' https://fonts.googleapis.com; frame-ancestors 'none'; form-action 'self'; object-src 'none'; base-uri 'self';"/>
-<title>Kaif Survey &amp; Consulting</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&amp;family=Lato:wght@400;700&amp;family=Montserrat:wght@400;700&amp;family=Open+Sans:wght@400;700&amp;display=swap" rel="stylesheet"/>
-<script>
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#1E3A8A",
-                        "secondary": "#10B981",
-                        "background-light": "#F3F4F6",
-                        "background-dark": "#101c22",
-                        "text-light": "#374151",
-                        "text-dark": "#F3F4F6",
-                        "custom": "#16476A",
-                    },
-                    fontFamily: {
-                        "display": ["Poppins", "sans-serif"],
-                        "body": ["Lato", "sans-serif"]
-                    },
-                    borderRadius: {
-                        "DEFAULT": "0.25rem",
-                        "lg": "0.5rem",
-                        "xl": "0.75rem",
-                        "full": "9999px"
-                    },
-                },
-            },
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Kaif Survey & Consulting offers professional land surveying, digital mapping, and GIS consulting services in Dhaka, Bangladesh.">
+    <meta name="keywords" content="Kaif Survey, Surveying, Consulting, Land Survey, Digital Survey, GIS, Dhaka, Bangladesh">
+    <meta name="author" content="Kaif Survey & Consulting">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://kaifsurvey.com/"> <!-- Placeholder URL -->
+    <meta property="og:title" content="Kaif Survey & Consulting - Expert Surveying Solutions">
+    <meta property="og:description" content="Professional land surveying, digital mapping, and GIS consulting services.">
+    <meta property="og:image" content="https://uploads.onecompiler.io/43y3by72c/4428darze/1000007296.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://kaifsurvey.com/"> <!-- Placeholder URL -->
+    <meta property="twitter:title" content="Kaif Survey & Consulting - Expert Surveying Solutions">
+    <meta property="twitter:description" content="Professional land surveying, digital mapping, and GIS consulting services.">
+    <meta property="twitter:image" content="https://uploads.onecompiler.io/43y3by72c/4428darze/1000007296.png">
+
+    <style>
+        /* Custom Styles & CSS Variables */
+        :root {
+            --color-text: #1f2937; /* gray-800 */
+            --color-bg: #ffffff; /* white */
+            --color-bg-alt: #f9fafb; /* gray-50 */
+            --color-primary: #0f78c7;
+            --color-secondary: #00c6a7;
+            --color-border: #e5e7eb; /* gray-200 */
+            --color-card-bg: #ffffff;
+            
+            /* The requested gradient */
+            --gradient: linear-gradient(135deg, #0f78c7 0%, #00c6a7 100%);
+
+            /* Transitions */
+            --transition-all: all 0.3s ease-in-out;
+            
+            scroll-behavior: smooth;
         }
-    </script>
-<style>
-        .material-symbols-outlined {
-            font-variation-settings:
-                'FILL' 0,
-                'wght' 400,
-                'GRAD' 0,
-                'opsz' 24
+
+        [data-theme="dark"] {
+            --color-text: #f9fafb; /* gray-50 */
+            --color-bg: #111827; /* gray-900 */
+            --color-bg-alt: #1f2937; /* gray-800 */
+            --color-border: #374151; /* gray-700 */
+            --color-card-bg: #1f2937; /* gray-800 */
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            transition: var(--transition-all);
+        }
+
+        /* Gradient Text */
+        .text-gradient {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        /* Gradient Background */
+        .bg-gradient-primary {
+            background: var(--gradient);
+        }
+
+        /* Sticky Header Scrolled State */
+        .header-scrolled {
+            background-color: var(--color-bg);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        [data-theme="dark"] .header-scrolled {
+            background-color: var(--color-bg-alt);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Section Backgrounds */
+        .bg-alt {
+            background-color: var(--color-bg-alt);
+        }
+        .bg-main {
+            background-color: var(--color-bg);
+        }
+        .card-bg {
+            background-color: var(--color-card-bg);
+            border: 1px solid var(--color-border);
+        }
+        
+        /* Form Input Styles */
+        .form-input {
+            background-color: var(--color-bg-alt);
+            border: 1px solid var(--color-border);
+            color: var(--color-text);
+            transition: var(--transition-all);
+        }
+        .form-input:focus {
+            --tw-ring-color: var(--color-primary);
+            border-color: var(--color-primary);
+            background-color: var(--color-bg);
+        }
+        
+        /* Button Styles */
+        .btn {
+            @apply px-5 py-3 rounded-lg font-semibold transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2;
+        }
+        .btn-primary {
+            @apply btn text-white bg-gradient-primary hover:opacity-90 focus:ring-primary;
+        }
+        .btn-secondary {
+            @apply btn text-gradient border-2 border-primary hover:bg-gradient-primary hover:text-white focus:ring-primary;
+        }
+        .btn-secondary-dark {
+             @apply btn text-white border-2 border-secondary hover:bg-gradient-primary hover:border-primary focus:ring-secondary;
+        }
+
+        /* Animations */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Reduced Motion */
+        @media (prefers-reduced-motion: reduce) {
+            .fade-in-section {
+                transition: none;
+            }
+            * {
+                animation: none !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+        
+        /* Custom Focus */
+        :focus-visible {
+            outline: 3px solid var(--color-primary);
+            outline-offset: 2px;
+            border-radius: 4px;
+        }
+        
+        /* Form Validation */
+        .form-error {
+            @apply text-red-500 text-sm mt-1;
+            display: none; /* Hidden by default */
+        }
+        .form-input.invalid {
+            @apply border-red-500 ring-red-500;
+        }
+
+        /* Modal Styles */
+        .modal-backdrop {
+            @apply fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 transition-opacity duration-300;
+        }
+        .modal-content {
+            @apply card-bg p-8 rounded-2xl shadow-2xl max-w-md w-full text-center transform transition-all scale-95 opacity-0 duration-300;
+        }
+        .modal-backdrop.open {
+            @apply opacity-100;
+        }
+        .modal-backdrop.open .modal-content {
+            @apply scale-100 opacity-100;
+        }
+        
+        /* Checkmark Animation */
+        .checkmark-circle {
+            @apply w-20 h-20 rounded-full bg-gradient-primary p-1 mx-auto;
+        }
+        .checkmark {
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            display: block;
+            stroke-width: 4;
+            stroke: #fff;
+            stroke-miterlimit: 10;
+            margin: auto;
+            box-shadow: inset 0px 0px 0px var(--color-secondary);
+            animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both;
+        }
+        .checkmark-check {
+            transform-origin: 50% 50%;
+            stroke-dasharray: 48;
+            stroke-dashoffset: 48;
+            animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+        }
+        @keyframes stroke {
+            100% {
+                stroke-dashoffset: 0;
+            }
+        }
+        @keyframes scale {
+            0%, 100% {
+                transform: none;
+            }
+            50% {
+                transform: scale3d(1.1, 1.1, 1);
+            }
+        }
+        @keyframes fill {
+            100% {
+                box-shadow: inset 0px 0px 0px 40px var(--color-secondary);
+            }
+        }
+        
+        /* Printable-friendly styles */
+        @media print {
+            body {
+                background-color: #ffffff;
+                color: #000000;
+            }
+            header, footer, .no-print {
+                display: none;
+            }
+            section {
+                margin: 0 0 1.5rem 0;
+                padding: 0;
+            }
+            .text-gradient {
+                background: none;
+                -webkit-text-fill-color: #000000;
+                color: #000000;
+            }
+            .card-bg {
+                border: 1px solid #ccc;
+                box-shadow: none;
+            }
+            .btn {
+                display: none;
+            }
         }
     </style>
 </head>
-<body class="bg-background-light dark:bg-background-dark font-body text-text-light dark:text-text-dark">
-<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
-<div class="layout-container flex h-full grow flex-col">
-<header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm shadow-md transition-all duration-300">
-    <div class="px-4 md:px-10 lg:px-20 mx-auto">
-        <div class="flex items-center justify-between whitespace-nowrap py-4">
-            <div class="flex items-center gap-4 text-primary dark:text-secondary">
-                <img alt="Kaif Survey & Consulting Logo" class="h-12 w-12" src="logo.png"/>
-                <h2 class="text-xl font-bold font-display tracking-tight">Kaif Survey & Consulting</h2>
-            </div>
-            <div class="flex items-center gap-4">
-                <nav class="hidden md:flex items-center gap-8">
-                    <a class="text-sm font-medium hover:text-primary dark:hover:text-secondary transition-colors" href="#">Services</a>
-                    <a class="text-sm font-medium hover:text-primary dark:hover:text-secondary transition-colors" href="#">About Us</a>
-                    <a class="text-sm font-medium hover:text-primary dark:hover:text-secondary transition-colors" href="#">Contact Us</a>
-                </nav>
-                <button class="hidden md:flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-opacity-90 transition-colors">
-                    <span class="truncate">Get a Quote</span>
-                </button>
-                <button class="hidden md:flex p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700" id="theme-toggle">
-                    <span class="material-symbols-outlined text-text-light dark:text-text-dark theme-icon">light_mode</span>
-                </button>
-                <button class="md:hidden text-text-light dark:text-text-dark" id="mobile-menu-button">
-                    <span class="material-symbols-outlined">menu</span>
-                </button>
-            </div>
-        </div>
-    </div>
-    <div class="hidden md:hidden" id="mobile-menu">
-        <nav class="flex flex-col gap-4 p-4">
-            <a class="text-sm font-medium hover:text-primary dark:hover:text-secondary transition-colors" href="#">Services</a>
-            <a class="text-sm font-medium hover:text-primary dark:hover:text-secondary transition-colors" href="#">About Us</a>
-            <a class="text-sm font-medium hover:text-primary dark:hover:text-secondary transition-colors" href="#">Contact Us</a>
-            <button class="w-full min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-opacity-90 transition-colors">
-                <span class="truncate">Get a Quote</span>
+<body class="transition-colors duration-300">
+
+    <!-- ARIA Live Region for announcements -->
+    <div id="status-message" class="sr-only" role="status" aria-live="polite"></div>
+
+    <!-- Header -->
+    <header id="header" class="fixed top-0 left-0 right-0 z-40 transition-all duration-300">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center max-w-7xl">
+            <!-- Logo -->
+            <a href="#hero" class="flex items-center space-x-2 flex-shrink-0">
+                <img src="https://uploads.onecompiler.io/43y3by72c/4428darze/1000007296.png" 
+                     alt="Kaif Survey & Consulting Logo" 
+                     class="h-10 w-10 sm:h-12 sm:w-12 object-contain"
+                     onerror="this.alt='Kaif Survey Logo'; this.src='https://placehold.co/48x48/0f78c7/FFF?text=KSC';">
+                <span class="font-bold text-lg sm:text-xl text-gradient">Kaif Survey</span>
+            </a>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-primary no-print" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
             </button>
+
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="#services" class="font-medium hover:text-primary transition-colors">Services</a>
+                <a href="#how-it-works" class="font-medium hover:text-primary transition-colors">How It Works</a>
+                <a href="#pricing" class="font-medium hover:text-primary transition-colors">Pricing</a>
+                <a href="#contact" class="font-medium hover:text-primary transition-colors">Contact</a>
+
+                <!-- Theme Toggle -->
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors focus:outline-none focus:ring-2 focus:ring-primary no-print" aria-label="Toggle dark mode">
+                    <!-- Sun Icon -->
+                    <svg id="theme-icon-light" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M12 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                    <!-- Moon Icon -->
+                    <svg id="theme-icon-dark" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+                </button>
+                
+                <a href="#contact" class="btn-primary">Request Quote</a>
+            </div>
         </nav>
-    </div>
-</header>
-<button class="md:hidden fixed top-20 right-4 p-2 rounded-full bg-gray-800/40 z-50" id="mobile-theme-toggle">
-    <span class="material-symbols-outlined theme-icon text-text-light dark:text-text-dark">light_mode</span>
-</button>
-<main class="flex-1">
-<div class="relative">
-    <div class="absolute inset-0 bg-primary opacity-60"></div>
-    <div class="relative px-4 md:px-10 lg:px-20 py-24 md:py-32 lg:py-40 flex flex-col items-center justify-center text-center text-white bg-cover bg-center" style='background-image: url("https://media.gettyimages.com/id/1365378726/photo/surveyor-works-with-theodolite.jpg?s=612x612&w=gi&k=20&c=p-b-c-g-j-a-n-d-s-o-u-r-c-e-t-h-e-o-d-o-l-i-t-e");'>
-        <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold font-display tracking-tighter leading-tight max-w-4xl">
-            Modernizing Land Surveying with Advanced Technology
-        </h1>
-        <p class="mt-4 text-lg md:text-xl max-w-2xl">
-            We deliver precise, reliable, and efficient surveying services to help you achieve your project goals with confidence.
-        </p>
-        <button class="mt-8 flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-8 bg-secondary text-white text-base font-bold leading-normal tracking-[0.015em] hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105">
-            <span class="truncate">Request a Consultation</span>
-        </button>
-    </div>
-</div>
-<section class="px-4 md:px-10 lg:px-20 py-16 md:py-24 bg-white dark:bg-gray-800">
-    <div class="max-w-7xl mx-auto">
-        <div class="text-center mb-12">
-            <h2 class="text-3xl md:text-4xl font-bold font-display text-text-light dark:text-text-dark">Our Services</h2>
-            <p class="mt-4 text-lg text-gray-600 dark:text-gray-400">We offer a wide range of surveying services to meet the diverse needs of our clients.</p>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div class="flex flex-col gap-4 rounded-xl border border-gray-200 dark:border-gray-700 bg-background-light dark:bg-background-dark p-6 text-center items-center transition-all duration-300 transform hover:-translate-y-2 hover:shadow-2xl">
-                <span class="material-symbols-outlined text-5xl text-secondary">layers</span>
-                <h3 class="text-xl font-bold font-display">Land Surveys</h3>
-                <p class="text-sm">Accurate boundary and land surveys for legal and planning purposes.</p>
-                <a class="mt-4 inline-block text-sm font-bold text-primary dark:text-secondary hover:underline" href="#">Learn More</a>
-            </div>
-            <div class="flex flex-col gap-4 rounded-xl border border-gray-200 dark:border-gray-700 bg-background-light dark:bg-background-dark p-6 text-center items-center transition-all duration-300 transform hover:-translate-y-2 hover:shadow-2xl">
-                <span class="material-symbols-outlined text-5xl text-secondary">map</span>
-                <h3 class="text-xl font-bold font-display">Topographical Surveys</h3>
-                <p class="text-sm">Detailed topographical maps for engineering and design projects.</p>
-                <a class="mt-4 inline-block text-sm font-bold text-primary dark:text-secondary hover:underline" href="#">Learn More</a>
-            </div>
-            <div class="flex flex-col gap-4 rounded-xl border border-gray-200 dark:border-gray-700 bg-background-light dark:bg-background-dark p-6 text-center items-center transition-all duration-300 transform hover:-translate-y-2 hover:shadow-2xl">
-                <span class="material-symbols-outlined text-5xl text-secondary">construction</span>
-                <h3 class="text-xl font-bold font-display">Construction Surveys</h3>
-                <p class="text-sm">Precise construction staking and layout to ensure your project is built to specification.</p>
-                <a class="mt-4 inline-block text-sm font-bold text-primary dark:text-secondary hover:underline" href="#">Learn More</a>
-            </div>
-        </div>
-    </div>
-</section>
-<section class="px-4 md:px-10 lg:px-20 py-16 md:py-24">
-<div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-<div>
-<img class="w-full h-auto rounded-xl shadow-lg" data-alt="Professional photo of the surveying team in action." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnVV_kleydXXhFiGNPhkze6ZYDtDp2EobVTJP70s9BI4HLa6ebC-vZ0qs16iW9AAbzUuDBOUImLvpUrvc1jUfqNiKfZJ1s8ZvgOQTy-VydV84fGaN0WC-xdRqrFRwWZ4OfV3BCcmIYm5nQwKVD9Y-HQ8YEhoyNX5A4k988WEph6ImFMVV3DHaWdusfFBHXzGPcYmhkxfvmOSuFDziIQpJGY8MrNgrhwT682AL0faR2Z4G7nCJ5GX2MpJKZSML0rj5h_Lq5GDcqzjY7"/>
-</div>
-<div>
-<h2 class="text-3xl md:text-4xl font-bold font-display text-text-light dark:text-text-dark">About Kaif Survey &amp; Consulting</h2>
-<p class="mt-4 text-lg text-gray-600 dark:text-gray-400">
-                                With a commitment to excellence and a passion for precision, Kaif Survey &amp; Consulting has been a trusted partner in the industry for over a decade. Our mission is to provide our clients with the highest quality surveying data, leveraging cutting-edge technology and the extensive expertise of our dedicated team. We believe in building lasting relationships based on trust, reliability, and superior results.
-                            </p>
-<button class="mt-8 flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-6 bg-primary text-white text-base font-bold leading-normal tracking-[0.015em] hover:bg-opacity-90 transition-colors">
-<span class="truncate">More About Us</span>
-</button>
-</div>
-</div>
-</section>
-<section class="bg-primary dark:bg-secondary">
-<div class="px-4 md:px-10 lg:px-20 py-16 md:py-20">
-<div class="max-w-4xl mx-auto text-center">
-<h2 class="text-3xl md:text-4xl font-bold font-display text-white">Ready to Start Your Project?</h2>
-<p class="mt-4 text-lg text-white/90">Let's discuss your surveying needs. Contact us today for a free consultation and quote.</p>
-<button class="mt-8 flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-6 bg-white text-primary text-base font-bold leading-normal tracking-[0.015em] mx-auto hover:bg-gray-100 transition-colors">
-<span class="truncate">Inquire Now</span>
-</button>
-</div>
-</div>
-</section>
-</main>
-<footer class="bg-gray-800 dark:bg-black text-white">
-    <div class="px-4 md:px-10 lg:px-20 py-12">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div class="md:col-span-1">
-                <div class="flex items-center gap-3">
-                    <img alt="Kaif Survey & Consulting Logo" class="h-12 w-12" src="logo.png"/>
-                    <h3 class="text-lg font-bold font-display">Kaif Survey & Consulting</h3>
-                </div>
-                <p class="mt-4 text-sm text-gray-400">Your trusted partner for accurate and comprehensive surveying solutions.</p>
-                <div class="mt-4 flex space-x-4">
-                    <a href="#" class="text-gray-400 hover:text-white transition-colors"><svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" /></svg></a>
-                    <a href="#" class="text-gray-400 hover:text-white transition-colors"><svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.71v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" /></svg></a>
-                    <a href="#" class="text-gray-400 hover:text-white transition-colors"><svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12.019c0 4.438 2.865 8.229 6.737 9.574.5.092.682-.217.682-.482 0-.237-.009-1.02-.013-1.862-2.585.562-3.129-1.24-3.129-1.24-.454-1.155-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.031-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.03 1.595 1.03 2.688 0 3.848-2.338 4.695-4.566 4.942.359.308.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.001 10.001 0 0022 12.019C22 6.477 17.523 2 12 2z" clip-rule="evenodd" /></svg></a>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-main border-t border-b border-gray-200 dark:border-gray-700 no-print">
+            <div class="flex flex-col space-y-4 p-6">
+                <a href="#services" class="mobile-nav-link font-medium hover:text-primary transition-colors">Services</a>
+                <a href="#how-it-works" class="mobile-nav-link font-medium hover:text-primary transition-colors">How It Works</a>
+                <a href="#pricing" class="mobile-nav-link font-medium hover:text-primary transition-colors">Pricing</a>
+                <a href="#contact" class="mobile-nav-link font-medium hover:text-primary transition-colors">Contact</a>
+                <a href="#contact" class="btn-primary w-full text-center">Request Quote</a>
+                
+                <div class="flex justify-between items-center pt-4 border-t border-gray-200 dark:border-gray-700">
+                    <span class="font-medium">Theme</span>
+                    <!-- Theme Toggle (Mobile) -->
+                    <button id="theme-toggle-mobile" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors focus:outline-none focus:ring-2 focus:ring-primary" aria-label="Toggle dark mode">
+                        <!-- Sun Icon -->
+                        <svg id="theme-icon-light-mobile" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M12 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                        <!-- Moon Icon -->
+                        <svg id="theme-icon-dark-mobile" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+                    </button>
                 </div>
             </div>
-            <div>
-                <h3 class="text-lg font-bold font-display">Contact Us</h3>
-                <ul class="mt-4 space-y-2 text-sm">
-                    <li class="flex items-center gap-2"><span class="material-symbols-outlined text-lg">location_on</span>Plot-229, Zaman Tower, Azampur Road, Uttarkhan, Uttara, Dhaka-1230.</li>
-                    <li class="flex items-center gap-2"><span class="material-symbols-outlined text-lg">phone</span>+880 1712-345678</li>
-                    <li class="flex items-center gap-2"><span class="material-symbols-outlined text-lg">email</span>alamgirwss@gmail.com</li>
-                </ul>
+        </div>
+    </header>
+
+    <main>
+        <!-- Section 1: Hero -->
+        <section id="hero" class="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden bg-alt">
+            <div class="absolute inset-0 opacity-10 [data-theme='dark']:opacity-5" style="background-image: url('https://www.transparenttextures.com/patterns/cubes.png');"></div>
+            
+            <div class="container mx-auto px-6 max-w-7xl relative z-10">
+                <div class="flex flex-col lg:flex-row items-center">
+                    <!-- Hero Text Content -->
+                    <div class="lg:w-1/2 text-center lg:text-left">
+                        <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold !leading-tight mb-6">
+                            Precision Surveying.
+                            <span class="text-gradient block">Actionable Insights.</span>
+                        </h1>
+                        <p class="text-lg md:text-xl opacity-80 mb-10 max-w-xl mx-auto lg:mx-0">
+                            Kaif Survey & Consulting provides expert land survey, digital mapping, and GIS solutions to power your projects with accurate data.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                            <a href="#contact" class="btn-primary">Start Your Survey</a>
+                            <a href="#services" class="btn [data-theme='light']:btn-secondary [data-theme='dark']:btn-secondary-dark">Our Services</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Hero Image/Graphic -->
+                    <div class="lg:w-1/2 mt-12 lg:mt-0">
+                        <div class="w-full max-w-lg mx-auto lg:mr-0">
+                            <!-- Placeholder for a professional image or SVG -->
+                            <img src="https://placehold.co/600x400/0f78c7/FFF?text=Survey+Graphic&font=inter" 
+                                 alt="A graphic representing surveying and data analysis" 
+                                 class="rounded-2xl shadow-2xl w-full h-auto object-cover">
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div>
-                <h3 class="text-lg font-bold font-display">Quick Links</h3>
-                <ul class="mt-4 space-y-2 text-sm">
-                    <li><a class="hover:text-secondary transition-colors" href="#">Services</a></li>
-                    <li><a class="hover:text-secondary transition-colors" href="#">About Us</a></li>
-                    <li><a class="hover:text-secondary transition-colors" href="#">Contact Us</a></li>
-                    <li><a class="hover:text-secondary transition-colors" href="#">Privacy Policy</a></li>
-                </ul>
+        </section>
+
+        <!-- Section 2: Services -->
+        <section id="services" class="py-20 md:py-32 bg-main fade-in-section">
+            <div class="container mx-auto px-6 max-w-7xl">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="text-primary font-semibold uppercase tracking-wider">Our Services</span>
+                    <h2 class="text-3xl md:text-4xl font-bold mt-4 mb-6">What We Offer</h2>
+                    <p class="text-lg opacity-70">
+                        From foundational surveys to complex geospatial analysis, we deliver comprehensive solutions tailored to your needs.
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Service Card 1 -->
+                    <div class="card-bg p-8 rounded-2xl shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
+                        <div class="p-3 rounded-full bg-gradient-primary inline-block mb-6">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13v-6m0 6l5.447-2.724A1 1 0 0015 16.382V5.618a1 1 0 00-1.447-.894L9 7m0 0l6 3m-6-3v6m6 3l5.447 2.724A1 1 0 0021 16.382V5.618a1 1 0 00-1.447-.894L15 7m-6 3l6-3"></path></svg>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">Land & Cadastral Survey</h3>
+                        <p class="opacity-70">
+                            Accurate boundary, topographic, and property surveys for legal, construction, and planning purposes.
+                        </p>
+                    </div>
+                    
+                    <!-- Service Card 2 -->
+                    <div class="card-bg p-8 rounded-2xl shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
+                        <div class="p-3 rounded-full bg-gradient-primary inline-block mb-6">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">GIS & Digital Mapping</h3>
+                        <p class="opacity-70">
+                            Advanced Geographic Information System (GIS) services, data visualization, and spatial analysis to reveal patterns.
+                        </p>
+                    </div>
+                    
+                    <!-- Service Card 3 -->
+                    <div class="card-bg p-8 rounded-2xl shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
+                        <div class="p-3 rounded-full bg-gradient-primary inline-block mb-6">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">Expert Consulting</h3>
+                        <p class="opacity-70">
+                            Strategic advice on data management, project planning, and technology implementation to maximize your ROI.
+                        </p>
+                    </div>
+                </div>
             </div>
-            <div>
-                <h3 class="text-lg font-bold font-display">Newsletter</h3>
-                <p class="mt-4 text-sm text-gray-400">Subscribe to our newsletter for the latest updates.</p>
-                <form class="mt-4 flex">
-                    <input type="email" placeholder="Your Email" class="w-full px-4 py-2 rounded-l-lg bg-gray-700 border-gray-600 focus:outline-none focus:ring-2 focus:ring-secondary">
-                    <button class="px-4 py-2 bg-secondary rounded-r-lg hover:bg-opacity-90">Subscribe</button>
-                </form>
+        </section>
+
+        <!-- Section 3: How It Works -->
+        <section id="how-it-works" class="py-20 md:py-32 bg-alt fade-in-section">
+            <div class="container mx-auto px-6 max-w-7xl">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="text-primary font-semibold uppercase tracking-wider">Our Process</span>
+                    <h2 class="text-3xl md:text-4xl font-bold mt-4 mb-6">A Simple Path to Clarity</h2>
+                    <p class="text-lg opacity-70">
+                        We follow a proven, transparent process to ensure your project's success from start to finish.
+                    </p>
+                </div>
+                
+                <!-- Process Steps -->
+                <div class="relative">
+                    <!-- Connecting line -->
+                    <div class="hidden md:block absolute top-1/2 left-0 w-full h-0.5 border-t-2 border-dashed border-primary opacity-50" style="transform: translateY(-50%);"></div>
+                    
+                    <div class="relative grid grid-cols-1 md:grid-cols-4 gap-12">
+                        <!-- Step 1 -->
+                        <div class="text-center">
+                            <div class="relative z-10 w-24 h-24 flex items-center justify-center card-bg rounded-full mx-auto shadow-lg border-4 border-secondary">
+                                <span class="text-4xl font-bold text-gradient">1</span>
+                            </div>
+                            <h3 class="text-xl font-bold mt-6 mb-2">Consultation</h3>
+                            <p class="opacity-70">We listen to your needs, define project scope, and establish clear objectives.</p>
+                        </div>
+                        
+                        <!-- Step 2 -->
+                        <div class="text-center">
+                            <div class="relative z-10 w-24 h-24 flex items-center justify-center card-bg rounded-full mx-auto shadow-lg border-4 border-secondary">
+                                <span class="text-4xl font-bold text-gradient">2</span>
+                            </div>
+                            <h3 class="text-xl font-bold mt-6 mb-2">Data Collection</h3>
+                            <p class="opacity-70">Our expert team conducts precise field surveys using state-of-the-art equipment.</p>
+                        </div>
+                        
+                        <!-- Step 3 -->
+                        <div class="text-center">
+                            <div class="relative z-10 w-24 h-24 flex items-center justify-center card-bg rounded-full mx-auto shadow-lg border-4 border-secondary">
+                                <span class="text-4xl font-bold text-gradient">3</span>
+                            </div>
+                            <h3 class="text-xl font-bold mt-6 mb-2">Analysis & Mapping</h3>
+                            <p class="opacity-70">We process, analyze, and map your data to create insightful, accurate visuals.</p>
+                        </div>
+
+                        <!-- Step 4 -->
+                        <div class="text-center">
+                            <div class="relative z-10 w-24 h-24 flex items-center justify-center card-bg rounded-full mx-auto shadow-lg border-4 border-secondary">
+                                <span class="text-4xl font-bold text-gradient">4</span>
+                            </div>
+                            <h3 class="text-xl font-bold mt-6 mb-2">Delivery & Support</h3>
+                            <p class="opacity-70">You receive a comprehensive report, digital files, and our ongoing support.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Animated Statistics -->
+        <section id="stats" class="py-20 md:py-32 bg-gradient-primary text-white fade-in-section">
+            <div class="container mx-auto px-6 max-w-7xl">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
+                    <div>
+                        <span id="stat-projects" class="stat-counter text-5xl md:text-6xl font-extrabold" data-target="500">0</span>
+                        <span class="text-5xl md:text-6xl font-extrabold">+</span>
+                        <p class="text-xl font-medium opacity-80 mt-2">Projects Completed</p>
+                    </div>
+                     <div>
+                        <span id="stat-clients" class="stat-counter text-5xl md:text-6xl font-extrabold" data-target="150">0</span>
+                        <span class="text-5xl md:text-6xl font-extrabold">+</span>
+                        <p class="text-xl font-medium opacity-80 mt-2">Happy Clients</p>
+                    </div>
+                     <div>
+                        <span id="stat-accuracy" class="stat-counter text-5xl md:text-6xl font-extrabold" data-target="99">0</span>
+                        <span class="text-5xl md:text-6xl font-extrabold">%</span>
+                        <p class="text-xl font-medium opacity-80 mt-2">Data Accuracy</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Testimonials (Placeholder) -->
+        <section id="testimonials" class="py-20 md:py-32 bg-main fade-in-section">
+            <div class="container mx-auto px-6 max-w-7xl">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="text-primary font-semibold uppercase tracking-wider">Testimonials</span>
+                    <h2 class="text-3xl md:text-4xl font-bold mt-4 mb-6">Trusted by Industry Leaders</h2>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Testimonial 1 -->
+                    <div class="card-bg p-8 rounded-2xl shadow-lg">
+                        <div class="flex items-center mb-4">
+                            <img src="https://placehold.co/48x48/cccccc/1f2937?text=A" alt="Client Avatar" class="w-12 h-12 rounded-full mr-4">
+                            <div>
+                                <h4 class="font-bold text-lg">A. Rahman</h4>
+                                <p class="text-sm opacity-70">CEO, ABC Developers Ltd.</p>
+                            </div>
+                        </div>
+                        <p class="italic opacity-80">
+                            "Kaif Survey's precision and professionalism were outstanding. Their data was critical to our project's success. Highly recommended."
+                        </p>
+                    </div>
+                    
+                    <!-- Testimonial 2 -->
+                    <div class="card-bg p-8 rounded-2xl shadow-lg">
+                        <div class="flex items-center mb-4">
+                            <img src="https://placehold.co/48x48/cccccc/1f2937?text=S" alt="Client Avatar" class="w-12 h-12 rounded-full mr-4">
+                            <div>
+                                <h4 class="font-bold text-lg">S. Islam</h4>
+                                <p class="text-sm opacity-70">Project Manager, Dhaka Infra</p>
+                            </div>
+                        </div>
+                        <p class="italic opacity-80">
+                            "The GIS mapping and analysis provided by KSC gave us insights we never had before. Their team is knowledgeable and responsive."
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Section 6: Pricing -->
+        <section id="pricing" class="py-20 md:py-32 bg-alt fade-in-section">
+            <div class="container mx-auto px-6 max-w-7xl">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="text-primary font-semibold uppercase tracking-wider">Pricing</span>
+                    <h2 class="text-3xl md:text-4xl font-bold mt-4 mb-6">Clear, Flexible Packages</h2>
+                    <p class="text-lg opacity-70">
+                        Choose a plan that fits your needs, or contact us for a custom quote.
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
+                    <!-- Package 1: Basic -->
+                    <div class="card-bg p-8 rounded-2xl shadow-lg transition-all duration-300 hover:shadow-2xl">
+                        <span class="font-bold text-primary uppercase">Basic Survey</span>
+                        <h3 class="text-4xl font-extrabold my-4">Standard</h3>
+                        <p class="opacity-70 h-16">Ideal for small-scale projects and property boundary definitions.</p>
+                        <ul class="space-y-3 my-8">
+                            <li class="flex items-center"><svg class="w-5 h-5 text-secondary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Boundary Survey</li>
+                            <li class="flex items-center"><svg class="w-5 h-5 text-secondary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Digital Plot Map</li>
+                            <li class="flex items-center"><svg class="w-5 h-5 text-secondary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Standard Report</li>
+                        </ul>
+                        <a href="#contact" class="btn [data-theme='light']:btn-secondary [data-theme='dark']:btn-secondary-dark w-full text-center">Get Quote</a>
+                    </div>
+                    
+                    <!-- Package 2: Professional (Featured) -->
+                    <div class="card-bg p-10 rounded-2xl shadow-2xl transition-all duration-300 border-2 border-primary transform lg:scale-110">
+                        <span class="font-bold text-primary uppercase">Most Popular</span>
+                        <h3 class="text-4xl font-extrabold my-4">Professional</h3>
+                        <p class="opacity-70 h-16">Comprehensive survey and mapping for construction and development.</p>
+                        <ul class="space-y-3 my-8">
+                            <li class="flex items-center"><svg class="w-5 h-5 text-secondary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>All Standard Features</li>
+                            <li class="flex items-center"><svg class="w-5 h-5 text-secondary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Topographic Survey</li>
+                            <li class="flex items-center"><svg class="w-5 h-5 text-secondary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>GIS Data Layers</li>
+                            <li class="flex items-center"><svg class="w-5 h-5 text-secondary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Priority Support</li>
+                        </ul>
+                        <a href="#contact" class="btn-primary w-full text-center">Get Quote</a>
+                    </div>
+                    
+                    <!-- Package 3: Enterprise -->
+                    <div class="card-bg p-8 rounded-2xl shadow-lg transition-all duration-300 hover:shadow-2xl">
+                        <span class="font-bold text-primary uppercase">Full Solution</span>
+                        <h3 class="text-4xl font-extrabold my-4">Enterprise</h3>
+                        <p class="opacity-70 h-16">End-to-end consulting and custom solutions for large-scale projects.</p>
+                        <ul class="space-y-3 my-8">
+                            <li class="flex items-center"><svg class="w-5 h-5 text-secondary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>All Professional Features</li>
+                            <li class="flex items-center"><svg class="w-5 h-5 text-secondary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Custom GIS Analysis</li>
+                            <li class="flex items-center"><svg class="w-5 h-5 text-secondary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Dedicated Project Manager</li>
+                        </ul>
+                        <a href="#contact" class="btn [data-theme='light']:btn-secondary [data-theme='dark']:btn-secondary-dark w-full text-center">Get Quote</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Section 7: Contact & Quote Form -->
+        <section id="contact" class="py-20 md:py-32 bg-main fade-in-section">
+            <div class="container mx-auto px-6 max-w-7xl">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                    <!-- Contact Info -->
+                    <div>
+                        <span class="text-primary font-semibold uppercase tracking-wider">Contact Us</span>
+                        <h2 class="text-3xl md:text-4xl font-bold mt-4 mb-6">Get in Touch</h2>
+                        <p class="text-lg opacity-70 mb-8">
+                            Have a question or ready to start your project? Send us a message or visit our office.
+                        </p>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start space-x-4">
+                                <svg class="w-6 h-6 text-primary flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                                <div>
+                                    <h4 class="font-bold text-lg">Head Office</h4>
+                                    <p class="opacity-70">Plot-229, Zaman Tower, Azampur Road, Uttarkhan, Uttara, Dhaka-1230.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-4">
+                                <svg class="w-6 h-6 text-primary flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                                <div>
+                                    <h4 class="font-bold text-lg">Mobile</h4>
+                                    <p class="opacity-70">+880 1712-345678</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-4">
+                                <svg class="w-6 h-6 text-primary flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                                <div>
+                                    <h4 class="font-bold text-lg">Email</h4>
+                                    <p class="opacity-70">alamgirwss@gmail.com</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Contact Form -->
+                    <div class="card-bg p-8 md:p-10 rounded-2xl shadow-xl">
+                        <h3 class="text-2xl font-bold mb-6">Request a Quote</h3>
+                        <form id="contact-form" class="space-y-5" novalidate>
+                            <div>
+                                <label for="name" class="block text-sm font-medium mb-1">Full Name</label>
+                                <input type="text" id="name" name="name" required class="form-input w-full rounded-lg py-3 px-4" aria-describedby="error-name">
+                                <span id="error-name" class="form-error">Please enter your name.</span>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                                <div>
+                                    <label for="email" class="block text-sm font-medium mb-1">Email Address</label>
+                                    <input type="email" id="email" name="email" required class="form-input w-full rounded-lg py-3 px-4" aria-describedby="error-email">
+                                    <span id="error-email" class="form-error">Please enter a valid email.</span>
+                                </div>
+                                <div>
+                                    <label for="phone" class="block text-sm font-medium mb-1">Phone Number</label>
+                                    <input type="tel" id="phone" name="phone" class="form-input w-full rounded-lg py-3 px-4">
+                                </div>
+                            </div>
+                             <div>
+                                <label for="company" class="block text-sm font-medium mb-1">Company (Optional)</label>
+                                <input type="text" id="company" name="company" class="form-input w-full rounded-lg py-3 px-4">
+                            </div>
+                            <div>
+                                <label for="description" class="block text-sm font-medium mb-1">Project Description</label>
+                                <textarea id="description" name="description" rows="4" required class="form-input w-full rounded-lg py-3 px-4" aria-describedby="error-description"></textarea>
+                                <span id="error-description" class="form-error">Please describe your project.</span>
+                            </div>
+                            <fieldset>
+                                <legend class="block text-sm font-medium mb-2">Preferred Contact Method</legend>
+                                <div class="flex items-center space-x-6">
+                                    <div class="flex items-center">
+                                        <input id="contact-email" name="contact-method" type="radio" value="email" checked class="h-4 w-4 text-primary focus:ring-primary border-gray-300">
+                                        <label for="contact-email" class="ml-2 block text-sm">Email</label>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <input id="contact-phone" name="contact-method" type="radio" value="phone" class="h-4 w-4 text-primary focus:ring-primary border-gray-300">
+                                        <label for="contact-phone" class="ml-2 block text-sm">Phone</label>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <div>
+                                <button type="submit" id="submit-btn" class="btn-primary w-full py-4">
+                                    <span id="submit-text">Send Request</span>
+                                    <span id="submit-spinner" class="hidden w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin mx-auto"></span>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-alt pt-16 pb-8">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <!-- Column 1: Logo & Info -->
+                <div class="md:col-span-2">
+                    <a href="#hero" class="flex items-center space-x-2 mb-4">
+                        <img src="https://uploads.onecompiler.io/43y3by72c/4428darze/1000007296.png" alt="Kaif Survey & Consulting Logo" class="h-10 w-10 object-contain">
+                        <span class="font-bold text-xl text-gradient">Kaif Survey & Consulting</span>
+                    </a>
+                    <p class="opacity-70 max-w-md">
+                        Providing precision surveying and insightful consulting to build a better tomorrow.
+                    </p>
+                    <p class="opacity-70 mt-4">
+                        <strong>Head Office:</strong> Plot-229, Zaman Tower, Azampur Road, Uttarkhan, Uttara, Dhaka-1230.
+                    </p>
+                </div>
+                
+                <!-- Column 2: Quick Links -->
+                <div>
+                    <h5 class="font-bold text-lg mb-4">Quick Links</h5>
+                    <ul class="space-y-2">
+                        <li><a href="#services" class="opacity-70 hover:opacity-100 hover:text-primary transition-colors">Services</a></li>
+                        <li><a href="#how-it-works" class="opacity-70 hover:opacity-100 hover:text-primary transition-colors">How It Works</a></li>
+                        <li><a href="#pricing" class="opacity-70 hover:opacity-100 hover:text-primary transition-colors">Pricing</a></li>
+                        <li><a href="#contact" class="opacity-70 hover:opacity-100 hover:text-primary transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 3: Social Media -->
+                <div>
+                    <h5 class="font-bold text-lg mb-4">Connect</h5>
+                    <div class="flex space-x-4">
+                        <!-- Placeholder SVGs for social media -->
+                        <a href="#" class="p-2 card-bg rounded-full hover:bg-primary hover:text-white transition-all" aria-label="Facebook">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"></path></svg>
+                        </a>
+                        <a href="#" class="p-2 card-bg rounded-full hover:bg-primary hover:text-white transition-all" aria-label="LinkedIn">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg>
+                        </a>
+                        <a href="#" class="p-2 card-bg rounded-full hover:bg-primary hover:text-white transition-all" aria-label="Twitter">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.418 0-5.83 2.77-5.83 5.83 0 .484.055.952.16 1.405-4.833-.242-9.118-2.563-11.99-6.084-.5.867-.787 1.872-.787 2.93c0 2.018 1.028 3.795 2.586 4.84-1.007-.03-1.94-.31-2.75-.77v.07c0 2.82 2.007 5.17 4.67 5.71-.488.13-.997.2-1.52.2-.375 0-.74-.036-1.09-.104.74 2.31 2.88 4.01 5.43 4.05-2.007 1.57-4.54 2.51-7.3 2.51-.475 0-.943-.03-1.405-.08 2.59 1.66 5.67 2.63 9.01 2.63 10.8 0 16.7-8.98 16.7-16.7v-.76c1.14-.82 2.13-1.85 2.92-3.03z"></path></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-300 dark:border-gray-700 pt-8 text-center md:text-left">
+                <p class="opacity-70 text-sm">&copy; <span id="current-year"></span> Kaif Survey & Consulting. All Rights Reserved.</p>
             </div>
         </div>
-        <div class="mt-12 border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
-            <p>© <span id="copyright-year"></span> Kaif Survey & Consulting. All Rights Reserved.</p>
-            <button id="back-to-top" class="mt-4 md:mt-0 text-gray-400 hover:text-white transition-colors">Back to Top ↑</button>
+    </footer>
+    
+    <!-- Success Modal -->
+    <div id="success-modal" class="modal-backdrop opacity-0 pointer-events-none" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <div class="modal-content">
+            <div class="checkmark-circle">
+                <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                    <circle class="checkmark-circle-inner" cx="26" cy="26" r="25" fill="none"/>
+                    <path class="checkmark-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+                </svg>
+            </div>
+            <h2 id="modal-title" class="text-2xl font-bold mt-6 mb-2">Submission Successful!</h2>
+            <p class="opacity-80 mb-6">Thank you for your request. We will get back to you within 24 hours.</p>
+            <button id="close-modal-btn" class="btn-primary">Close</button>
         </div>
     </div>
-</footer>
-</div>
-</div>
-<script src="script.js"></script>
-</body></html>
+
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // === 1. THEME TOGGLING ===
+            const themeToggleBtns = [
+                document.getElementById('theme-toggle'),
+                document.getElementById('theme-toggle-mobile')
+            ];
+            const lightIcons = [
+                document.getElementById('theme-icon-light'),
+                document.getElementById('theme-icon-light-mobile')
+            ];
+            const darkIcons = [
+                document.getElementById('theme-icon-dark'),
+                document.getElementById('theme-icon-dark-mobile')
+            ];
+            const statusMessage = document.getElementById('status-message');
+
+            let currentTheme = localStorage.getItem('theme');
+            
+            // Check system preference if no theme is stored
+            if (!currentTheme) {
+                currentTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            }
+
+            // Function to apply the theme
+            function applyTheme(theme) {
+                if (theme === 'dark') {
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                    document.documentElement.classList.add('dark');
+                    lightIcons.forEach(icon => icon.classList.remove('hidden'));
+                    darkIcons.forEach(icon => icon.classList.add('hidden'));
+                } else {
+                    document.documentElement.setAttribute('data-theme', 'light');
+                    document.documentElement.classList.remove('dark');
+                    lightIcons.forEach(icon => icon.classList.add('hidden'));
+                    darkIcons.forEach(icon => icon.classList.remove('hidden'));
+                }
+                localStorage.setItem('theme', theme);
+            }
+
+            // Apply theme on initial load
+            applyTheme(currentTheme);
+
+            // Add click listener to all toggle buttons
+            themeToggleBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const newTheme = document.documentElement.classList.contains('dark') ? 'light' : 'dark';
+                    applyTheme(newTheme);
+                    statusMessage.textContent = `Theme changed to ${newTheme} mode.`;
+                });
+            });
+
+            // Listen for system theme changes
+            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+                if (!localStorage.getItem('theme')) {
+                    applyTheme(e.matches ? 'dark' : 'light');
+                }
+            });
+
+            // === 2. STICKY HEADER ===
+            const header = document.getElementById('header');
+            const scrollThreshold = 50; // Pixels to scroll before header becomes sticky
+            
+            function handleScroll() {
+                if (window.scrollY > scrollThreshold) {
+                    header.classList.add('header-scrolled');
+                } else {
+                    header.classList.remove('header-scrolled');
+                }
+            }
+            window.addEventListener('scroll', handleScroll, { passive: true });
+
+            // === 3. MOBILE MENU ===
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+            
+            mobileMenuBtn.addEventListener('click', () => {
+                const isExpanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true';
+                mobileMenuBtn.setAttribute('aria-expanded', !isExpanded);
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            // Close mobile menu when a link is clicked
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+
+            // === 4. SMOOTH SCROLLING (for all hash links) ===
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if(targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // === 5. FADE-IN ANIMATIONS ON SCROLL ===
+            const sectionsToFade = document.querySelectorAll('.fade-in-section');
+            
+            const sectionObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { rootMargin: '0px', threshold: 0.15 });
+            
+            sectionsToFade.forEach(section => {
+                sectionObserver.observe(section);
+            });
+            
+            // === 6. ANIMATED STATISTICS COUNTERS ===
+            const statsSection = document.getElementById('stats');
+            let statsAnimated = false;
+
+            function animateCounter(el) {
+                const target = parseInt(el.getAttribute('data-target'), 10);
+                const duration = 1500; // 1.5 seconds
+                const stepTime = Math.abs(Math.floor(duration / target));
+                let current = 0;
+                
+                const timer = setInterval(() => {
+                    current += 1;
+                    el.textContent = current;
+                    if (current == target) {
+                        clearInterval(timer);
+                    }
+                }, stepTime);
+            }
+            
+            const statsObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !statsAnimated) {
+                        document.querySelectorAll('.stat-counter').forEach(animateCounter);
+                        statsAnimated = true; // Ensure it only runs once
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            if (statsSection) {
+                statsObserver.observe(statsSection);
+            }
+
+            // === 7. CONTACT FORM VALIDATION & SUBMISSION ===
+            const form = document.getElementById('contact-form');
+            const submitBtn = document.getElementById('submit-btn');
+            const submitText = document.getElementById('submit-text');
+            const submitSpinner = document.getElementById('submit-spinner');
+            const successModal = document.getElementById('success-modal');
+            const closeModalBtn = document.getElementById('close-modal-btn');
+            
+            // Input fields and error messages
+            const inputs = {
+                name: document.getElementById('name'),
+                email: document.getElementById('email'),
+                description: document.getElementById('description')
+            };
+
+            function showError(fieldId, message) {
+                const field = inputs[fieldId];
+                const errorEl = document.getElementById(`error-${fieldId}`);
+                if (field && errorEl) {
+                    field.classList.add('invalid');
+                    field.setAttribute('aria-invalid', 'true');
+                    errorEl.textContent = message;
+                    errorEl.style.display = 'block';
+                }
+            }
+
+            function hideError(fieldId) {
+                const field = inputs[fieldId];
+                const errorEl = document.getElementById(`error-${fieldId}`);
+                if (field && errorEl) {
+                    field.classList.remove('invalid');
+                    field.setAttribute('aria-invalid', 'false');
+                    errorEl.style.display = 'none';
+                }
+            }
+
+            function validateForm() {
+                let isValid = true;
+                
+                // Reset errors
+                Object.keys(inputs).forEach(hideError);
+
+                // Validate Name
+                if (inputs.name.value.trim() === '') {
+                    showError('name', 'Please enter your name.');
+                    isValid = false;
+                }
+                
+                // Validate Email
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (inputs.email.value.trim() === '') {
+                    showError('email', 'Please enter your email address.');
+                    isValid = false;
+                } else if (!emailRegex.test(inputs.email.value.trim())) {
+                    showError('email', 'Please enter a valid email address.');
+                    isValid = false;
+                }
+                
+                // Validate Description
+                if (inputs.description.value.trim() === '') {
+                    showError('description', 'Please describe your project.');
+                    isValid = false;
+                }
+
+                return isValid;
+            }
+
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                if (validateForm()) {
+                    // Start loading state
+                    submitText.classList.add('hidden');
+                    submitSpinner.classList.remove('hidden');
+                    submitBtn.disabled = true;
+                    statusMessage.textContent = 'Submitting your request...';
+
+                    // Simulate API call (1 second delay)
+                    setTimeout(() => {
+                        // Stop loading state
+                        submitText.classList.remove('hidden');
+                        submitSpinner.classList.add('hidden');
+                        submitBtn.disabled = false;
+                        
+                        // Show success modal
+                        successModal.classList.remove('opacity-0', 'pointer-events-none');
+                        successModal.classList.add('open');
+                        closeModalBtn.focus();
+                        statusMessage.textContent = 'Submission successful. Modal opened.';
+                        
+                        // Reset form
+                        form.reset();
+                    }, 1000);
+                } else {
+                    statusMessage.textContent = 'Form validation failed. Please check the errors.';
+                    // Focus the first invalid field
+                    const firstInvalid = form.querySelector('.invalid');
+                    if (firstInvalid) {
+                        firstInvalid.focus();
+                    }
+                }
+            });
+            
+            // Close modal
+            function closeModal() {
+                successModal.classList.add('opacity-0', 'pointer-events-none');
+                successModal.classList.remove('open');
+                statusMessage.textContent = 'Modal closed.';
+            }
+            closeModalBtn.addEventListener('click', closeModal);
+            successModal.addEventListener('click', (e) => {
+                if (e.target === successModal) {
+                    closeModal();
+                }
+            });
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && successModal.classList.contains('open')) {
+                    closeModal();
+                }
+            });
+
+            // === 8. SET CURRENT YEAR IN FOOTER ===
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        });
+    </script>
+
+</body>
+</html>
