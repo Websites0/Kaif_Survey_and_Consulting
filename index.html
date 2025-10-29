@@ -3,6 +3,7 @@
 <html class="light" lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-PVriK7u++V2CWF84RsPO8YNI7+cMax/PjMtuJp+mDF8=' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' https://media.gettyimages.com https://lh3.googleusercontent.com; connect-src 'self' https://fonts.googleapis.com; frame-ancestors 'none'; form-action 'self'; object-src 'none'; base-uri 'self';"/>
 <title>Kaif Survey &amp; Consulting</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
@@ -203,45 +204,11 @@
         </div>
         <div class="mt-12 border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
             <p>© <span id="copyright-year"></span> Kaif Survey & Consulting. All Rights Reserved.</p>
-            <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="mt-4 md:mt-0 text-gray-400 hover:text-white transition-colors">Back to Top ↑</button>
+            <button id="back-to-top" class="mt-4 md:mt-0 text-gray-400 hover:text-white transition-colors">Back to Top ↑</button>
         </div>
     </div>
 </footer>
 </div>
 </div>
-<script>
-        document.getElementById('copyright-year').textContent = new Date().getFullYear();
-
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        const themeToggles = document.querySelectorAll('#theme-toggle, #mobile-theme-toggle');
-        const themeIcons = document.querySelectorAll('.theme-icon');
-        const html = document.documentElement;
-
-        const setTheme = (theme) => {
-            const isDark = theme === 'dark';
-            html.classList.toggle('dark', isDark);
-            themeIcons.forEach(icon => icon.textContent = isDark ? 'dark_mode' : 'light_mode');
-            localStorage.setItem('theme', theme);
-        };
-
-        const toggleTheme = () => {
-            const currentTheme = localStorage.getItem('theme') || 'light';
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            setTheme(newTheme);
-        };
-
-        themeToggles.forEach(toggle => toggle.addEventListener('click', toggleTheme));
-
-        // On page load, set the theme
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme) {
-            setTheme(savedTheme);
-        }
-    </script>
+<script src="app.js"></script>
 </body></html>
