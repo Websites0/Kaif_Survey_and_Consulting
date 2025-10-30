@@ -23,232 +23,16 @@
     <meta property="og:url" content="https://kaifsurvey.com/"> <!-- Placeholder URL -->
     <meta property="og:title" content="Kaif Survey & Consulting - Expert Surveying Solutions">
     <meta property="og:description" content="Professional land surveying, digital mapping, and GIS consulting services.">
-    <meta property="og:image" content="https://uploads.onecompiler.io/43y3by72c/4428darze/1000007296.png">
+    <meta property="og:image" content="logo.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://kaifsurvey.com/"> <!-- Placeholder URL -->
     <meta property="twitter:title" content="Kaif Survey & Consulting - Expert Surveying Solutions">
     <meta property="twitter:description" content="Professional land surveying, digital mapping, and GIS consulting services.">
-    <meta property="twitter:image" content="https://uploads.onecompiler.io/43y3by72c/4428darze/1000007296.png">
+    <meta property="twitter:image" content="logo.png">
 
-    <style>
-        /* Custom Styles & CSS Variables */
-        :root {
-            --color-text: #1f2937; /* gray-800 */
-            --color-bg: #ffffff; /* white */
-            --color-bg-alt: #f9fafb; /* gray-50 */
-            --color-primary: #0f78c7;
-            --color-secondary: #00c6a7;
-            --color-border: #e5e7eb; /* gray-200 */
-            --color-card-bg: #ffffff;
-            
-            /* The requested gradient */
-            --gradient: linear-gradient(135deg, #0f78c7 0%, #00c6a7 100%);
-
-            /* Transitions */
-            --transition-all: all 0.3s ease-in-out;
-            
-            scroll-behavior: smooth;
-        }
-
-        [data-theme="dark"] {
-            --color-text: #f9fafb; /* gray-50 */
-            --color-bg: #111827; /* gray-900 */
-            --color-bg-alt: #1f2937; /* gray-800 */
-            --color-border: #374151; /* gray-700 */
-            --color-card-bg: #1f2937; /* gray-800 */
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--color-bg);
-            color: var(--color-text);
-            transition: var(--transition-all);
-        }
-
-        /* Gradient Text */
-        .text-gradient {
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        
-        /* Gradient Background */
-        .bg-gradient-primary {
-            background: var(--gradient);
-        }
-
-        /* Sticky Header Scrolled State */
-        .header-scrolled {
-            background-color: var(--color-bg);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-        }
-        [data-theme="dark"] .header-scrolled {
-            background-color: var(--color-bg-alt);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.1);
-        }
-        
-        /* Section Backgrounds */
-        .bg-alt {
-            background-color: var(--color-bg-alt);
-        }
-        .bg-main {
-            background-color: var(--color-bg);
-        }
-        .card-bg {
-            background-color: var(--color-card-bg);
-            border: 1px solid var(--color-border);
-        }
-        
-        /* Form Input Styles */
-        .form-input {
-            background-color: var(--color-bg-alt);
-            border: 1px solid var(--color-border);
-            color: var(--color-text);
-            transition: var(--transition-all);
-        }
-        .form-input:focus {
-            --tw-ring-color: var(--color-primary);
-            border-color: var(--color-primary);
-            background-color: var(--color-bg);
-        }
-        
-        /* Button Styles */
-        .btn {
-            @apply px-5 py-3 rounded-lg font-semibold transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2;
-        }
-        .btn-primary {
-            @apply btn text-white bg-gradient-primary hover:opacity-90 focus:ring-primary;
-        }
-        .btn-secondary {
-            @apply btn text-gradient border-2 border-primary hover:bg-gradient-primary hover:text-white focus:ring-primary;
-        }
-        .btn-secondary-dark {
-             @apply btn text-white border-2 border-secondary hover:bg-gradient-primary hover:border-primary focus:ring-secondary;
-        }
-
-        /* Animations */
-        .fade-in-section {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-        .fade-in-section.is-visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        /* Reduced Motion */
-        @media (prefers-reduced-motion: reduce) {
-            .fade-in-section {
-                transition: none;
-            }
-            * {
-                animation: none !important;
-                transition-duration: 0.01ms !important;
-                scroll-behavior: auto !important;
-            }
-        }
-        
-        /* Custom Focus */
-        :focus-visible {
-            outline: 3px solid var(--color-primary);
-            outline-offset: 2px;
-            border-radius: 4px;
-        }
-        
-        /* Form Validation */
-        .form-error {
-            @apply text-red-500 text-sm mt-1;
-            display: none; /* Hidden by default */
-        }
-        .form-input.invalid {
-            @apply border-red-500 ring-red-500;
-        }
-
-        /* Modal Styles */
-        .modal-backdrop {
-            @apply fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 transition-opacity duration-300;
-        }
-        .modal-content {
-            @apply card-bg p-8 rounded-2xl shadow-2xl max-w-md w-full text-center transform transition-all scale-95 opacity-0 duration-300;
-        }
-        .modal-backdrop.open {
-            @apply opacity-100;
-        }
-        .modal-backdrop.open .modal-content {
-            @apply scale-100 opacity-100;
-        }
-        
-        /* Checkmark Animation */
-        .checkmark-circle {
-            @apply w-20 h-20 rounded-full bg-gradient-primary p-1 mx-auto;
-        }
-        .checkmark {
-            width: 72px;
-            height: 72px;
-            border-radius: 50%;
-            display: block;
-            stroke-width: 4;
-            stroke: #fff;
-            stroke-miterlimit: 10;
-            margin: auto;
-            box-shadow: inset 0px 0px 0px var(--color-secondary);
-            animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both;
-        }
-        .checkmark-check {
-            transform-origin: 50% 50%;
-            stroke-dasharray: 48;
-            stroke-dashoffset: 48;
-            animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
-        }
-        @keyframes stroke {
-            100% {
-                stroke-dashoffset: 0;
-            }
-        }
-        @keyframes scale {
-            0%, 100% {
-                transform: none;
-            }
-            50% {
-                transform: scale3d(1.1, 1.1, 1);
-            }
-        }
-        @keyframes fill {
-            100% {
-                box-shadow: inset 0px 0px 0px 40px var(--color-secondary);
-            }
-        }
-        
-        /* Printable-friendly styles */
-        @media print {
-            body {
-                background-color: #ffffff;
-                color: #000000;
-            }
-            header, footer, .no-print {
-                display: none;
-            }
-            section {
-                margin: 0 0 1.5rem 0;
-                padding: 0;
-            }
-            .text-gradient {
-                background: none;
-                -webkit-text-fill-color: #000000;
-                color: #000000;
-            }
-            .card-bg {
-                border: 1px solid #ccc;
-                box-shadow: none;
-            }
-            .btn {
-                display: none;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body class="transition-colors duration-300">
 
@@ -260,11 +44,10 @@
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center max-w-7xl">
             <!-- Logo -->
             <a href="#hero" class="flex items-center space-x-2 flex-shrink-0">
-                <img src="https://uploads.onecompiler.io/43y3by72c/4428darze/1000007296.png" 
+                <img src="logo.png"
                      alt="Kaif Survey & Consulting Logo" 
-                     class="h-10 w-10 sm:h-12 sm:w-12 object-contain"
-                     onerror="this.alt='Kaif Survey Logo'; this.src='https://placehold.co/48x48/0f78c7/FFF?text=KSC';">
-                <span class="font-bold text-lg sm:text-xl text-gradient">Kaif Survey</span>
+                     class="h-10 w-10 sm:h-12 sm:w-12 object-contain">
+                <span class="font-bold text-lg sm:text-xl text-blue-600 dark:text-cyan-400">Kaif Survey</span>
             </a>
 
             <!-- Mobile Menu Button -->
@@ -287,7 +70,7 @@
                     <svg id="theme-icon-dark" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
                 </button>
                 
-                <a href="#contact" class="btn-primary">Request Quote</a>
+                <a href="#contact" class="px-5 py-3 rounded-lg font-semibold text-white bg-blue-600 hover:bg-blue-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">Request Quote</a>
             </div>
         </nav>
 
@@ -298,7 +81,7 @@
                 <a href="#how-it-works" class="mobile-nav-link font-medium hover:text-primary transition-colors">How It Works</a>
                 <a href="#pricing" class="mobile-nav-link font-medium hover:text-primary transition-colors">Pricing</a>
                 <a href="#contact" class="mobile-nav-link font-medium hover:text-primary transition-colors">Contact</a>
-                <a href="#contact" class="btn-primary w-full text-center">Request Quote</a>
+                <a href="#contact" class="px-5 py-3 rounded-lg font-semibold text-white bg-blue-600 hover:bg-blue-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 w-full text-center">Request Quote</a>
                 
                 <div class="flex justify-between items-center pt-4 border-t border-gray-200 dark:border-gray-700">
                     <span class="font-medium">Theme</span>
@@ -325,22 +108,21 @@
                     <div class="lg:w-1/2 text-center lg:text-left">
                         <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold !leading-tight mb-6">
                             Precision Surveying.
-                            <span class="text-gradient block">Actionable Insights.</span>
+                            <span class="text-blue-600 dark:text-cyan-400 block">Actionable Insights.</span>
                         </h1>
                         <p class="text-lg md:text-xl opacity-80 mb-10 max-w-xl mx-auto lg:mx-0">
                             Kaif Survey & Consulting provides expert land survey, digital mapping, and GIS solutions to power your projects with accurate data.
                         </p>
                         <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                            <a href="#contact" class="btn-primary">Start Your Survey</a>
-                            <a href="#services" class="btn [data-theme='light']:btn-secondary [data-theme='dark']:btn-secondary-dark">Our Services</a>
+                            <a href="#contact" class="px-5 py-3 rounded-lg font-semibold text-white bg-blue-600 hover:bg-blue-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">Start Your Survey</a>
+                            <a href="#services" class="px-5 py-3 rounded-lg font-semibold border-2 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 text-blue-600 border-blue-600 hover:bg-blue-600 hover:text-white focus:ring-blue-500 dark:text-white dark:border-cyan-500 dark:hover:bg-cyan-500 dark:hover:border-cyan-500 dark:focus:ring-cyan-500">Our Services</a>
                         </div>
                     </div>
                     
                     <!-- Hero Image/Graphic -->
                     <div class="lg:w-1/2 mt-12 lg:mt-0">
                         <div class="w-full max-w-lg mx-auto lg:mr-0">
-                            <!-- Placeholder for a professional image or SVG -->
-                            <img src="https://placehold.co/600x400/0f78c7/FFF?text=Survey+Graphic&font=inter" 
+                            <img src="https://images.unsplash.com/photo-1521790797524-3f202d52b442?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
                                  alt="A graphic representing surveying and data analysis" 
                                  class="rounded-2xl shadow-2xl w-full h-auto object-cover">
                         </div>
@@ -363,7 +145,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <!-- Service Card 1 -->
                     <div class="card-bg p-8 rounded-2xl shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
-                        <div class="p-3 rounded-full bg-gradient-primary inline-block mb-6">
+                        <div class="p-3 rounded-full bg-blue-600 inline-block mb-6">
                             <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13v-6m0 6l5.447-2.724A1 1 0 0015 16.382V5.618a1 1 0 00-1.447-.894L9 7m0 0l6 3m-6-3v6m6 3l5.447 2.724A1 1 0 0021 16.382V5.618a1 1 0 00-1.447-.894L15 7m-6 3l6-3"></path></svg>
                         </div>
                         <h3 class="text-2xl font-bold mb-4">Land & Cadastral Survey</h3>
@@ -374,7 +156,7 @@
                     
                     <!-- Service Card 2 -->
                     <div class="card-bg p-8 rounded-2xl shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
-                        <div class="p-3 rounded-full bg-gradient-primary inline-block mb-6">
+                        <div class="p-3 rounded-full bg-blue-600 inline-block mb-6">
                             <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
                         </div>
                         <h3 class="text-2xl font-bold mb-4">GIS & Digital Mapping</h3>
@@ -385,7 +167,7 @@
                     
                     <!-- Service Card 3 -->
                     <div class="card-bg p-8 rounded-2xl shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
-                        <div class="p-3 rounded-full bg-gradient-primary inline-block mb-6">
+                        <div class="p-3 rounded-full bg-blue-600 inline-block mb-6">
                             <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
                         </div>
                         <h3 class="text-2xl font-bold mb-4">Expert Consulting</h3>
@@ -417,7 +199,7 @@
                         <!-- Step 1 -->
                         <div class="text-center">
                             <div class="relative z-10 w-24 h-24 flex items-center justify-center card-bg rounded-full mx-auto shadow-lg border-4 border-secondary">
-                                <span class="text-4xl font-bold text-gradient">1</span>
+                                <span class="text-4xl font-bold text-blue-600 dark:text-cyan-400">1</span>
                             </div>
                             <h3 class="text-xl font-bold mt-6 mb-2">Consultation</h3>
                             <p class="opacity-70">We listen to your needs, define project scope, and establish clear objectives.</p>
@@ -426,7 +208,7 @@
                         <!-- Step 2 -->
                         <div class="text-center">
                             <div class="relative z-10 w-24 h-24 flex items-center justify-center card-bg rounded-full mx-auto shadow-lg border-4 border-secondary">
-                                <span class="text-4xl font-bold text-gradient">2</span>
+                                <span class="text-4xl font-bold text-blue-600 dark:text-cyan-400">2</span>
                             </div>
                             <h3 class="text-xl font-bold mt-6 mb-2">Data Collection</h3>
                             <p class="opacity-70">Our expert team conducts precise field surveys using state-of-the-art equipment.</p>
@@ -435,7 +217,7 @@
                         <!-- Step 3 -->
                         <div class="text-center">
                             <div class="relative z-10 w-24 h-24 flex items-center justify-center card-bg rounded-full mx-auto shadow-lg border-4 border-secondary">
-                                <span class="text-4xl font-bold text-gradient">3</span>
+                                <span class="text-4xl font-bold text-blue-600 dark:text-cyan-400">3</span>
                             </div>
                             <h3 class="text-xl font-bold mt-6 mb-2">Analysis & Mapping</h3>
                             <p class="opacity-70">We process, analyze, and map your data to create insightful, accurate visuals.</p>
@@ -444,7 +226,7 @@
                         <!-- Step 4 -->
                         <div class="text-center">
                             <div class="relative z-10 w-24 h-24 flex items-center justify-center card-bg rounded-full mx-auto shadow-lg border-4 border-secondary">
-                                <span class="text-4xl font-bold text-gradient">4</span>
+                                <span class="text-4xl font-bold text-blue-600 dark:text-cyan-400">4</span>
                             </div>
                             <h3 class="text-xl font-bold mt-6 mb-2">Delivery & Support</h3>
                             <p class="opacity-70">You receive a comprehensive report, digital files, and our ongoing support.</p>
@@ -455,7 +237,7 @@
         </section>
 
         <!-- Section 4: Animated Statistics -->
-        <section id="stats" class="py-20 md:py-32 bg-gradient-primary text-white fade-in-section">
+        <section id="stats" class="py-20 md:py-32 bg-blue-600 text-white fade-in-section">
             <div class="container mx-auto px-6 max-w-7xl">
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
                     <div>
@@ -489,7 +271,7 @@
                     <!-- Testimonial 1 -->
                     <div class="card-bg p-8 rounded-2xl shadow-lg">
                         <div class="flex items-center mb-4">
-                            <img src="https://placehold.co/48x48/cccccc/1f2937?text=A" alt="Client Avatar" class="w-12 h-12 rounded-full mr-4">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client Avatar" class="w-12 h-12 rounded-full mr-4">
                             <div>
                                 <h4 class="font-bold text-lg">A. Rahman</h4>
                                 <p class="text-sm opacity-70">CEO, ABC Developers Ltd.</p>
@@ -503,7 +285,7 @@
                     <!-- Testimonial 2 -->
                     <div class="card-bg p-8 rounded-2xl shadow-lg">
                         <div class="flex items-center mb-4">
-                            <img src="https://placehold.co/48x48/cccccc/1f2937?text=S" alt="Client Avatar" class="w-12 h-12 rounded-full mr-4">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Client Avatar" class="w-12 h-12 rounded-full mr-4">
                             <div>
                                 <h4 class="font-bold text-lg">S. Islam</h4>
                                 <p class="text-sm opacity-70">Project Manager, Dhaka Infra</p>
@@ -539,7 +321,7 @@
                             <li class="flex items-center"><svg class="w-5 h-5 text-secondary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Digital Plot Map</li>
                             <li class="flex items-center"><svg class="w-5 h-5 text-secondary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Standard Report</li>
                         </ul>
-                        <a href="#contact" class="btn [data-theme='light']:btn-secondary [data-theme='dark']:btn-secondary-dark w-full text-center">Get Quote</a>
+                        <a href="#contact" class="px-5 py-3 rounded-lg font-semibold border-2 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 text-blue-600 border-blue-600 hover:bg-blue-600 hover:text-white focus:ring-blue-500 dark:text-white dark:border-cyan-500 dark:hover:bg-cyan-500 dark:hover:border-cyan-500 dark:focus:ring-cyan-500 w-full text-center">Get Quote</a>
                     </div>
                     
                     <!-- Package 2: Professional (Featured) -->
@@ -553,7 +335,7 @@
                             <li class="flex items-center"><svg class="w-5 h-5 text-secondary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>GIS Data Layers</li>
                             <li class="flex items-center"><svg class="w-5 h-5 text-secondary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Priority Support</li>
                         </ul>
-                        <a href="#contact" class="btn-primary w-full text-center">Get Quote</a>
+                        <a href="#contact" class="px-5 py-3 rounded-lg font-semibold text-white bg-blue-600 hover:bg-blue-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 w-full text-center">Get Quote</a>
                     </div>
                     
                     <!-- Package 3: Enterprise -->
@@ -566,7 +348,7 @@
                             <li class="flex items-center"><svg class="w-5 h-5 text-secondary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Custom GIS Analysis</li>
                             <li class="flex items-center"><svg class="w-5 h-5 text-secondary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Dedicated Project Manager</li>
                         </ul>
-                        <a href="#contact" class="btn [data-theme='light']:btn-secondary [data-theme='dark']:btn-secondary-dark w-full text-center">Get Quote</a>
+                        <a href="#contact" class="px-5 py-3 rounded-lg font-semibold border-2 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 text-blue-600 border-blue-600 hover:bg-blue-600 hover:text-white focus:ring-blue-500 dark:text-white dark:border-cyan-500 dark:hover:bg-cyan-500 dark:hover:border-cyan-500 dark:focus:ring-cyan-500 w-full text-center">Get Quote</a>
                     </div>
                 </div>
             </div>
@@ -616,13 +398,13 @@
                             <div>
                                 <label for="name" class="block text-sm font-medium mb-1">Full Name</label>
                                 <input type="text" id="name" name="name" required class="form-input w-full rounded-lg py-3 px-4" aria-describedby="error-name">
-                                <span id="error-name" class="form-error">Please enter your name.</span>
+                                <span id="error-name" class="text-red-500 text-sm mt-1 hidden">Please enter your name.</span>
                             </div>
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
                                 <div>
                                     <label for="email" class="block text-sm font-medium mb-1">Email Address</label>
                                     <input type="email" id="email" name="email" required class="form-input w-full rounded-lg py-3 px-4" aria-describedby="error-email">
-                                    <span id="error-email" class="form-error">Please enter a valid email.</span>
+                                    <span id="error-email" class="text-red-500 text-sm mt-1 hidden">Please enter a valid email.</span>
                                 </div>
                                 <div>
                                     <label for="phone" class="block text-sm font-medium mb-1">Phone Number</label>
@@ -636,7 +418,7 @@
                             <div>
                                 <label for="description" class="block text-sm font-medium mb-1">Project Description</label>
                                 <textarea id="description" name="description" rows="4" required class="form-input w-full rounded-lg py-3 px-4" aria-describedby="error-description"></textarea>
-                                <span id="error-description" class="form-error">Please describe your project.</span>
+                                <span id="error-description" class="text-red-500 text-sm mt-1 hidden">Please describe your project.</span>
                             </div>
                             <fieldset>
                                 <legend class="block text-sm font-medium mb-2">Preferred Contact Method</legend>
@@ -652,7 +434,7 @@
                                 </div>
                             </fieldset>
                             <div>
-                                <button type="submit" id="submit-btn" class="btn-primary w-full py-4">
+                                <button type="submit" id="submit-btn" class="px-5 py-3 rounded-lg font-semibold text-white bg-blue-600 hover:bg-blue-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 w-full py-4">
                                     <span id="submit-text">Send Request</span>
                                     <span id="submit-spinner" class="hidden w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin mx-auto"></span>
                                 </button>
@@ -671,8 +453,8 @@
                 <!-- Column 1: Logo & Info -->
                 <div class="md:col-span-2">
                     <a href="#hero" class="flex items-center space-x-2 mb-4">
-                        <img src="https://uploads.onecompiler.io/43y3by72c/4428darze/1000007296.png" alt="Kaif Survey & Consulting Logo" class="h-10 w-10 object-contain">
-                        <span class="font-bold text-xl text-gradient">Kaif Survey & Consulting</span>
+                        <img src="logo.png" alt="Kaif Survey & Consulting Logo" class="h-10 w-10 object-contain">
+                        <span class="font-bold text-xl text-blue-600 dark:text-cyan-400">Kaif Survey & Consulting</span>
                     </a>
                     <p class="opacity-70 max-w-md">
                         Providing precision surveying and insightful consulting to build a better tomorrow.
@@ -728,292 +510,12 @@
             </div>
             <h2 id="modal-title" class="text-2xl font-bold mt-6 mb-2">Submission Successful!</h2>
             <p class="opacity-80 mb-6">Thank you for your request. We will get back to you within 24 hours.</p>
-            <button id="close-modal-btn" class="btn-primary">Close</button>
+            <button id="close-modal-btn" class="px-5 py-3 rounded-lg font-semibold text-white bg-blue-600 hover:bg-blue-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">Close</button>
         </div>
     </div>
 
     <!-- JavaScript -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-
-            // === 1. THEME TOGGLING ===
-            const themeToggleBtns = [
-                document.getElementById('theme-toggle'),
-                document.getElementById('theme-toggle-mobile')
-            ];
-            const lightIcons = [
-                document.getElementById('theme-icon-light'),
-                document.getElementById('theme-icon-light-mobile')
-            ];
-            const darkIcons = [
-                document.getElementById('theme-icon-dark'),
-                document.getElementById('theme-icon-dark-mobile')
-            ];
-            const statusMessage = document.getElementById('status-message');
-
-            let currentTheme = localStorage.getItem('theme');
-            
-            // Check system preference if no theme is stored
-            if (!currentTheme) {
-                currentTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-            }
-
-            // Function to apply the theme
-            function applyTheme(theme) {
-                if (theme === 'dark') {
-                    document.documentElement.setAttribute('data-theme', 'dark');
-                    document.documentElement.classList.add('dark');
-                    lightIcons.forEach(icon => icon.classList.remove('hidden'));
-                    darkIcons.forEach(icon => icon.classList.add('hidden'));
-                } else {
-                    document.documentElement.setAttribute('data-theme', 'light');
-                    document.documentElement.classList.remove('dark');
-                    lightIcons.forEach(icon => icon.classList.add('hidden'));
-                    darkIcons.forEach(icon => icon.classList.remove('hidden'));
-                }
-                localStorage.setItem('theme', theme);
-            }
-
-            // Apply theme on initial load
-            applyTheme(currentTheme);
-
-            // Add click listener to all toggle buttons
-            themeToggleBtns.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    const newTheme = document.documentElement.classList.contains('dark') ? 'light' : 'dark';
-                    applyTheme(newTheme);
-                    statusMessage.textContent = `Theme changed to ${newTheme} mode.`;
-                });
-            });
-
-            // Listen for system theme changes
-            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
-                if (!localStorage.getItem('theme')) {
-                    applyTheme(e.matches ? 'dark' : 'light');
-                }
-            });
-
-            // === 2. STICKY HEADER ===
-            const header = document.getElementById('header');
-            const scrollThreshold = 50; // Pixels to scroll before header becomes sticky
-            
-            function handleScroll() {
-                if (window.scrollY > scrollThreshold) {
-                    header.classList.add('header-scrolled');
-                } else {
-                    header.classList.remove('header-scrolled');
-                }
-            }
-            window.addEventListener('scroll', handleScroll, { passive: true });
-
-            // === 3. MOBILE MENU ===
-            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-            const mobileMenu = document.getElementById('mobile-menu');
-            const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
-            
-            mobileMenuBtn.addEventListener('click', () => {
-                const isExpanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true';
-                mobileMenuBtn.setAttribute('aria-expanded', !isExpanded);
-                mobileMenu.classList.toggle('hidden');
-            });
-            
-            // Close mobile menu when a link is clicked
-            mobileNavLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    mobileMenuBtn.setAttribute('aria-expanded', 'false');
-                    mobileMenu.classList.add('hidden');
-                });
-            });
-
-            // === 4. SMOOTH SCROLLING (for all hash links) ===
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const targetId = this.getAttribute('href');
-                    const targetElement = document.querySelector(targetId);
-                    
-                    if(targetElement) {
-                        targetElement.scrollIntoView({
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-            });
-
-            // === 5. FADE-IN ANIMATIONS ON SCROLL ===
-            const sectionsToFade = document.querySelectorAll('.fade-in-section');
-            
-            const sectionObserver = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('is-visible');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, { rootMargin: '0px', threshold: 0.15 });
-            
-            sectionsToFade.forEach(section => {
-                sectionObserver.observe(section);
-            });
-            
-            // === 6. ANIMATED STATISTICS COUNTERS ===
-            const statsSection = document.getElementById('stats');
-            let statsAnimated = false;
-
-            function animateCounter(el) {
-                const target = parseInt(el.getAttribute('data-target'), 10);
-                const duration = 1500; // 1.5 seconds
-                const stepTime = Math.abs(Math.floor(duration / target));
-                let current = 0;
-                
-                const timer = setInterval(() => {
-                    current += 1;
-                    el.textContent = current;
-                    if (current == target) {
-                        clearInterval(timer);
-                    }
-                }, stepTime);
-            }
-            
-            const statsObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting && !statsAnimated) {
-                        document.querySelectorAll('.stat-counter').forEach(animateCounter);
-                        statsAnimated = true; // Ensure it only runs once
-                    }
-                });
-            }, { threshold: 0.5 });
-            
-            if (statsSection) {
-                statsObserver.observe(statsSection);
-            }
-
-            // === 7. CONTACT FORM VALIDATION & SUBMISSION ===
-            const form = document.getElementById('contact-form');
-            const submitBtn = document.getElementById('submit-btn');
-            const submitText = document.getElementById('submit-text');
-            const submitSpinner = document.getElementById('submit-spinner');
-            const successModal = document.getElementById('success-modal');
-            const closeModalBtn = document.getElementById('close-modal-btn');
-            
-            // Input fields and error messages
-            const inputs = {
-                name: document.getElementById('name'),
-                email: document.getElementById('email'),
-                description: document.getElementById('description')
-            };
-
-            function showError(fieldId, message) {
-                const field = inputs[fieldId];
-                const errorEl = document.getElementById(`error-${fieldId}`);
-                if (field && errorEl) {
-                    field.classList.add('invalid');
-                    field.setAttribute('aria-invalid', 'true');
-                    errorEl.textContent = message;
-                    errorEl.style.display = 'block';
-                }
-            }
-
-            function hideError(fieldId) {
-                const field = inputs[fieldId];
-                const errorEl = document.getElementById(`error-${fieldId}`);
-                if (field && errorEl) {
-                    field.classList.remove('invalid');
-                    field.setAttribute('aria-invalid', 'false');
-                    errorEl.style.display = 'none';
-                }
-            }
-
-            function validateForm() {
-                let isValid = true;
-                
-                // Reset errors
-                Object.keys(inputs).forEach(hideError);
-
-                // Validate Name
-                if (inputs.name.value.trim() === '') {
-                    showError('name', 'Please enter your name.');
-                    isValid = false;
-                }
-                
-                // Validate Email
-                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                if (inputs.email.value.trim() === '') {
-                    showError('email', 'Please enter your email address.');
-                    isValid = false;
-                } else if (!emailRegex.test(inputs.email.value.trim())) {
-                    showError('email', 'Please enter a valid email address.');
-                    isValid = false;
-                }
-                
-                // Validate Description
-                if (inputs.description.value.trim() === '') {
-                    showError('description', 'Please describe your project.');
-                    isValid = false;
-                }
-
-                return isValid;
-            }
-
-            form.addEventListener('submit', (e) => {
-                e.preventDefault();
-                
-                if (validateForm()) {
-                    // Start loading state
-                    submitText.classList.add('hidden');
-                    submitSpinner.classList.remove('hidden');
-                    submitBtn.disabled = true;
-                    statusMessage.textContent = 'Submitting your request...';
-
-                    // Simulate API call (1 second delay)
-                    setTimeout(() => {
-                        // Stop loading state
-                        submitText.classList.remove('hidden');
-                        submitSpinner.classList.add('hidden');
-                        submitBtn.disabled = false;
-                        
-                        // Show success modal
-                        successModal.classList.remove('opacity-0', 'pointer-events-none');
-                        successModal.classList.add('open');
-                        closeModalBtn.focus();
-                        statusMessage.textContent = 'Submission successful. Modal opened.';
-                        
-                        // Reset form
-                        form.reset();
-                    }, 1000);
-                } else {
-                    statusMessage.textContent = 'Form validation failed. Please check the errors.';
-                    // Focus the first invalid field
-                    const firstInvalid = form.querySelector('.invalid');
-                    if (firstInvalid) {
-                        firstInvalid.focus();
-                    }
-                }
-            });
-            
-            // Close modal
-            function closeModal() {
-                successModal.classList.add('opacity-0', 'pointer-events-none');
-                successModal.classList.remove('open');
-                statusMessage.textContent = 'Modal closed.';
-            }
-            closeModalBtn.addEventListener('click', closeModal);
-            successModal.addEventListener('click', (e) => {
-                if (e.target === successModal) {
-                    closeModal();
-                }
-            });
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape' && successModal.classList.contains('open')) {
-                    closeModal();
-                }
-            });
-
-            // === 8. SET CURRENT YEAR IN FOOTER ===
-            document.getElementById('current-year').textContent = new Date().getFullYear();
-
-        });
-    </script>
+    <script src="script.js"></script>
 
 </body>
 </html>
