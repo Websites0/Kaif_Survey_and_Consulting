@@ -27,6 +27,13 @@ body {
     background-color: var(--color-bg);
     color: var(--color-text);
     transition: var(--transition-all);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex-grow: 1;
 }
 
 /* Sticky Header Scrolled State */
