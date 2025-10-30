@@ -1,0 +1,142 @@
+/* Custom Styles & CSS Variables */
+:root {
+    --color-text: #1f2937; /* gray-800 */
+    --color-bg: #ffffff; /* white */
+    --color-bg-alt: #f9fafb; /* gray-50 */
+    --color-primary: #0f78c7;
+    --color-secondary: #00c6a7;
+    --color-border: #e5e7eb; /* gray-200 */
+    --color-card-bg: #ffffff;
+
+    /* Transitions */
+    --transition-all: all 0.3s ease-in-out;
+
+    scroll-behavior: smooth;
+}
+
+[data-theme="dark"] {
+    --color-text: #f9fafb; /* gray-50 */
+    --color-bg: #111827; /* gray-900 */
+    --color-bg-alt: #1f2937; /* gray-800 */
+    --color-border: #374151; /* gray-700 */
+    --color-card-bg: #1f2937; /* gray-800 */
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    transition: var(--transition-all);
+}
+
+/* Sticky Header Scrolled State */
+.header-scrolled {
+    background-color: var(--color-bg);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+[data-theme="dark"] .header-scrolled {
+    background-color: var(--color-bg-alt);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.1);
+}
+
+/* Section Backgrounds */
+.bg-alt {
+    background-color: var(--color-bg-alt);
+}
+.bg-main {
+    background-color: var(--color-bg);
+}
+.card-bg {
+    background-color: var(--color-card-bg);
+    border: 1px solid var(--color-border);
+}
+
+/* Form Input Styles */
+.form-input {
+    background-color: var(--color-bg-alt);
+    border: 1px solid var(--color-border);
+    color: var(--color-text);
+    transition: var(--transition-all);
+}
+.form-input:focus {
+    --tw-ring-color: var(--color-primary);
+    border-color: var(--color-primary);
+    background-color: var(--color-bg);
+}
+
+.form-input.invalid {
+    border-color: #ef4444; /* red-500 */
+}
+
+/* Animations */
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.fade-in-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    .fade-in-section {
+        transition: none;
+    }
+    * {
+        animation: none !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* Custom Focus */
+:focus-visible {
+    outline: 3px solid var(--color-primary);
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
+@keyframes stroke {
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+@keyframes scale {
+    0%, 100% {
+        transform: none;
+    }
+    50% {
+        transform: scale3d(1.1, 1.1, 1);
+    }
+}
+@keyframes fill {
+    100% {
+        box-shadow: inset 0px 0px 0px 40px var(--color-secondary);
+    }
+}
+
+/* Printable-friendly styles */
+@media print {
+    body {
+        background-color: #ffffff;
+        color: #000000;
+    }
+    header, footer, .no-print {
+        display: none;
+    }
+    section {
+        margin: 0 0 1.5rem 0;
+        padding: 0;
+    }
+    .text-gradient {
+        background: none;
+        -webkit-text-fill-color: #000000;
+        color: #000000;
+    }
+    .card-bg {
+        border: 1px solid #ccc;
+        box-shadow: none;
+    }
+}
