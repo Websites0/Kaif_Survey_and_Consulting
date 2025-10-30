@@ -7,6 +7,7 @@ This is the official website for Kaif Survey and Consulting, a company specializ
 - https://websites0.github.io/Kaif_Survey_and_Consulting/
 - https://kaif-survey-and-consulting-ksc.vercel.app/
 - https://kaif-survey-and-consulting.vercel.app/
+- https://kaifsurveyandconsulting.netlify.app/
 
 ## About
 
