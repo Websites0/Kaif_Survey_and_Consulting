@@ -11,13 +11,15 @@ This is the official website for Kaif Survey and Consulting, a company specializ
 
 ## About
 
-Kaif Survey and Consulting is a trusted partner for accurate and comprehensive surveying solutions. With a commitment to excellence and a passion for precision, we have been a trusted partner in the industry for over a decade.
+Kaif Survey and Consulting is a trusted partner for accurate and comprehensive surveying solutions. With a commitment to excellence and a passion for precision, we have been a trusted partner in the industry for over a decade. This website serves as a comprehensive guide to our services, methodologies, and commitment to quality. It is designed to be accessible, user-friendly, and informative for potential clients and partners.
 
 ## Features
 
-- **Responsive Design:** The website is fully responsive and works on all devices.
-- **Dark Mode:** The website has a dark mode feature that can be toggled by the user.
-- **Dynamic Copyright Year:** The copyright year in the footer is automatically updated.
+- **Responsive Design:** The website is fully responsive and works on all devices, ensuring a seamless experience whether you are on a desktop, tablet, or mobile phone.
+- **Dark Mode:** The website has a dark mode feature that can be toggled by the user, providing a comfortable viewing experience in low-light environments.
+- **Dynamic Copyright Year:** The copyright year in the footer is automatically updated to ensure the website is always current.
+- **Interactive Elements:** The website includes interactive elements such as a theme toggler, smooth scrolling, and animated statistics to enhance user engagement.
+- **Contact Form:** A fully functional contact form with validation is available for users to request a quote or get in touch with us.
 
 ## Technologies Used
 
@@ -35,5 +37,7 @@ To view the website, simply open the `index.html` file in your web browser. You 
 .
 ├── README.md
 ├── index.html
+├── script.js
+├── style.css
 └── logo.png
 ```
