@@ -4,10 +4,18 @@ This is the official website for Kaif Survey and Consulting, a company specializ
 
 ## Deployed Links
 
-- https://websites0.github.io/Kaif_Survey_and_Consulting/
-- https://kaif-survey-and-consulting-ksc.vercel.app/
-- https://kaif-survey-and-consulting.vercel.app/
-- https://kaifsurveyandconsulting.netlify.app/
+- [GitHub Pages](https://websites0.github.io/Kaif_Survey_and_Consulting/)
+- [Vercel (KSC)](https://kaif-survey-and-consulting-ksc.vercel.app/)
+- [Vercel](https://kaif-survey-and-consulting.vercel.app/)
+- [Netlify](https://kaifsurveyandconsulting.netlify.app/)
+
+## Table of Contents
+
+- [About](#about)
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Project Structure](#project-structure)
+- [Getting Started](#getting-started)
 
 ## About
 
@@ -27,17 +35,21 @@ Kaif Survey and Consulting is a trusted partner for accurate and comprehensive s
 - **Tailwind CSS:** The website is styled using Tailwind CSS.
 - **JavaScript:** The website uses JavaScript for dynamic features like the theme toggler and copyright year.
 
-## Getting Started
-
-To view the website, simply open the `index.html` file in your web browser. You can also visit one of the deployed links above.
-
-## File Structure
+## Project Structure
 
 ```
 .
-├── README.md
-├── index.html
-├── script.js
-├── style.css
-└── logo.png
+├── README.md      # Project documentation
+├── index.html     # Main HTML structure and content
+├── logo.png       # Company logo image
+├── script.js      # JavaScript for interactivity and logic
+└── style.css      # Custom CSS styles and animations
 ```
+
+## Getting Started
+
+To view the website locally:
+1. Clone this repository.
+2. Open the `index.html` file in your web browser.
+
+You can also visit one of the deployed links listed above.
