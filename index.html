@@ -3,836 +3,1928 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kaif Survey & Consulting - Expert Surveying Solutions</title>
+    <title>Kaif Survey & Consulting | Data-Driven Insights</title>
+    <meta name="description" content="Professional surveying and consulting company led by MD. Ruknuzzaman Alamgir. We provide actionable insights and real-time survey analytics.">
     
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Google Fonts - Inter -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="Kaif Survey & Consulting offers professional land surveying, digital mapping, and GIS consulting services in Dhaka, Bangladesh.">
-    <meta name="keywords" content="Kaif Survey, Surveying, Consulting, Land Survey, Digital Survey, GIS, Dhaka, Bangladesh">
-    <meta name="author" content="Kaif Survey & Consulting">
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://kaifsurvey.com/"> <!-- Placeholder URL -->
-    <meta property="og:title" content="Kaif Survey & Consulting - Expert Surveying Solutions">
-    <meta property="og:description" content="Professional land surveying, digital mapping, and GIS consulting services.">
-    <meta property="og:image" content="logo.png">
+    <style>
+        /* ==========================================================================
+           1. CSS VARIABLES (THEMING & TOKENS)
+           ========================================================================== */
+        :root {
+            /* Light Theme (Default) */
+            --bg-base: #f8fafc;
+            --bg-surface: #ffffff;
+            --bg-surface-alt: #f1f5f9;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+            
+            /* Brand Colors */
+            --primary: #0f78c7;
+            --primary-hover: #0d63a5;
+            --secondary: #00c6a7;
+            --accent: #7c5cff;
+            --gradient: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            
+            /* UI Elements */
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --glass-bg: rgba(255, 255, 255, 0.85);
+            --glass-border: rgba(255, 255, 255, 0.4);
+            
+            /* Typography */
+            --font-family: 'Inter', sans-serif;
+            --fs-h1: clamp(2.5rem, 5vw, 4rem);
+            --fs-h2: clamp(2rem, 4vw, 3rem);
+            --fs-h3: clamp(1.25rem, 2vw, 1.75rem);
+            --fs-body: 1rem;
+            
+            /* Transitions */
+            --transition-fast: 0.2s ease;
+            --transition-normal: 0.3s ease-in-out;
+        }
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://kaifsurvey.com/"> <!-- Placeholder URL -->
-    <meta property="twitter:title" content="Kaif Survey & Consulting - Expert Surveying Solutions">
-    <meta property="twitter:description" content="Professional land surveying, digital mapping, and GIS consulting services.">
-    <meta property="twitter:image" content="logo.png">
+        [data-theme="dark"] {
+            /* Dark Theme Overrides */
+            --bg-base: #0b1121;
+            --bg-surface: #121c36;
+            --bg-surface-alt: #1a2747;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-color: #2a3655;
+            
+            --primary: #3b82f6; /* Adjusted for contrast in dark mode */
+            --primary-hover: #60a5fa;
+            
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.4), 0 2px 4px -2px rgb(0 0 0 / 0.2);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.4), 0 4px 6px -4px rgb(0 0 0 / 0.3);
+            --glass-bg: rgba(18, 28, 54, 0.85);
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
 
-    <link rel="stylesheet" href="style.css">
+        /* ==========================================================================
+           2. RESET & BASE STYLES
+           ========================================================================== */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--bg-base);
+            color: var(--text-main);
+            line-height: 1.6;
+            transition: background-color var(--transition-normal), color var(--transition-normal);
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img, svg {
+            max-width: 100%;
+            display: block;
+        }
+
+        /* Accessibility: Focus Rings */
+        :focus-visible {
+            outline: 2px solid var(--primary);
+            outline-offset: 2px;
+        }
+
+        /* ==========================================================================
+           3. LAYOUT UTILITIES & TYPOGRAPHY
+           ========================================================================== */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            max-width: 800px;
+            margin-inline: auto;
+        }
+
+        .section-title {
+            font-size: var(--fs-h2);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-subtitle {
+            font-size: 1.125rem;
+            color: var(--text-muted);
+        }
+
+        .grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        /* ==========================================================================
+           4. COMPONENTS
+           ========================================================================== */
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.875rem 1.75rem;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            border: none;
+            font-size: 1rem;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: var(--gradient);
+            color: white;
+            box-shadow: 0 4px 15px rgba(15, 120, 199, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(15, 120, 199, 0.4);
+            color: white;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Cards */
+        .card {
+            background: var(--bg-surface);
+            border-radius: 1.5rem;
+            padding: 2.5rem;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-md);
+            transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+            height: 100%;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .icon-wrapper {
+            width: 64px;
+            height: 64px;
+            border-radius: 1rem;
+            background: rgba(15, 120, 199, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        /* ==========================================================================
+           5. HEADER & NAVIGATION
+           ========================================================================== */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--glass-border);
+            transition: all var(--transition-normal);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: var(--text-main);
+        }
+
+        .logo img {
+            height: 40px;
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            color: var(--text-muted);
+            transition: color var(--transition-fast);
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all var(--transition-fast);
+        }
+
+        .theme-toggle:hover {
+            background: var(--bg-surface-alt);
+            color: var(--primary);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-main);
+            cursor: pointer;
+            font-size: 1.5rem;
+            padding: 0.5rem;
+        }
+
+        /* ==========================================================================
+           6. HERO SECTION
+           ========================================================================== */
+        .hero {
+            padding-top: 120px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Background soft glow */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -10%;
+            left: -10%;
+            width: 50vw;
+            height: 50vw;
+            background: radial-gradient(circle, rgba(15, 120, 199, 0.15) 0%, rgba(255,255,255,0) 70%);
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: var(--fs-h1);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+            max-width: 90%;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        /* Custom SVG wrapper for the exact provided SVG */
+        .hero-visual {
+            border-radius: 2rem;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            transform: perspective(1000px) rotateY(-5deg);
+            transition: transform var(--transition-normal);
+            background: #0b1436; /* Fallback for the SVG background */
+        }
+        
+        .hero-visual:hover {
+            transform: perspective(1000px) rotateY(0deg);
+        }
+
+        /* ==========================================================================
+           7. SERVICES SECTION
+           ========================================================================== */
+        .services-grid {
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            color: var(--text-muted);
+        }
+
+        /* ==========================================================================
+           8. HOW IT WORKS & STATS
+           ========================================================================== */
+        .how-it-works-grid {
+            grid-template-columns: repeat(4, 1fr);
+            position: relative;
+        }
+
+        /* Connecting line */
+        .how-it-works-grid::before {
+            content: '';
+            position: absolute;
+            top: 48px;
+            left: 10%;
+            right: 10%;
+            height: 2px;
+            background: var(--border-color);
+            z-index: 0;
+            display: block;
+        }
+
+        .step {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .step-number {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: var(--bg-surface);
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            font-size: 1.5rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            box-shadow: 0 0 0 8px var(--bg-base);
+            transition: all var(--transition-fast);
+        }
+
+        .step:hover .step-number {
+            background: var(--primary);
+            color: white;
+            transform: scale(1.1);
+        }
+
+        /* Stats Row */
+        .stats-container {
+            background: var(--bg-surface-alt);
+            border-radius: 2rem;
+            padding: 4rem 2rem;
+            margin-top: 6rem;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item h4 {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        /* ==========================================================================
+           9. TESTIMONIALS SECTION
+           ========================================================================== */
+        .testimonials-grid {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+
+        .testimonial-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .stars {
+            color: #ffd96a;
+            margin-bottom: 1rem;
+            display: flex;
+            gap: 0.25rem;
+        }
+
+        .quote {
+            font-size: 1.125rem;
+            font-style: italic;
+            margin-bottom: 2rem;
+            color: var(--text-main);
+        }
+
+        .client-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .client-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        /* ==========================================================================
+           10. PRICING SECTION
+           ========================================================================== */
+        .pricing-grid {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            align-items: center;
+        }
+
+        .pricing-card {
+            padding: 3rem 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .pricing-card.popular {
+            border: 2px solid var(--primary);
+            transform: scale(1.05);
+            background: var(--bg-surface);
+            z-index: 10;
+        }
+
+        .pricing-card.popular:hover {
+            transform: scale(1.05) translateY(-5px);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gradient);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .price {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin: 1.5rem 0;
+            color: var(--text-main);
+        }
+
+        .price span {
+            font-size: 1rem;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        .pricing-features {
+            margin: 2rem 0;
+            text-align: left;
+        }
+
+        .pricing-features li {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .pricing-features svg {
+            color: var(--secondary);
+            flex-shrink: 0;
+        }
+
+        /* ==========================================================================
+           11. CONTACT FORM SECTION
+           ========================================================================== */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 4rem;
+            background: var(--bg-surface);
+            border-radius: 2rem;
+            padding: 4rem;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border-color);
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .info-item {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .info-item .icon {
+            width: 48px;
+            height: 48px;
+            background: var(--bg-surface-alt);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            flex-shrink: 0;
+        }
+
+        .contact-form {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            position: relative;
+        }
+
+        .form-label {
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        .form-control {
+            padding: 1rem 1.25rem;
+            border-radius: 0.75rem;
+            border: 1px solid var(--border-color);
+            background: var(--bg-base);
+            color: var(--text-main);
+            font-family: inherit;
+            font-size: 1rem;
+            transition: all var(--transition-fast);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(15, 120, 199, 0.1);
+        }
+
+        .form-control.error {
+            border-color: #ef4444;
+        }
+
+        .error-message {
+            color: #ef4444;
+            font-size: 0.875rem;
+            display: none;
+            position: absolute;
+            bottom: -1.25rem;
+            left: 0;
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* Loading Spinner */
+        .spinner {
+            display: none;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* ==========================================================================
+           12. FOOTER
+           ========================================================================== */
+        .footer {
+            background: var(--bg-surface-alt);
+            padding: 4rem 0 2rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 4rem;
+        }
+
+        .footer-brand p {
+            color: var(--text-muted);
+            margin-top: 1rem;
+            max-width: 300px;
+        }
+
+        .footer h4 {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-main);
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            transition: color var(--transition-fast);
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--bg-surface);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            transition: all var(--transition-fast);
+            border: 1px solid var(--border-color);
+        }
+
+        .social-icon:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+
+        /* ==========================================================================
+           13. SUCCESS MODAL
+           ========================================================================== */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(4px);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity var(--transition-normal);
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .modal-content {
+            background: var(--bg-surface);
+            padding: 3rem;
+            border-radius: 1.5rem;
+            max-width: 400px;
+            width: 90%;
+            text-align: center;
+            transform: scale(0.9) translateY(20px);
+            transition: transform var(--transition-normal);
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border-color);
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: scale(1) translateY(0);
+        }
+
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            background: #10b981;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: white;
+        }
+
+        .modal-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-content p {
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+
+        /* ==========================================================================
+           14. ANIMATIONS & INTERSECTION OBSERVER UTILS
+           ========================================================================== */
+        .animate-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .animate-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, ::before, ::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+            .animate-up {
+                opacity: 1;
+                transform: none;
+            }
+        }
+
+        /* ==========================================================================
+           15. RESPONSIVE DESIGN (MEDIA QUERIES)
+           ========================================================================== */
+        @media (max-width: 1024px) {
+            .hero-grid {
+                gap: 2rem;
+            }
+            .contact-container {
+                grid-template-columns: 1fr;
+                padding: 3rem;
+            }
+            .how-it-works-grid::before {
+                display: none;
+            }
+            .how-it-works-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 3rem 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: var(--bg-surface);
+                flex-direction: column;
+                justify-content: center;
+                gap: 2rem;
+                transition: left 0.3s ease;
+            }
+            .nav-links.active {
+                left: 0;
+            }
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            /* Order change: Image below text on mobile */
+            .hero-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+                padding-top: 2rem;
+            }
+            .hero-content {
+                order: 1;
+            }
+            .hero-actions {
+                justify-content: center;
+            }
+            .hero-visual {
+                order: 2;
+                margin-top: 2rem;
+            }
+            
+            .pricing-card.popular {
+                transform: scale(1);
+            }
+            .pricing-card.popular:hover {
+                transform: translateY(-5px);
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                text-align: center;
+            }
+            .footer-brand p {
+                margin: 1rem auto 0;
+            }
+            .social-links {
+                justify-content: center;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .how-it-works-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
-<body class="transition-colors duration-300">
+<body>
 
-    <!-- ARIA Live Region for announcements -->
-    <div id="status-message" class="sr-only" role="status" aria-live="polite"></div>
-
-    <!-- Header -->
-    <header id="header" class="fixed top-0 left-0 right-0 z-40 transition-all duration-300">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center max-w-7xl">
-            <!-- Logo -->
-            <a href="#hero" class="flex items-center space-x-2 flex-shrink-0">
-                <img src="logo.png"
-                     alt="Kaif Survey & Consulting Logo" 
-                     class="h-10 w-10 sm:h-12 sm:w-12 object-contain">
-                <span class="font-bold text-lg sm:text-xl text-blue-600 dark:text-cyan-400">Kaif Survey</span>
+    <!-- Header / Navigation -->
+    <header class="header" id="header">
+        <div class="container nav-container">
+            <a href="#home" class="logo" aria-label="Kaif Survey & Consulting Home">
+                <!-- Using the provided logo -->
+                <img src="https://uploads.onecompiler.io/43y3by72c/4428darze/1000007296.png" alt="Kaif Survey & Consulting Logo">
+                <span>Kaif Survey</span>
             </a>
+            
+            <nav>
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="#home" class="nav-link active">Home</a></li>
+                    <li><a href="#services" class="nav-link">Services</a></li>
+                    <li><a href="#how-it-works" class="nav-link">How It Works</a></li>
+                    <li><a href="#pricing" class="nav-link">Pricing</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
 
-            <!-- Mobile Menu Button -->
-            <button id="mobile-menu-btn" class="md:hidden p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-primary no-print" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path class="menu-line menu-line-top" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16"></path>
-                    <path class="menu-line menu-line-middle" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 12h16"></path>
-                    <path class="menu-line menu-line-bottom" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 18h16"></path>
-                </svg>
-            </button>
-
-            <!-- Desktop Navigation -->
-            <div class="hidden md:flex items-center space-x-6">
-                <a href="#services" class="font-medium hover:text-primary transition-colors">Services</a>
-                <a href="#how-it-works" class="font-medium hover:text-primary transition-colors">How It Works</a>
-                <a href="#pricing" class="font-medium hover:text-primary transition-colors">Pricing</a>
-                <a href="#contact" class="font-medium hover:text-primary transition-colors">Contact</a>
-
-                <!-- Theme Toggle -->
-                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors focus:outline-none focus:ring-2 focus:ring-primary no-print group" aria-label="Toggle dark mode">
-                    <!-- Sun Icon -->
-                    <svg id="theme-icon-light" class="w-5 h-5 hidden group-hover:rotate-90 transition-transform duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M12 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+                    <!-- Sun Icon (Default) -->
+                    <svg id="theme-icon-sun" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
                     <!-- Moon Icon -->
-                    <svg id="theme-icon-dark" class="w-5 h-5 hidden group-hover:-rotate-12 transition-transform duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+                    <svg id="theme-icon-moon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
                 </button>
-                
-                <a href="#contact" class="px-5 py-3 rounded-lg font-semibold text-white bg-blue-600 hover:bg-blue-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">Request Quote</a>
-            </div>
-        </nav>
-
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-main border-t border-b border-gray-200 dark:border-gray-700 no-print">
-            <div class="flex flex-col space-y-4 p-6">
-                <a href="#services" class="mobile-nav-link font-medium hover:text-primary transition-colors">Services</a>
-                <a href="#how-it-works" class="mobile-nav-link font-medium hover:text-primary transition-colors">How It Works</a>
-                <a href="#pricing" class="mobile-nav-link font-medium hover:text-primary transition-colors">Pricing</a>
-                <a href="#contact" class="mobile-nav-link font-medium hover:text-primary transition-colors">Contact</a>
-                <a href="#contact" class="px-5 py-3 rounded-lg font-semibold text-white bg-blue-600 hover:bg-blue-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 w-full text-center">Request Quote</a>
-                
-                <div class="flex justify-between items-center pt-4 border-t border-gray-200 dark:border-gray-700">
-                    <span class="font-medium">Theme</span>
-                    <!-- Theme Toggle (Mobile) -->
-                    <button id="theme-toggle-mobile" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors focus:outline-none focus:ring-2 focus:ring-primary group" aria-label="Toggle dark mode">
-                        <!-- Sun Icon -->
-                        <svg id="theme-icon-light-mobile" class="w-5 h-5 hidden group-hover:rotate-90 transition-transform duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M12 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
-                        <!-- Moon Icon -->
-                        <svg id="theme-icon-dark-mobile" class="w-5 h-5 hidden group-hover:-rotate-12 transition-transform duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
-                    </button>
-                </div>
+                <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle mobile menu" aria-expanded="false">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                </button>
             </div>
         </div>
     </header>
 
     <main>
-        <!-- Section 1: Hero -->
-        <section id="hero" class="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden bg-alt">
-            <div class="absolute inset-0 opacity-10 [data-theme='dark']:opacity-5" style="background-image: url('https://www.transparenttextures.com/patterns/cubes.png');"></div>
-            
-            <div class="container mx-auto px-6 max-w-7xl relative z-10">
-                <div class="flex flex-col lg:flex-row items-center">
-                    <!-- Hero Text Content -->
-                    <div class="lg:w-1/2 text-center lg:text-left">
-                        <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold !leading-tight mb-6">
-                            Precision Surveying.
-                            <span class="text-blue-600 dark:text-cyan-400 block">Actionable Insights.</span>
-                        </h1>
-                        <p class="text-lg md:text-xl opacity-80 mb-10 max-w-xl mx-auto lg:mx-0">
-                            Kaif Survey & Consulting provides expert land survey, digital mapping, and GIS solutions to power your projects with accurate data.
-                        </p>
-                        <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                            <a href="#contact" class="px-5 py-3 rounded-lg font-semibold text-white bg-blue-600 hover:bg-blue-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">Start Your Survey</a>
-                            <a href="#services" class="px-5 py-3 rounded-lg font-semibold border-2 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 text-blue-600 border-blue-600 hover:bg-blue-600 hover:text-white focus:ring-blue-500 dark:text-white dark:border-cyan-500 dark:hover:bg-cyan-500 dark:hover:border-cyan-500 dark:focus:ring-cyan-500">Our Services</a>
-                        </div>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="container hero-grid">
+                <div class="hero-content animate-up">
+                    <h1>Precision Surveying &amp; Actionable Insights.</h1>
+                    <p>Empowering your business with real-time survey analytics and expert consulting strategies. Make data-driven decisions that matter.</p>
+                    <div class="hero-actions">
+                        <a href="#contact" class="btn btn-primary">Request Quote</a>
+                        <a href="#services" class="btn btn-outline">Explore Services</a>
                     </div>
-                    
-                    <!-- Hero Image/Graphic -->
-                    <div class="lg:w-1/2 mt-12 lg:mt-0">
-                        <div class="w-full max-w-lg mx-auto lg:mr-0 relative">
-                            <!-- Animated SVG Illustration -->
-                            <div class="rounded-2xl shadow-2xl w-full h-auto bg-white dark:bg-gray-800 overflow-hidden border border-gray-100 dark:border-gray-700">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" class="w-full h-auto">
-                                  <defs>
-                                    <style>
-                                      .hero-primary { fill: #2563EB; }
-                                      .hero-secondary { fill: #22D3EE; }
-                                      .hero-stroke { stroke: #2563EB; }
-                                      .hero-bg-stroke { stroke: #e5e7eb; }
-
-                                      /* Dark mode support via class if embedded */
-                                      .dark .hero-bg-stroke { stroke: #374151; }
-
-                                      @keyframes float {
-                                        0%, 100% { transform: translateY(0); }
-                                        50% { transform: translateY(-10px); }
-                                      }
-                                      @keyframes pulse-ring {
-                                        0% { transform: scale(0.8); opacity: 1; }
-                                        100% { transform: scale(2); opacity: 0; }
-                                      }
-                                      @keyframes draw-lines {
-                                        0% { stroke-dashoffset: 1000; }
-                                        100% { stroke-dashoffset: 0; }
-                                      }
-
-                                      .animate-float { animation: float 6s ease-in-out infinite; }
-                                      .animate-pulse-ring { animation: pulse-ring 3s cubic-bezier(0.215, 0.61, 0.355, 1) infinite; }
-
-                                      .topo-line {
-                                        fill: none;
-                                        stroke-width: 2;
-                                        stroke-dasharray: 1000;
-                                        stroke-dashoffset: 1000;
-                                        animation: draw-lines 5s linear forwards;
-                                      }
-                                    </style>
-                                  </defs>
-
-                                  <!-- Background Abstract Topo Lines -->
-                                  <g class="opacity-30 dark:opacity-20">
-                                    <path class="hero-bg-stroke topo-line" d="M-50,300 Q150,200 400,300 T850,300" />
-                                    <path class="hero-bg-stroke topo-line" d="M-50,350 Q150,250 400,350 T850,350" style="animation-delay: 0.5s"/>
-                                    <path class="hero-bg-stroke topo-line" d="M-50,400 Q150,300 400,400 T850,400" style="animation-delay: 1s"/>
-                                    <path class="hero-bg-stroke topo-line" d="M-50,450 Q150,350 400,450 T850,450" style="animation-delay: 1.5s"/>
-                                    <path class="hero-bg-stroke topo-line" d="M-50,250 Q150,150 400,250 T850,250" style="animation-delay: 0.2s"/>
-                                    <path class="hero-bg-stroke topo-line" d="M-50,500 Q150,400 400,500 T850,500" style="animation-delay: 1.8s"/>
-                                  </g>
-
-                                  <!-- Abstract Map/Terrain Base -->
-                                  <g transform="translate(100, 150)">
-                                    <path fill="#f3f4f6" class="dark:fill-gray-800 transition-colors duration-300" d="M0,200 L300,50 L600,200 L300,350 Z" />
-                                    <path fill="#e5e7eb" class="dark:fill-gray-700 transition-colors duration-300" d="M0,200 L300,350 L300,370 L0,220 Z" />
-                                    <path fill="#d1d5db" class="dark:fill-gray-600 transition-colors duration-300" d="M300,350 L600,200 L600,220 L300,370 Z" />
-
-                                    <!-- Grid on Map -->
-                                    <path stroke="currentColor" stroke-opacity="0.1" fill="none" d="M150,125 L450,275 M300,50 L300,350 M450,125 L150,275" />
-                                  </g>
-
-                                  <!-- Map Markers -->
-                                  <g transform="translate(400, 300)">
-                                    <!-- Pulse Ring -->
-                                    <circle cx="0" cy="0" r="10" class="hero-stroke animate-pulse-ring" fill="none" stroke-width="2" />
-                                    <circle cx="0" cy="0" r="10" class="hero-stroke animate-pulse-ring" fill="none" stroke-width="2" style="animation-delay: 1s"/>
-
-                                    <!-- Pin -->
-                                    <g class="animate-float">
-                                      <path class="hero-primary" d="M-15,-30 C-15,-45 15,-45 15,-30 C15,-15 0,0 0,0 C0,0 -15,-15 -15,-30" />
-                                      <circle fill="white" cx="0" cy="-30" r="5" />
-                                    </g>
-                                  </g>
-
-                                  <g transform="translate(250, 250)">
-                                      <!-- Smaller Pin -->
-                                       <g class="animate-float" style="animation-delay: 2s; transform-origin: center;">
-                                        <path class="hero-secondary" d="M-10,-20 C-10,-30 10,-30 10,-20 C10,-10 0,0 0,0 C0,0 -10,-10 -10,-20" />
-                                        <circle fill="white" cx="0" cy="-20" r="3" />
-                                      </g>
-                                  </g>
-
-                                  <!-- Survey Equipment (Total Station) Representation -->
-                                  <g transform="translate(550, 350) scale(0.8)">
-                                      <!-- Tripod Legs -->
-                                      <line x1="0" y1="0" x2="-40" y2="120" stroke="#4b5563" stroke-width="4" stroke-linecap="round" />
-                                      <line x1="0" y1="0" x2="40" y2="120" stroke="#4b5563" stroke-width="4" stroke-linecap="round" />
-                                      <line x1="0" y1="0" x2="0" y2="110" stroke="#4b5563" stroke-width="4" stroke-linecap="round" opacity="0.5"/>
-
-                                      <!-- Device Body -->
-                                      <rect x="-25" y="-60" width="50" height="60" rx="5" fill="#1f2937" />
-                                      <rect x="-20" y="-55" width="40" height="40" fill="#374151" />
-
-                                      <!-- Lens -->
-                                      <circle cx="0" cy="-35" r="15" fill="#2563EB" opacity="0.8" />
-                                      <circle cx="5" cy="-40" r="5" fill="white" opacity="0.4" />
-
-                                      <!-- Top Handle -->
-                                      <path d="M-20,-60 L-20,-80 L20,-80 L20,-60" fill="none" stroke="#1f2937" stroke-width="6" />
-                                  </g>
-
-                                  <!-- Drone -->
-                                  <g transform="translate(200, 100)" class="animate-float" style="animation-duration: 4s;">
-                                      <path fill="#1f2937" d="M-30,0 L30,0 M0,-30 L0,30" stroke="#1f2937" stroke-width="4" />
-                                      <circle cx="0" cy="0" r="10" class="hero-primary" />
-                                      <!-- Rotors (simulated with circles) -->
-                                      <circle cx="-30" cy="0" r="12" fill="#22D3EE" opacity="0.2">
-                                          <animate attributeName="opacity" values="0.2;0.5;0.2" dur="0.1s" repeatCount="indefinite" />
-                                      </circle>
-                                      <circle cx="30" cy="0" r="12" fill="#22D3EE" opacity="0.2">
-                                           <animate attributeName="opacity" values="0.2;0.5;0.2" dur="0.1s" repeatCount="indefinite" />
-                                      </circle>
-                                      <circle cx="0" cy="-30" r="12" fill="#22D3EE" opacity="0.2">
-                                           <animate attributeName="opacity" values="0.2;0.5;0.2" dur="0.1s" repeatCount="indefinite" />
-                                      </circle>
-                                      <circle cx="0" cy="30" r="12" fill="#22D3EE" opacity="0.2">
-                                           <animate attributeName="opacity" values="0.2;0.5;0.2" dur="0.1s" repeatCount="indefinite" />
-                                      </circle>
-                                  </g>
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section 2: Services -->
-        <section id="services" class="py-20 md:py-32 bg-main fade-in-section">
-            <div class="container mx-auto px-6 max-w-7xl">
-                <div class="text-center max-w-3xl mx-auto mb-16">
-                    <span class="text-primary font-semibold uppercase tracking-wider">Our Services</span>
-                    <h2 class="text-3xl md:text-4xl font-bold mt-4 mb-6">What We Offer</h2>
-                    <p class="text-lg opacity-70">
-                        From foundational surveys to complex geospatial analysis, we deliver comprehensive solutions tailored to your needs.
-                    </p>
                 </div>
                 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Service Card 1 -->
-                    <div class="card-bg p-8 rounded-2xl shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
-                        <div class="p-3 rounded-full bg-blue-600 inline-block mb-6">
-                            <svg class="w-8 h-8 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                              <style>
-                                .scan-line {
-                                  animation: scan 2s linear infinite;
-                                }
-                                @keyframes scan {
-                                  0% { transform: translateY(0); opacity: 0; }
-                                  10% { opacity: 1; }
-                                  90% { opacity: 1; }
-                                  100% { transform: translateY(14px); opacity: 0; }
-                                }
-                                .marker {
-                                  animation: bounce 1s infinite alternate;
-                                }
-                                @keyframes bounce {
-                                  to { transform: translateY(-2px); }
-                                }
-                              </style>
-                              <!-- Map Boundary -->
-                              <path d="M3 6l3-3h12l3 3v12l-3 3H6l-3-3z" />
-                              <!-- Internal Grid -->
-                              <path d="M9 3v18M15 3v18M3 9h18M3 15h18" opacity="0.3"/>
-                              <!-- Markers -->
-                              <circle cx="9" cy="9" r="1" class="marker" fill="currentColor" stroke="none"/>
-                              <circle cx="15" cy="15" r="1" class="marker" fill="currentColor" stroke="none" style="animation-delay: 0.5s"/>
+                <!-- SVG Hero Illustration Container -->
+                <div class="hero-visual animate-up delay-200">
+                    <!-- EXACT SVG PROVIDED IN PROMPT -->
+                    <svg width="100%" height="100%" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+                      <defs>
+                        <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+                          <stop offset="0%" stop-color="#0b1436"/>
+                          <stop offset="55%" stop-color="#12357f"/>
+                          <stop offset="100%" stop-color="#1a59c8"/>
+                        </linearGradient>
 
-                              <!-- Scan Line -->
-                              <line x1="4" y1="5" x2="20" y2="5" class="scan-line" stroke-width="1" stroke-dasharray="2 2"/>
-                            </svg>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-4">Land & Cadastral Survey</h3>
-                        <p class="opacity-70">
-                            Accurate boundary, topographic, and property surveys for legal, construction, and planning purposes.
-                        </p>
-                    </div>
-                    
-                    <!-- Service Card 2 -->
-                    <div class="card-bg p-8 rounded-2xl shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
-                        <div class="p-3 rounded-full bg-blue-600 inline-block mb-6">
-                            <svg class="w-8 h-8 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                              <style>
-                                .layer {
-                                  animation: stack 3s ease-in-out infinite;
-                                }
-                                @keyframes stack {
-                                  0%, 100% { transform: translateY(0); }
-                                  50% { transform: translateY(-2px); }
-                                }
-                                .node {
-                                  animation: pulse 2s infinite;
-                                }
-                                @keyframes pulse {
-                                  0% { r: 1; opacity: 0.5; }
-                                  50% { r: 2; opacity: 1; }
-                                  100% { r: 1; opacity: 0.5; }
-                                }
-                              </style>
-                              <!-- Layers -->
-                              <path class="layer" d="M2 14l10 5 10-5" style="animation-delay: 0s"/>
-                              <path class="layer" d="M2 10l10 5 10-5" style="animation-delay: 0.2s"/>
-                              <path class="layer" d="M12 2L2 7l10 5 10-5-10-5z" style="animation-delay: 0.4s"/>
+                        <radialGradient id="blobA" cx="0.5" cy="0.5" r="0.5">
+                          <stop offset="0%" stop-color="#48e7ff" stop-opacity="0.55"/>
+                          <stop offset="100%" stop-color="#48e7ff" stop-opacity="0"/>
+                        </radialGradient>
 
-                              <!-- Connected Nodes on top layer -->
-                              <circle cx="12" cy="7" r="1" class="node" fill="currentColor" stroke="none"/>
-                              <circle cx="7" cy="9.5" r="1" class="node" fill="currentColor" stroke="none" style="animation-delay: 0.5s"/>
-                              <circle cx="17" cy="9.5" r="1" class="node" fill="currentColor" stroke="none" style="animation-delay: 1s"/>
-                              <line x1="12" y1="7" x2="7" y2="9.5" stroke-width="0.5" opacity="0.5"/>
-                              <line x1="12" y1="7" x2="17" y2="9.5" stroke-width="0.5" opacity="0.5"/>
-                            </svg>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-4">GIS & Digital Mapping</h3>
-                        <p class="opacity-70">
-                            Advanced Geographic Information System (GIS) services, data visualization, and spatial analysis to reveal patterns.
-                        </p>
-                    </div>
-                    
-                    <!-- Service Card 3 -->
-                    <div class="card-bg p-8 rounded-2xl shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
-                        <div class="p-3 rounded-full bg-blue-600 inline-block mb-6">
-                            <svg class="w-8 h-8 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                              <style>
-                                .bar {
-                                  animation: grow 2s ease-out infinite alternate;
-                                  transform-origin: bottom;
-                                }
-                                @keyframes grow {
-                                  0% { transform: scaleY(0.5); }
-                                  100% { transform: scaleY(1); }
-                                }
-                                .bulb {
-                                  animation: shine 2s ease-in-out infinite;
-                                }
-                                @keyframes shine {
-                                  0%, 100% { opacity: 0.5; }
-                                  50% { opacity: 1; }
-                                }
-                              </style>
-                              <!-- Chart Background -->
-                              <path d="M18 20V10" />
-                              <path d="M12 20V4" />
-                              <path d="M6 20v-6" />
+                        <radialGradient id="blobB" cx="0.5" cy="0.5" r="0.5">
+                          <stop offset="0%" stop-color="#8f6bff" stop-opacity="0.45"/>
+                          <stop offset="100%" stop-color="#8f6bff" stop-opacity="0"/>
+                        </radialGradient>
 
-                              <!-- Bars -->
-                              <rect x="5" y="14" width="2" height="6" class="bar" fill="currentColor" stroke="none"/>
-                              <rect x="11" y="4" width="2" height="16" class="bar" fill="currentColor" stroke="none" style="animation-delay: 0.2s"/>
-                              <rect x="17" y="10" width="2" height="10" class="bar" fill="currentColor" stroke="none" style="animation-delay: 0.4s"/>
+                        <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1">
+                          <stop offset="0%" stop-color="#ffffff" stop-opacity="0.18"/>
+                          <stop offset="100%" stop-color="#ffffff" stop-opacity="0.06"/>
+                        </linearGradient>
 
-                              <!-- Trend Line -->
-                              <polyline points="4 14 12 4 20 10" stroke-dasharray="2 2"/>
-                              <circle cx="12" cy="4" r="2" class="bulb" fill="currentColor" stroke="none"/>
-                            </svg>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-4">Expert Consulting</h3>
-                        <p class="opacity-70">
-                            Strategic advice on data management, project planning, and technology implementation to maximize your ROI.
-                        </p>
-                    </div>
+                        <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1">
+                          <stop offset="0%" stop-color="#12204f" stop-opacity="0.95"/>
+                          <stop offset="100%" stop-color="#0d1a44" stop-opacity="0.95"/>
+                        </linearGradient>
+
+                        <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+                          <stop offset="0%" stop-color="#46ecff"/>
+                          <stop offset="100%" stop-color="#7c5cff"/>
+                        </linearGradient>
+
+                        <linearGradient id="accentWarm" x1="0" y1="0" x2="1" y2="1">
+                          <stop offset="0%" stop-color="#ffd96a"/>
+                          <stop offset="100%" stop-color="#ff9d5c"/>
+                        </linearGradient>
+
+                        <linearGradient id="shimmer" x1="0" y1="0" x2="1" y2="0">
+                          <stop offset="0%" stop-color="#ffffff" stop-opacity="0"/>
+                          <stop offset="50%" stop-color="#ffffff" stop-opacity="0.22"/>
+                          <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+                        </linearGradient>
+
+                        <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                          <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#d7e7ff" stroke-opacity="0.10" stroke-width="1"/>
+                        </pattern>
+
+                        <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+                          <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#06102f" flood-opacity="0.45"/>
+                        </filter>
+
+                        <filter id="softBlur" x="-50%" y="-50%" width="200%" height="200%">
+                          <feGaussianBlur stdDeviation="22"/>
+                        </filter>
+
+                        <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+                          <feGaussianBlur stdDeviation="5" result="b"/>
+                          <feMerge>
+                            <feMergeNode in="b"/>
+                            <feMergeNode in="SourceGraphic"/>
+                          </feMerge>
+                        </filter>
+
+                        <clipPath id="mainClip">
+                          <rect x="120" y="105" width="560" height="370" rx="32"/>
+                        </clipPath>
+
+                        <symbol id="star" viewBox="0 0 24 24">
+                          <polygon points="12,1.8 15.1,8.2 22.1,9.2 17,14.1 18.2,21 12,17.7 5.8,21 7,14.1 1.9,9.2 8.9,8.2" />
+                        </symbol>
+                      </defs>
+
+                      <rect x="0" y="0" width="800" height="600" fill="url(#bg)"/>
+                      <rect x="0" y="0" width="800" height="600" fill="url(#grid)"/>
+
+                      <g filter="url(#softBlur)">
+                        <circle cx="150" cy="120" r="110" fill="url(#blobA)">
+                          <animateTransform attributeName="transform" type="translate" values="0 0; 18 12; 0 0" dur="10s" repeatCount="indefinite"/>
+                        </circle>
+                        <circle cx="655" cy="135" r="95" fill="url(#blobB)">
+                          <animateTransform attributeName="transform" type="translate" values="0 0; -22 18; 0 0" dur="12s" repeatCount="indefinite"/>
+                        </circle>
+                        <circle cx="660" cy="480" r="135" fill="url(#blobA)">
+                          <animateTransform attributeName="transform" type="translate" values="0 0; -16 -12; 0 0" dur="11s" repeatCount="indefinite"/>
+                        </circle>
+                        <circle cx="120" cy="490" r="120" fill="url(#blobB)">
+                          <animateTransform attributeName="transform" type="translate" values="0 0; 14 -10; 0 0" dur="13s" repeatCount="indefinite"/>
+                        </circle>
+                      </g>
+
+                      <g opacity="0.45">
+                        <circle cx="92" cy="88" r="4" fill="#ffffff">
+                          <animate attributeName="opacity" values="0.15;0.7;0.15" dur="3s" repeatCount="indefinite"/>
+                        </circle>
+                        <circle cx="705" cy="82" r="3" fill="#46ecff">
+                          <animate attributeName="opacity" values="0.15;0.9;0.15" dur="2.5s" repeatCount="indefinite"/>
+                        </circle>
+                        <circle cx="732" cy="515" r="5" fill="#ffffff">
+                          <animate attributeName="opacity" values="0.15;0.8;0.15" dur="3.8s" repeatCount="indefinite"/>
+                        </circle>
+                        <circle cx="118" cy="540" r="3" fill="#46ecff">
+                          <animate attributeName="opacity" values="0.2;1;0.2" dur="2.8s" repeatCount="indefinite"/>
+                        </circle>
+                      </g>
+
+                      <g filter="url(#shadow)">
+                        <g>
+                          <animateTransform attributeName="transform" type="translate" values="0 0; 0 -8; 0 0" dur="6s" repeatCount="indefinite"/>
+
+                          <rect x="120" y="105" width="560" height="370" rx="32" fill="url(#glass)" stroke="#ffffff" stroke-opacity="0.16" stroke-width="1.5"/>
+                          <rect x="145" y="130" width="510" height="320" rx="26" fill="url(#panel)" stroke="#ffffff" stroke-opacity="0.08" stroke-width="1"/>
+
+                          <rect x="145" y="130" width="510" height="40" rx="26" fill="#ffffff" fill-opacity="0.04"/>
+                          <circle cx="170" cy="150" r="5" fill="#ff7a7a"/>
+                          <circle cx="188" cy="150" r="5" fill="#ffd96a"/>
+                          <circle cx="206" cy="150" r="5" fill="#52e6a8"/>
+
+                          <line x1="406" y1="185" x2="406" y2="425" stroke="#ffffff" stroke-opacity="0.08"/>
+
+                          <text x="165" y="194" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="700">Survey Insights</text>
+                          <text x="165" y="214" fill="#dbe8ff" fill-opacity="0.72" font-family="Arial, Helvetica, sans-serif" font-size="12" letter-spacing="0.6">real-time feedback, happier customers</text>
+
+                          <!-- Checklist rows -->
+                          <g>
+                            <rect x="160" y="228" width="220" height="48" rx="16" fill="#17306d" fill-opacity="0.72" stroke="#ffffff" stroke-opacity="0.06"/>
+                            <circle cx="190" cy="252" r="14" fill="#204594">
+                              <animate attributeName="fill" values="#204594;#39dfff;#204594" dur="6s" repeatCount="indefinite"/>
+                            </circle>
+                            <path d="M 182 252 l 7 8 l 16 -17" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="40" stroke-dashoffset="40">
+                              <animate attributeName="stroke-dashoffset" values="40;0;0;40" keyTimes="0;0.16;0.76;1" dur="6s" repeatCount="indefinite"/>
+                            </path>
+                            <rect x="216" y="242" width="110" height="8" rx="4" fill="#ffffff" fill-opacity="0.86"/>
+                            <rect x="216" y="255" width="78" height="6" rx="3" fill="#c7d9ff" fill-opacity="0.55"/>
+                            <rect x="326" y="240" width="38" height="20" rx="10" fill="#46ecff" fill-opacity="0.18" stroke="#46ecff" stroke-opacity="0.45"/>
+                          </g>
+
+                          <g>
+                            <rect x="160" y="288" width="220" height="48" rx="16" fill="#17306d" fill-opacity="0.72" stroke="#ffffff" stroke-opacity="0.06"/>
+                            <circle cx="190" cy="312" r="14" fill="#204594">
+                              <animate attributeName="fill" values="#204594;#7c5cff;#204594" dur="6s" begin="0.7s" repeatCount="indefinite"/>
+                            </circle>
+                            <path d="M 182 312 l 7 8 l 16 -17" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="40" stroke-dashoffset="40">
+                              <animate attributeName="stroke-dashoffset" values="40;0;0;40" keyTimes="0;0.16;0.76;1" dur="6s" begin="0.7s" repeatCount="indefinite"/>
+                            </path>
+                            <rect x="216" y="302" width="128" height="8" rx="4" fill="#ffffff" fill-opacity="0.86"/>
+                            <rect x="216" y="315" width="92" height="6" rx="3" fill="#c7d9ff" fill-opacity="0.55"/>
+                            <rect x="326" y="300" width="24" height="20" rx="10" fill="#7c5cff" fill-opacity="0.18" stroke="#7c5cff" stroke-opacity="0.45"/>
+                          </g>
+
+                          <g>
+                            <rect x="160" y="348" width="220" height="48" rx="16" fill="#17306d" fill-opacity="0.72" stroke="#ffffff" stroke-opacity="0.06"/>
+                            <circle cx="190" cy="372" r="14" fill="#204594">
+                              <animate attributeName="fill" values="#204594;#ffd96a;#204594" dur="6s" begin="1.4s" repeatCount="indefinite"/>
+                            </circle>
+                            <path d="M 182 372 l 7 8 l 16 -17" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="40" stroke-dashoffset="40">
+                              <animate attributeName="stroke-dashoffset" values="40;0;0;40" keyTimes="0;0.16;0.76;1" dur="6s" begin="1.4s" repeatCount="indefinite"/>
+                            </path>
+                            <rect x="216" y="362" width="118" height="8" rx="4" fill="#ffffff" fill-opacity="0.86"/>
+                            <rect x="216" y="375" width="84" height="6" rx="3" fill="#c7d9ff" fill-opacity="0.55"/>
+                            <rect x="326" y="360" width="32" height="20" rx="10" fill="#ffd96a" fill-opacity="0.18" stroke="#ffd96a" stroke-opacity="0.45"/>
+                          </g>
+
+                          <!-- Rating -->
+                          <text x="165" y="420" fill="#dbe8ff" fill-opacity="0.82" font-family="Arial, Helvetica, sans-serif" font-size="12" letter-spacing="0.5">Average satisfaction</text>
+                          <g transform="translate(160 432)">
+                            <rect x="0" y="0" width="220" height="18" rx="9" fill="#10255e" fill-opacity="0.8"/>
+                            <rect x="8" y="3" width="156" height="12" rx="6" fill="url(#accent)">
+                              <animate attributeName="width" values="20;156;148;156" dur="5s" repeatCount="indefinite"/>
+                            </rect>
+                            <g transform="translate(176 -4)">
+                              <use href="#star" x="0" y="0" width="16" height="16" fill="#ffd96a">
+                                <animate attributeName="opacity" values="0.35;1;1;0.35" keyTimes="0;0.2;0.8;1" dur="5s" repeatCount="indefinite"/>
+                              </use>
+                              <use href="#star" x="16" y="0" width="16" height="16" fill="#ffd96a">
+                                <animate attributeName="opacity" values="0.2;1;1;0.2" keyTimes="0;0.28;0.8;1" dur="5s" repeatCount="indefinite"/>
+                              </use>
+                              <use href="#star" x="32" y="0" width="16" height="16" fill="#ffd96a">
+                                <animate attributeName="opacity" values="0.2;1;1;0.2" keyTimes="0;0.36;0.8;1" dur="5s" repeatCount="indefinite"/>
+                              </use>
+                            </g>
+                          </g>
+
+                          <!-- Right panel title -->
+                          <text x="435" y="194" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700">Response Score</text>
+                          <text x="435" y="214" fill="#dbe8ff" fill-opacity="0.72" font-family="Arial, Helvetica, sans-serif" font-size="12" letter-spacing="0.6">live analytics dashboard</text>
+
+                          <!-- Donut chart -->
+                          <circle cx="535" cy="255" r="62" fill="none" stroke="#ffffff" stroke-opacity="0.08" stroke-width="22"/>
+                          <circle cx="535" cy="255" r="62" fill="none" stroke="url(#accent)" stroke-width="22" stroke-linecap="round" stroke-dasharray="250 140" transform="rotate(-90 535 255)">
+                            <animate attributeName="stroke-dashoffset" values="18;0;18" dur="6s" repeatCount="indefinite"/>
+                          </circle>
+                          <circle cx="535" cy="255" r="62" fill="none" stroke="url(#accentWarm)" stroke-width="22" stroke-linecap="round" stroke-dasharray="72 318" stroke-dashoffset="-168" transform="rotate(-90 535 255)">
+                            <animate attributeName="stroke-dashoffset" values="-168;-182;-168" dur="6s" repeatCount="indefinite"/>
+                          </circle>
+
+                          <g filter="url(#glow)">
+                            <circle cx="535" cy="255" r="39" fill="#0f1f4f" stroke="#ffffff" stroke-opacity="0.08"/>
+                            <text x="535" y="252" text-anchor="middle" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="700">87%</text>
+                            <text x="535" y="272" text-anchor="middle" fill="#dbe8ff" fill-opacity="0.75" font-family="Arial, Helvetica, sans-serif" font-size="11" letter-spacing="0.5">positive</text>
+                          </g>
+
+                          <g transform="rotate(0 535 255)">
+                            <animateTransform attributeName="transform" type="rotate" values="0 535 255;360 535 255" dur="9s" repeatCount="indefinite"/>
+                            <circle cx="535" cy="183" r="6" fill="#46ecff"/>
+                          </g>
+
+                          <!-- Bar chart -->
+                          <text x="435" y="338" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700">Weekly trend</text>
+                          <line x1="448" y1="404" x2="625" y2="404" stroke="#ffffff" stroke-opacity="0.12"/>
+                          <line x1="448" y1="379" x2="625" y2="379" stroke="#ffffff" stroke-opacity="0.06"/>
+                          <line x1="448" y1="354" x2="625" y2="354" stroke="#ffffff" stroke-opacity="0.06"/>
+
+                          <rect x="460" y="372" width="22" height="32" rx="8" fill="#3cdfff">
+                            <animate attributeName="y" values="404;372;378;372" dur="5s" repeatCount="indefinite"/>
+                            <animate attributeName="height" values="0;32;26;32" dur="5s" repeatCount="indefinite"/>
+                          </rect>
+                          <rect x="496" y="352" width="22" height="52" rx="8" fill="#55c7ff">
+                            <animate attributeName="y" values="404;352;360;352" dur="5s" begin="0.2s" repeatCount="indefinite"/>
+                            <animate attributeName="height" values="0;52;44;52" dur="5s" begin="0.2s" repeatCount="indefinite"/>
+                          </rect>
+                          <rect x="532" y="330" width="22" height="74" rx="8" fill="#7c5cff">
+                            <animate attributeName="y" values="404;330;338;330" dur="5s" begin="0.35s" repeatCount="indefinite"/>
+                            <animate attributeName="height" values="0;74;66;74" dur="5s" begin="0.35s" repeatCount="indefinite"/>
+                          </rect>
+                          <rect x="568" y="346" width="22" height="58" rx="8" fill="#9a78ff">
+                            <animate attributeName="y" values="404;346;354;346" dur="5s" begin="0.5s" repeatCount="indefinite"/>
+                            <animate attributeName="height" values="0;58;50;58" dur="5s" begin="0.5s" repeatCount="indefinite"/>
+                          </rect>
+                          <rect x="604" y="316" width="22" height="88" rx="8" fill="#ffd96a">
+                            <animate attributeName="y" values="404;316;324;316" dur="5s" begin="0.65s" repeatCount="indefinite"/>
+                            <animate attributeName="height" values="0;88;80;88" dur="5s" begin="0.65s" repeatCount="indefinite"/>
+                          </rect>
+
+                          <path d="M 471 373 C 492 360 506 351 507 351 C 526 351 531 325 543 325 C 561 325 568 344 579 344 C 594 344 603 310 615 310"
+                                fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="220" stroke-dashoffset="220">
+                            <animate attributeName="stroke-dashoffset" values="220;0;0;220" keyTimes="0;0.28;0.75;1" dur="6s" repeatCount="indefinite"/>
+                          </path>
+                          <circle cx="615" cy="310" r="4" fill="#ffffff">
+                            <animate attributeName="opacity" values="0.2;1;0.2" dur="2s" repeatCount="indefinite"/>
+                          </circle>
+
+                          <!-- Shimmer -->
+                          <g clip-path="url(#mainClip)">
+                            <rect x="-260" y="80" width="120" height="520" fill="url(#shimmer)" transform="rotate(15 400 300)">
+                              <animate attributeName="x" values="-260;880" dur="7s" repeatCount="indefinite"/>
+                            </rect>
+                          </g>
+                        </g>
+                      </g>
+
+                      <!-- Floating review bubble -->
+                      <g transform="translate(580 78)" filter="url(#shadow)">
+                        <animateTransform attributeName="transform" type="translate" values="580 78;580 68;580 78" dur="5s" repeatCount="indefinite"/>
+                        <rect x="0" y="0" width="150" height="100" rx="22" fill="url(#glass)" stroke="#ffffff" stroke-opacity="0.16"/>
+                        <path d="M 30 100 L 48 118 L 53 100 Z" fill="url(#glass)" stroke="#ffffff" stroke-opacity="0.16"/>
+                        <circle cx="122" cy="22" r="6" fill="#46ecff">
+                          <animate attributeName="r" values="5;7;5" dur="2s" repeatCount="indefinite"/>
+                          <animate attributeName="opacity" values="0.5;1;0.5" dur="2s" repeatCount="indefinite"/>
+                        </circle>
+                        <g transform="translate(16 18)">
+                          <use href="#star" x="0" y="0" width="18" height="18" fill="#ffd96a">
+                            <animate attributeName="opacity" values="0.3;1;0.3" dur="2.5s" repeatCount="indefinite"/>
+                          </use>
+                          <use href="#star" x="20" y="0" width="18" height="18" fill="#ffd96a">
+                            <animate attributeName="opacity" values="0.3;1;0.3" dur="2.5s" begin="0.15s" repeatCount="indefinite"/>
+                          </use>
+                          <use href="#star" x="40" y="0" width="18" height="18" fill="#ffd96a">
+                            <animate attributeName="opacity" values="0.3;1;0.3" dur="2.5s" begin="0.3s" repeatCount="indefinite"/>
+                          </use>
+                          <use href="#star" x="60" y="0" width="18" height="18" fill="#ffd96a">
+                            <animate attributeName="opacity" values="0.3;1;0.3" dur="2.5s" begin="0.45s" repeatCount="indefinite"/>
+                          </use>
+                          <use href="#star" x="80" y="0" width="18" height="18" fill="#ffd96a">
+                            <animate attributeName="opacity" values="0.3;1;0.3" dur="2.5s" begin="0.6s" repeatCount="indefinite"/>
+                          </use>
+                        </g>
+                        <rect x="18" y="50" width="102" height="8" rx="4" fill="#ffffff" fill-opacity="0.85"/>
+                        <rect x="18" y="65" width="86" height="6" rx="3" fill="#d7e6ff" fill-opacity="0.58"/>
+                        <rect x="18" y="78" width="62" height="6" rx="3" fill="#d7e6ff" fill-opacity="0.42"/>
+                      </g>
+
+                      <!-- Floating mini insights card -->
+                      <g transform="translate(68 392)" filter="url(#shadow)">
+                        <animateTransform attributeName="transform" type="translate" values="68 392;68 402;68 392" dur="5.8s" repeatCount="indefinite"/>
+                        <rect x="0" y="0" width="185" height="128" rx="24" fill="url(#glass)" stroke="#ffffff" stroke-opacity="0.16"/>
+                        <text x="20" y="28" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700">Audience</text>
+                        <text x="20" y="46" fill="#dbe8ff" fill-opacity="0.72" font-family="Arial, Helvetica, sans-serif" font-size="11" letter-spacing="0.5">engagement up</text>
+
+                        <line x1="20" y1="104" x2="160" y2="104" stroke="#ffffff" stroke-opacity="0.12"/>
+                        <rect x="24" y="84" width="18" height="20" rx="6" fill="#46ecff">
+                          <animate attributeName="height" values="8;20;12;20" dur="4.5s" repeatCount="indefinite"/>
+                          <animate attributeName="y" values="96;84;92;84" dur="4.5s" repeatCount="indefinite"/>
+                        </rect>
+                        <rect x="52" y="70" width="18" height="34" rx="6" fill="#72c7ff">
+                          <animate attributeName="height" values="14;34;24;34" dur="4.5s" begin="0.15s" repeatCount="indefinite"/>
+                          <animate attributeName="y" values="90;70;80;70" dur="4.5s" begin="0.15s" repeatCount="indefinite"/>
+                        </rect>
+                        <rect x="80" y="60" width="18" height="44" rx="6" fill="#7c5cff">
+                          <animate attributeName="height" values="18;44;36;44" dur="4.5s" begin="0.3s" repeatCount="indefinite"/>
+                          <animate attributeName="y" values="86;60;68;60" dur="4.5s" begin="0.3s" repeatCount="indefinite"/>
+                        </rect>
+                        <rect x="108" y="74" width="18" height="30" rx="6" fill="#9f82ff">
+                          <animate attributeName="height" values="12;30;22;30" dur="4.5s" begin="0.45s" repeatCount="indefinite"/>
+                          <animate attributeName="y" values="92;74;82;74" dur="4.5s" begin="0.45s" repeatCount="indefinite"/>
+                        </rect>
+
+                        <path d="M 28 82 C 46 78 50 72 61 72 C 72 72 79 56 89 56 C 100 56 112 74 122 74 C 136 74 145 54 156 54"
+                              fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="180" stroke-dashoffset="180">
+                          <animate attributeName="stroke-dashoffset" values="180;0;0;180" keyTimes="0;0.3;0.78;1" dur="5.8s" repeatCount="indefinite"/>
+                        </path>
+                        <circle cx="156" cy="54" r="4" fill="#ffd96a"/>
+                      </g>
+
+                      <!-- Decorative connecting dots -->
+                      <g opacity="0.5">
+                        <path d="M 258 160 C 280 120 338 92 412 96" fill="none" stroke="#ffffff" stroke-opacity="0.10" stroke-width="1.5" stroke-dasharray="5 8"/>
+                        <path d="M 635 205 C 708 228 726 290 694 356" fill="none" stroke="#46ecff" stroke-opacity="0.18" stroke-width="1.5" stroke-dasharray="5 10"/>
+                        <path d="M 130 430 C 95 352 115 280 158 230" fill="none" stroke="#ffffff" stroke-opacity="0.08" stroke-width="1.5" stroke-dasharray="5 10"/>
+                      </g>
+                    </svg>
                 </div>
             </div>
         </section>
 
-        <!-- Section 3: How It Works -->
-        <section id="how-it-works" class="py-20 md:py-32 bg-alt fade-in-section">
-            <div class="container mx-auto px-6 max-w-7xl">
-                <div class="text-center max-w-3xl mx-auto mb-16">
-                    <span class="text-primary font-semibold uppercase tracking-wider">Our Process</span>
-                    <h2 class="text-3xl md:text-4xl font-bold mt-4 mb-6">A Simple Path to Clarity</h2>
-                    <p class="text-lg opacity-70">
-                        We follow a proven, transparent process to ensure your project's success from start to finish.
-                    </p>
+        <!-- Services Section -->
+        <section id="services" class="section">
+            <div class="container">
+                <div class="section-header animate-up">
+                    <h2 class="section-title">Our Capabilities</h2>
+                    <p class="section-subtitle">Comprehensive survey solutions tailored for profound insights.</p>
                 </div>
                 
-                <!-- Process Steps -->
-                <div class="relative">
-                    <!-- Connecting line -->
-                    <div class="hidden md:block absolute top-1/2 left-0 w-full h-0.5 border-t-2 border-dashed border-primary opacity-50" style="transform: translateY(-50%);"></div>
+                <div class="grid services-grid">
+                    <!-- Service 1 -->
+                    <div class="card service-card animate-up">
+                        <div class="icon-wrapper">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+                        </div>
+                        <h3>Market Research</h3>
+                        <p>In-depth analysis of market trends, competitor intelligence, and target audience behaviors to guide your business strategy.</p>
+                    </div>
                     
-                    <div class="relative grid grid-cols-1 md:grid-cols-4 gap-12">
-                        <!-- Step 1 -->
-                        <div class="text-center">
-                            <div class="relative z-10 w-24 h-24 flex items-center justify-center card-bg rounded-full mx-auto shadow-lg border-4 border-secondary p-4">
-                                <svg class="w-full h-full text-blue-600 dark:text-cyan-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                  <style>
-                                    .bubble {
-                                      animation: pop 2s ease-in-out infinite;
-                                      transform-origin: bottom left;
-                                    }
-                                    @keyframes pop {
-                                      0%, 100% { transform: scale(1); }
-                                      50% { transform: scale(1.1); }
-                                    }
-                                  </style>
-                                  <path class="bubble" d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
-                                  <path d="M8 11h.01" stroke-width="3"/>
-                                  <path d="M12 11h.01" stroke-width="3"/>
-                                  <path d="M16 11h.01" stroke-width="3"/>
-                                </svg>
-                            </div>
-                            <h3 class="text-xl font-bold mt-6 mb-2">Consultation</h3>
-                            <p class="opacity-70">We listen to your needs, define project scope, and establish clear objectives.</p>
+                    <!-- Service 2 -->
+                    <div class="card service-card animate-up delay-100">
+                        <div class="icon-wrapper">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
                         </div>
-                        
-                        <!-- Step 2 -->
-                        <div class="text-center">
-                            <div class="relative z-10 w-24 h-24 flex items-center justify-center card-bg rounded-full mx-auto shadow-lg border-4 border-secondary p-4">
-                                <svg class="w-full h-full text-blue-600 dark:text-cyan-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                  <style>
-                                    .propeller {
-                                      animation: spin 0.2s linear infinite;
-                                      transform-origin: center;
-                                    }
-                                    @keyframes spin {
-                                      to { transform: rotate(360deg); }
-                                    }
-                                    .drone-body {
-                                      animation: hover 2s ease-in-out infinite;
-                                    }
-                                    @keyframes hover {
-                                      0%, 100% { transform: translateY(0); }
-                                      50% { transform: translateY(-2px); }
-                                    }
-                                  </style>
-                                  <g class="drone-body">
-                                    <rect x="10" y="10" width="4" height="4" />
-                                    <line x1="10" y1="10" x2="5" y2="5" />
-                                    <line x1="14" y1="10" x2="19" y2="5" />
-                                    <line x1="10" y1="14" x2="5" y2="19" />
-                                    <line x1="14" y1="14" x2="19" y2="19" />
+                        <h3>Customer Satisfaction</h3>
+                        <p>Measure and track CSAT, NPS, and customer effort scores to improve retention and product loyalty.</p>
+                    </div>
 
-                                    <!-- Propellers -->
-                                    <circle cx="5" cy="5" r="2" class="propeller" style="transform-origin: 5px 5px"/>
-                                    <circle cx="19" cy="5" r="2" class="propeller" style="transform-origin: 19px 5px"/>
-                                    <circle cx="5" cy="19" r="2" class="propeller" style="transform-origin: 5px 19px"/>
-                                    <circle cx="19" cy="19" r="2" class="propeller" style="transform-origin: 19px 19px"/>
-                                  </g>
-                                </svg>
-                            </div>
-                            <h3 class="text-xl font-bold mt-6 mb-2">Data Collection</h3>
-                            <p class="opacity-70">Our expert team conducts precise field surveys using state-of-the-art equipment.</p>
+                    <!-- Service 3 -->
+                    <div class="card service-card animate-up delay-200">
+                        <div class="icon-wrapper">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                         </div>
-                        
-                        <!-- Step 3 -->
-                        <div class="text-center">
-                            <div class="relative z-10 w-24 h-24 flex items-center justify-center card-bg rounded-full mx-auto shadow-lg border-4 border-secondary p-4">
-                                <svg class="w-full h-full text-blue-600 dark:text-cyan-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                  <style>
-                                    .pie-slice {
-                                      animation: reveal 2s ease-out infinite alternate;
-                                      stroke-dasharray: 20 100;
-                                    }
-                                    @keyframes reveal {
-                                      0% { stroke-dasharray: 0 100; }
-                                      100% { stroke-dasharray: 20 100; }
-                                    }
-                                    .magnifier {
-                                      animation: search 3s ease-in-out infinite;
-                                      transform-origin: 10px 10px;
-                                    }
-                                    @keyframes search {
-                                      0% { transform: rotate(0deg) translateX(0); }
-                                      25% { transform: rotate(-10deg) translateX(-2px); }
-                                      50% { transform: rotate(10deg) translateX(2px); }
-                                      100% { transform: rotate(0deg) translateX(0); }
-                                    }
-                                  </style>
-                                  <circle cx="10" cy="10" r="7" />
-                                  <circle cx="10" cy="10" r="3.5" class="pie-slice" stroke-width="7" stroke="currentColor" fill="none" opacity="0.2"/>
+                        <h3>Employee Engagement</h3>
+                        <p>Confidential organizational surveys assessing workplace culture, team alignment, and employee wellness.</p>
+                    </div>
 
-                                  <g class="magnifier">
-                                    <line x1="21" y1="21" x2="15" y2="15" />
-                                    <circle cx="10" cy="10" r="7" />
-                                  </g>
-                                </svg>
-                            </div>
-                            <h3 class="text-xl font-bold mt-6 mb-2">Analysis & Mapping</h3>
-                            <p class="opacity-70">We process, analyze, and map your data to create insightful, accurate visuals.</p>
+                    <!-- Service 4 -->
+                    <div class="card service-card animate-up delay-300">
+                        <div class="icon-wrapper">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
                         </div>
-
-                        <!-- Step 4 -->
-                        <div class="text-center">
-                            <div class="relative z-10 w-24 h-24 flex items-center justify-center card-bg rounded-full mx-auto shadow-lg border-4 border-secondary p-4">
-                                <svg class="w-full h-full text-blue-600 dark:text-cyan-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                  <style>
-                                    .check {
-                                      animation: draw-check 1s ease-in-out infinite alternate;
-                                      stroke-dasharray: 20;
-                                      stroke-dashoffset: 20;
-                                    }
-                                    @keyframes draw-check {
-                                      to { stroke-dashoffset: 0; }
-                                    }
-                                    .paper {
-                                      animation: slide-up 2s ease-out infinite;
-                                    }
-                                    @keyframes slide-up {
-                                      0% { transform: translateY(2px); }
-                                      50% { transform: translateY(0); }
-                                      100% { transform: translateY(2px); }
-                                    }
-                                  </style>
-                                  <path class="paper" d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-                                  <polyline class="paper" points="14 2 14 8 20 8" />
-                                  <path class="check" d="M9 15l2 2 4-4" />
-                                </svg>
-                            </div>
-                            <h3 class="text-xl font-bold mt-6 mb-2">Delivery & Support</h3>
-                            <p class="opacity-70">You receive a comprehensive report, digital files, and our ongoing support.</p>
-                        </div>
+                        <h3>Data Analytics Consulting</h3>
+                        <p>Transform raw survey data into interactive dashboards and executive summaries that clearly outline actionable next steps.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Section 4: Animated Statistics -->
-        <section id="stats" class="py-20 md:py-32 bg-blue-600 text-white fade-in-section">
-            <div class="container mx-auto px-6 max-w-7xl">
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
-                    <div class="flex flex-col items-center">
-                        <div class="mb-4 text-white animate-icon-bounce">
-                            <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
-                        </div>
+        <!-- How It Works Section -->
+        <section id="how-it-works" class="section">
+            <div class="container">
+                <div class="section-header animate-up">
+                    <h2 class="section-title">How It Works</h2>
+                    <p class="section-subtitle">A streamlined process designed to deliver clarity and impact.</p>
+                </div>
+
+                <div class="grid how-it-works-grid">
+                    <div class="step animate-up">
+                        <div class="step-number">1</div>
+                        <h3>Consultation</h3>
+                        <p style="color: var(--text-muted); margin-top: 0.5rem; font-size: 0.95rem;">We discuss your goals, target audience, and key metrics to measure.</p>
+                    </div>
+                    <div class="step animate-up delay-100">
+                        <div class="step-number">2</div>
+                        <h3>Survey Design</h3>
+                        <p style="color: var(--text-muted); margin-top: 0.5rem; font-size: 0.95rem;">Our experts construct unbiased, engaging questionnaires.</p>
+                    </div>
+                    <div class="step animate-up delay-200">
+                        <div class="step-number">3</div>
+                        <h3>Data Collection</h3>
+                        <p style="color: var(--text-muted); margin-top: 0.5rem; font-size: 0.95rem;">Multi-channel distribution ensuring high response rates.</p>
+                    </div>
+                    <div class="step animate-up delay-300">
+                        <div class="step-number">4</div>
+                        <h3>Actionable Insights</h3>
+                        <p style="color: var(--text-muted); margin-top: 0.5rem; font-size: 0.95rem;">Delivery of interactive reports and strategic recommendations.</p>
+                    </div>
+                </div>
+
+                <!-- Animated Stats -->
+                <div class="stats-container animate-up">
+                    <div class="stat-item">
+                        <h4 class="counter" data-target="150">0</h4>
+                        <p>Enterprise Clients</p>
+                    </div>
+                    <div class="stat-item">
+                        <h4 class="counter" data-target="2">0</h4>
+                        <p>Million+ Responses</p>
+                    </div>
+                    <div class="stat-item">
+                        <h4 class="counter" data-target="99">0</h4>
+                        <p>Client Satisfaction %</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Case Studies / Testimonials -->
+        <section id="testimonials" class="section" style="background: var(--bg-surface-alt);">
+            <div class="container">
+                <div class="section-header animate-up">
+                    <h2 class="section-title">Client Success Stories</h2>
+                    <p class="section-subtitle">Don't just take our word for it.</p>
+                </div>
+
+                <div class="grid testimonials-grid">
+                    <div class="card testimonial-card animate-up">
                         <div>
-                            <span id="stat-projects" class="stat-counter text-5xl md:text-6xl font-extrabold" data-target="500">0</span>
-                            <span class="text-5xl md:text-6xl font-extrabold">+</span>
+                            <div class="stars">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                            </div>
+                            <p class="quote">"Kaif Survey transformed our customer retention strategy. Their data visualization made complex trends immediately obvious to our executive board."</p>
                         </div>
-                        <p class="text-xl font-medium opacity-80 mt-2">Projects Completed</p>
+                        <div class="client-info">
+                            <div class="client-avatar">SJ</div>
+                            <div>
+                                <h4 style="font-size: 1rem;">Sarah Jenkins</h4>
+                                <p style="font-size: 0.875rem; color: var(--text-muted);">VP Marketing, TechNova</p>
+                            </div>
+                        </div>
                     </div>
-                     <div class="flex flex-col items-center">
-                        <div class="mb-4 text-white animate-icon-pulse">
-                            <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                        </div>
+
+                    <div class="card testimonial-card animate-up delay-100">
                         <div>
-                            <span id="stat-clients" class="stat-counter text-5xl md:text-6xl font-extrabold" data-target="150">0</span>
-                            <span class="text-5xl md:text-6xl font-extrabold">+</span>
+                            <div class="stars">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                            </div>
+                            <p class="quote">"Professionalism at its peak. MD. Alamgir and his team delivered our employee engagement insights right on schedule with actionable advice."</p>
                         </div>
-                        <p class="text-xl font-medium opacity-80 mt-2">Happy Clients</p>
-                    </div>
-                     <div class="flex flex-col items-center">
-                        <div class="mb-4 text-white animate-icon-float">
-                             <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                        <div class="client-info">
+                            <div class="client-avatar">RH</div>
+                            <div>
+                                <h4 style="font-size: 1rem;">Rahim Hassan</h4>
+                                <p style="font-size: 0.875rem; color: var(--text-muted);">Director of HR, GlobalNet</p>
+                            </div>
                         </div>
-                        <div>
-                            <span id="stat-accuracy" class="stat-counter text-5xl md:text-6xl font-extrabold" data-target="99">0</span>
-                            <span class="text-5xl md:text-6xl font-extrabold">%</span>
-                        </div>
-                        <p class="text-xl font-medium opacity-80 mt-2">Data Accuracy</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Section 5: Testimonials (Placeholder) -->
-        <section id="testimonials" class="py-20 md:py-32 bg-main fade-in-section">
-            <div class="container mx-auto px-6 max-w-7xl">
-                <div class="text-center max-w-3xl mx-auto mb-16">
-                    <span class="text-primary font-semibold uppercase tracking-wider">Testimonials</span>
-                    <h2 class="text-3xl md:text-4xl font-bold mt-4 mb-6">Trusted by Industry Leaders</h2>
+        <!-- Pricing Section -->
+        <section id="pricing" class="section">
+            <div class="container">
+                <div class="section-header animate-up">
+                    <h2 class="section-title">Transparent Packages</h2>
+                    <p class="section-subtitle">Choose the right consulting plan for your company size.</p>
                 </div>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <!-- Testimonial 1 -->
-                    <div class="card-bg p-8 rounded-2xl shadow-lg relative overflow-hidden group">
-                        <div class="absolute top-4 right-4 text-primary opacity-10 group-hover:opacity-20 transition-opacity duration-500">
-                             <svg class="w-24 h-24 transform -rotate-12 group-hover:scale-110 transition-transform duration-500" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M14.017 21L14.017 18C14.017 16.8954 14.9124 16 16.017 16H19.017C19.5693 16 20.017 15.5523 20.017 15V9C20.017 8.44772 19.5693 8 19.017 8H15.017C14.4647 8 14.017 8.44772 14.017 9V11C14.017 11.5523 13.5693 12 13.017 12H12.017V5H22.017V15C22.017 18.3137 19.3307 21 16.017 21H14.017ZM5.0166 21L5.0166 18C5.0166 16.8954 5.91203 16 7.0166 16H10.0166C10.5689 16 11.0166 15.5523 11.0166 15V9C11.0166 8.44772 10.5689 8 10.0166 8H6.0166C5.46432 8 5.0166 8.44772 5.0166 9V11C5.0166 11.5523 4.56889 12 4.0166 12H3.0166V5H13.0166V15C13.0166 18.3137 10.3303 21 7.0166 21H5.0166Z"></path></svg>
-                        </div>
-                        <div class="flex items-center mb-4 relative z-10">
-                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client Avatar" class="w-12 h-12 rounded-full mr-4">
-                            <div>
-                                <h4 class="font-bold text-lg">A. Rahman</h4>
-                                <p class="text-sm opacity-70">CEO, ABC Developers Ltd.</p>
-                            </div>
-                        </div>
-                        <p class="italic opacity-80 relative z-10">
-                            "Kaif Survey's precision and professionalism were outstanding. Their data was critical to our project's success. Highly recommended."
-                        </p>
+
+                <div class="grid pricing-grid">
+                    <!-- Basic -->
+                    <div class="card pricing-card animate-up">
+                        <h3>Starter</h3>
+                        <p style="color:var(--text-muted);">Perfect for local businesses</p>
+                        <div class="price"><span>$</span>499</div>
+                        <ul class="pricing-features">
+                            <li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Up to 1,000 Responses</li>
+                            <li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Standard Survey Design</li>
+                            <li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> PDF Summary Report</li>
+                        </ul>
+                        <button class="btn btn-outline" style="width: 100%;">Select Starter</button>
                     </div>
-                    
-                    <!-- Testimonial 2 -->
-                    <div class="card-bg p-8 rounded-2xl shadow-lg relative overflow-hidden group">
-                        <div class="absolute top-4 right-4 text-primary opacity-10 group-hover:opacity-20 transition-opacity duration-500">
-                             <svg class="w-24 h-24 transform -rotate-12 group-hover:scale-110 transition-transform duration-500" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M14.017 21L14.017 18C14.017 16.8954 14.9124 16 16.017 16H19.017C19.5693 16 20.017 15.5523 20.017 15V9C20.017 8.44772 19.5693 8 19.017 8H15.017C14.4647 8 14.017 8.44772 14.017 9V11C14.017 11.5523 13.5693 12 13.017 12H12.017V5H22.017V15C22.017 18.3137 19.3307 21 16.017 21H14.017ZM5.0166 21L5.0166 18C5.0166 16.8954 5.91203 16 7.0166 16H10.0166C10.5689 16 11.0166 15.5523 11.0166 15V9C11.0166 8.44772 10.5689 8 10.0166 8H6.0166C5.46432 8 5.0166 8.44772 5.0166 9V11C5.0166 11.5523 4.56889 12 4.0166 12H3.0166V5H13.0166V15C13.0166 18.3137 10.3303 21 7.0166 21H5.0166Z"></path></svg>
-                        </div>
-                        <div class="flex items-center mb-4 relative z-10">
-                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Client Avatar" class="w-12 h-12 rounded-full mr-4">
-                            <div>
-                                <h4 class="font-bold text-lg">S. Islam</h4>
-                                <p class="text-sm opacity-70">Project Manager, Dhaka Infra</p>
-                            </div>
-                        </div>
-                        <p class="italic opacity-80 relative z-10">
-                            "The GIS mapping and analysis provided by KSC gave us insights we never had before. Their team is knowledgeable and responsive."
-                        </p>
+
+                    <!-- Pro -->
+                    <div class="card pricing-card popular animate-up delay-100">
+                        <div class="popular-badge">Recommended</div>
+                        <h3>Professional</h3>
+                        <p style="color:var(--text-muted);">For growing organizations</p>
+                        <div class="price"><span>$</span>1,299</div>
+                        <ul class="pricing-features">
+                            <li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Up to 10,000 Responses</li>
+                            <li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Advanced Logic & Branching</li>
+                            <li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Interactive Web Dashboard</li>
+                            <li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> 1-Hour Strategy Call</li>
+                        </ul>
+                        <button class="btn btn-primary" style="width: 100%;">Select Professional</button>
+                    </div>
+
+                    <!-- Enterprise -->
+                    <div class="card pricing-card animate-up delay-200">
+                        <h3>Enterprise</h3>
+                        <p style="color:var(--text-muted);">Custom scale solutions</p>
+                        <div class="price" style="font-size: 2.5rem;">Custom</div>
+                        <ul class="pricing-features">
+                            <li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Unlimited Responses</li>
+                            <li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> API Integrations</li>
+                            <li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Dedicated Data Analyst</li>
+                            <li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> On-Site Presentation</li>
+                        </ul>
+                        <button class="btn btn-outline" style="width: 100%;">Contact Sales</button>
                     </div>
                 </div>
             </div>
         </section>
-        
-        <!-- Section 6: Pricing -->
-        <section id="pricing" class="py-20 md:py-32 bg-alt fade-in-section">
-            <div class="container mx-auto px-6 max-w-7xl">
-                <div class="text-center max-w-3xl mx-auto mb-16">
-                    <span class="text-primary font-semibold uppercase tracking-wider">Pricing</span>
-                    <h2 class="text-3xl md:text-4xl font-bold mt-4 mb-6">Clear, Flexible Packages</h2>
-                    <p class="text-lg opacity-70">
-                        Choose a plan that fits your needs, or contact us for a custom quote.
-                    </p>
+
+        <!-- Contact Form Section -->
+        <section id="contact" class="section" style="background: var(--bg-surface-alt);">
+            <div class="container">
+                <div class="section-header animate-up">
+                    <h2 class="section-title">Get In Touch</h2>
+                    <p class="section-subtitle">Ready to unlock the power of your data? Reach out today.</p>
                 </div>
-                
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
-                    <!-- Package 1: Basic -->
-                    <div class="card-bg p-8 rounded-2xl shadow-lg transition-all duration-300 hover:shadow-2xl">
-                        <span class="font-bold text-primary uppercase">Basic Survey</span>
-                        <h3 class="text-4xl font-extrabold my-4">Standard</h3>
-                        <p class="opacity-70 h-16">Ideal for small-scale projects and property boundary definitions.</p>
-                        <ul class="space-y-3 my-8">
-                            <li class="flex items-center"><svg class="w-5 h-5 text-secondary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path class="check-draw" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Boundary Survey</li>
-                            <li class="flex items-center"><svg class="w-5 h-5 text-secondary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path class="check-draw" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Digital Plot Map</li>
-                            <li class="flex items-center"><svg class="w-5 h-5 text-secondary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path class="check-draw" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Standard Report</li>
-                        </ul>
-                        <a href="#contact" class="px-5 py-3 rounded-lg font-semibold border-2 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 text-blue-600 border-blue-600 hover:bg-blue-600 hover:text-white focus:ring-blue-500 dark:text-white dark:border-cyan-500 dark:hover:bg-cyan-500 dark:hover:border-cyan-500 dark:focus:ring-cyan-500 w-full text-center">Get Quote</a>
-                    </div>
-                    
-                    <!-- Package 2: Professional (Featured) -->
-                    <div class="card-bg p-10 rounded-2xl shadow-2xl transition-all duration-300 border-2 border-primary transform lg:scale-110">
-                        <span class="font-bold text-primary uppercase">Most Popular</span>
-                        <h3 class="text-4xl font-extrabold my-4">Professional</h3>
-                        <p class="opacity-70 h-16">Comprehensive survey and mapping for construction and development.</p>
-                        <ul class="space-y-3 my-8">
-                            <li class="flex items-center"><svg class="w-5 h-5 text-secondary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path class="check-draw" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>All Standard Features</li>
-                            <li class="flex items-center"><svg class="w-5 h-5 text-secondary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path class="check-draw" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Topographic Survey</li>
-                            <li class="flex items-center"><svg class="w-5 h-5 text-secondary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path class="check-draw" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>GIS Data Layers</li>
-                            <li class="flex items-center"><svg class="w-5 h-5 text-secondary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path class="check-draw" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Priority Support</li>
-                        </ul>
-                        <a href="#contact" class="px-5 py-3 rounded-lg font-semibold text-white bg-blue-600 hover:bg-blue-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 w-full text-center">Get Quote</a>
-                    </div>
-                    
-                    <!-- Package 3: Enterprise -->
-                    <div class="card-bg p-8 rounded-2xl shadow-lg transition-all duration-300 hover:shadow-2xl">
-                        <span class="font-bold text-primary uppercase">Full Solution</span>
-                        <h3 class="text-4xl font-extrabold my-4">Enterprise</h3>
-                        <p class="opacity-70 h-16">End-to-end consulting and custom solutions for large-scale projects.</p>
-                        <ul class="space-y-3 my-8">
-                            <li class="flex items-center"><svg class="w-5 h-5 text-secondary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path class="check-draw" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>All Professional Features</li>
-                            <li class="flex items-center"><svg class="w-5 h-5 text-secondary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path class="check-draw" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Custom GIS Analysis</li>
-                            <li class="flex items-center"><svg class="w-5 h-5 text-secondary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path class="check-draw" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Dedicated Project Manager</li>
-                        </ul>
-                        <a href="#contact" class="px-5 py-3 rounded-lg font-semibold border-2 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 text-blue-600 border-blue-600 hover:bg-blue-600 hover:text-white focus:ring-blue-500 dark:text-white dark:border-cyan-500 dark:hover:bg-cyan-500 dark:hover:border-cyan-500 dark:focus:ring-cyan-500 w-full text-center">Get Quote</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Section 7: Contact & Quote Form -->
-        <section id="contact" class="py-20 md:py-32 bg-main fade-in-section">
-            <div class="container mx-auto px-6 max-w-7xl">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
-                    <!-- Contact Info -->
-                    <div>
-                        <span class="text-primary font-semibold uppercase tracking-wider">Contact Us</span>
-                        <h2 class="text-3xl md:text-4xl font-bold mt-4 mb-6">Get in Touch</h2>
-                        <p class="text-lg opacity-70 mb-8">
-                            Have a question or ready to start your project? Send us a message or visit our office.
-                        </p>
+
+                <div class="contact-container animate-up">
+                    <div class="contact-info">
+                        <h3>Contact Information</h3>
+                        <p style="color: var(--text-muted); margin-bottom: 1rem;">Fill out the form and our team will get back to you within 24 hours.</p>
                         
-                        <div class="space-y-6">
-                            <div class="flex items-start space-x-4 group">
-                                <div class="animate-icon-bounce">
-                                    <svg class="w-6 h-6 text-primary flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-lg">Head Office</h4>
-                                    <p class="opacity-70">Plot-229, Zaman Tower, Azampur Road, Uttarkhan, Uttara, Dhaka-1230.</p>
-                                </div>
+                        <div class="info-item">
+                            <div class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
                             </div>
-                            <div class="flex items-start space-x-4 group">
-                                <div class="animate-icon-shake">
-                                    <svg class="w-6 h-6 text-primary flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-lg">Mobile</h4>
-                                    <p class="opacity-70">+880 1712-345678</p>
-                                </div>
+                            <div>
+                                <h4 style="font-size: 1rem; margin-bottom: 0.25rem;">Phone</h4>
+                                <p style="color: var(--text-muted);">+880 1712-345678</p>
                             </div>
-                            <div class="flex items-start space-x-4 group">
-                                <div class="animate-icon-float">
-                                    <svg class="w-6 h-6 text-primary flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-lg">Email</h4>
-                                    <p class="opacity-70">alamgirwss@gmail.com</p>
-                                </div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                            </div>
+                            <div>
+                                <h4 style="font-size: 1rem; margin-bottom: 0.25rem;">Email</h4>
+                                <a href="mailto:alamgirwss@gmail.com" style="color: var(--text-muted);">alamgirwss@gmail.com</a>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                            </div>
+                            <div>
+                                <h4 style="font-size: 1rem; margin-bottom: 0.25rem;">Head Office</h4>
+                                <p style="color: var(--text-muted);">Plot-229, Zaman Tower<br>Azampur Road, Uttarkhan<br>Uttara, Dhaka-1230</p>
                             </div>
                         </div>
                     </div>
-                    
-                    <!-- Contact Form -->
-                    <div class="card-bg p-8 md:p-10 rounded-2xl shadow-xl">
-                        <h3 class="text-2xl font-bold mb-6">Request a Quote</h3>
-                        <form id="contact-form" class="space-y-5" novalidate>
-                            <div>
-                                <label for="name" class="block text-sm font-medium mb-1">Full Name</label>
-                                <input type="text" id="name" name="name" required class="form-input w-full rounded-lg py-3 px-4" aria-describedby="error-name">
-                                <span id="error-name" class="text-red-500 text-sm mt-1 hidden">Please enter your name.</span>
+
+                    <!-- Accessible Form -->
+                    <form id="contact-form" class="contact-form" novalidate aria-live="polite">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name" class="form-label">Full Name *</label>
+                                <input type="text" id="name" name="name" class="form-control" required aria-required="true" aria-describedby="name-error">
+                                <span class="error-message" id="name-error">Please enter your name.</span>
                             </div>
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-                                <div>
-                                    <label for="email" class="block text-sm font-medium mb-1">Email Address</label>
-                                    <input type="email" id="email" name="email" required class="form-input w-full rounded-lg py-3 px-4" aria-describedby="error-email">
-                                    <span id="error-email" class="text-red-500 text-sm mt-1 hidden">Please enter a valid email.</span>
-                                </div>
-                                <div>
-                                    <label for="phone" class="block text-sm font-medium mb-1">Phone Number</label>
-                                    <input type="tel" id="phone" name="phone" class="form-input w-full rounded-lg py-3 px-4">
-                                </div>
+                            <div class="form-group">
+                                <label for="company" class="form-label">Company Name</label>
+                                <input type="text" id="company" name="company" class="form-control">
                             </div>
-                             <div>
-                                <label for="company" class="block text-sm font-medium mb-1">Company (Optional)</label>
-                                <input type="text" id="company" name="company" class="form-input w-full rounded-lg py-3 px-4">
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email" class="form-label">Email Address *</label>
+                                <input type="email" id="email" name="email" class="form-control" required aria-required="true" aria-describedby="email-error">
+                                <span class="error-message" id="email-error">Please enter a valid email.</span>
                             </div>
-                            <div>
-                                <label for="description" class="block text-sm font-medium mb-1">Project Description</label>
-                                <textarea id="description" name="description" rows="4" required class="form-input w-full rounded-lg py-3 px-4" aria-describedby="error-description"></textarea>
-                                <span id="error-description" class="text-red-500 text-sm mt-1 hidden">Please describe your project.</span>
+                            <div class="form-group">
+                                <label for="phone" class="form-label">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" class="form-control">
                             </div>
-                            <fieldset>
-                                <legend class="block text-sm font-medium mb-2">Preferred Contact Method</legend>
-                                <div class="flex items-center space-x-6">
-                                    <div class="flex items-center">
-                                        <input id="contact-email" name="contact-method" type="radio" value="email" checked class="h-4 w-4 text-primary focus:ring-primary border-gray-300">
-                                        <label for="contact-email" class="ml-2 block text-sm">Email</label>
-                                    </div>
-                                    <div class="flex items-center">
-                                        <input id="contact-phone" name="contact-method" type="radio" value="phone" class="h-4 w-4 text-primary focus:ring-primary border-gray-300">
-                                        <label for="contact-phone" class="ml-2 block text-sm">Phone</label>
-                                    </div>
-                                </div>
-                            </fieldset>
-                            <div>
-                                <button type="submit" id="submit-btn" class="px-5 py-3 rounded-lg font-semibold text-white bg-blue-600 hover:bg-blue-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 w-full py-4">
-                                    <span id="submit-text">Send Request</span>
-                                    <span id="submit-spinner" class="hidden w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin mx-auto"></span>
-                                </button>
-                            </div>
-                        </form>
-                    </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="method" class="form-label">Preferred Contact Method</label>
+                            <select id="method" name="method" class="form-control" style="appearance: auto;">
+                                <option value="email">Email</option>
+                                <option value="phone">Phone Call</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message" class="form-label">Project Description *</label>
+                            <textarea id="message" name="message" class="form-control" required aria-required="true" aria-describedby="message-error"></textarea>
+                            <span class="error-message" id="message-error">Please describe your project.</span>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary" id="submit-btn" style="margin-top: 1rem;">
+                            <span class="btn-text">Send Message</span>
+                            <span class="spinner"></span>
+                        </button>
+                    </form>
                 </div>
             </div>
         </section>
     </main>
 
     <!-- Footer -->
-    <footer class="bg-alt pt-16 pb-8">
-        <div class="container mx-auto px-6 max-w-7xl">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-                <!-- Column 1: Logo & Info -->
-                <div class="md:col-span-2">
-                    <a href="#hero" class="flex items-center space-x-2 mb-4">
-                        <img src="logo.png" alt="Kaif Survey & Consulting Logo" class="h-10 w-10 object-contain">
-                        <span class="font-bold text-xl text-blue-600 dark:text-cyan-400">Kaif Survey & Consulting</span>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#home" class="logo" style="color: var(--text-main);">
+                        <img src="https://uploads.onecompiler.io/43y3by72c/4428darze/1000007296.png" alt="Logo" style="filter: grayscale(100%); opacity: 0.8;">
+                        Kaif Survey
                     </a>
-                    <p class="opacity-70 max-w-md">
-                        Providing precision surveying and insightful consulting to build a better tomorrow.
-                    </p>
-                    <p class="opacity-70 mt-4">
-                        <strong>Head Office:</strong> Plot-229, Zaman Tower, Azampur Road, Uttarkhan, Uttara, Dhaka-1230.
-                    </p>
+                    <p>Professional surveying and consulting company led by MD. Ruknuzzaman Alamgir. Transforming data into decisions.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-icon" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
+                        <a href="#" class="social-icon" aria-label="Twitter"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a>
+                        <a href="#" class="social-icon" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+                    </div>
                 </div>
-                
-                <!-- Column 2: Quick Links -->
+
                 <div>
-                    <h5 class="font-bold text-lg mb-4">Quick Links</h5>
-                    <ul class="space-y-2">
-                        <li><a href="#services" class="opacity-70 hover:opacity-100 hover:text-primary transition-colors">Services</a></li>
-                        <li><a href="#how-it-works" class="opacity-70 hover:opacity-100 hover:text-primary transition-colors">How It Works</a></li>
-                        <li><a href="#pricing" class="opacity-70 hover:opacity-100 hover:text-primary transition-colors">Pricing</a></li>
-                        <li><a href="#contact" class="opacity-70 hover:opacity-100 hover:text-primary transition-colors">Contact</a></li>
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="#testimonials">Case Studies</a></li>
                     </ul>
                 </div>
-                
-                <!-- Column 3: Social Media -->
+
                 <div>
-                    <h5 class="font-bold text-lg mb-4">Connect</h5>
-                    <div class="flex space-x-4">
-                        <!-- Placeholder SVGs for social media -->
-                        <a href="#" class="p-2 card-bg rounded-full hover:bg-primary hover:text-white transition-all hover:scale-110 duration-300" aria-label="Facebook">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"></path></svg>
-                        </a>
-                        <a href="#" class="p-2 card-bg rounded-full hover:bg-primary hover:text-white transition-all hover:scale-110 duration-300" aria-label="LinkedIn">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg>
-                        </a>
-                        <a href="#" class="p-2 card-bg rounded-full hover:bg-primary hover:text-white transition-all hover:scale-110 duration-300" aria-label="Twitter">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.418 0-5.83 2.77-5.83 5.83 0 .484.055.952.16 1.405-4.833-.242-9.118-2.563-11.99-6.084-.5.867-.787 1.872-.787 2.93c0 2.018 1.028 3.795 2.586 4.84-1.007-.03-1.94-.31-2.75-.77v.07c0 2.82 2.007 5.17 4.67 5.71-.488.13-.997.2-1.52.2-.375 0-.74-.036-1.09-.104.74 2.31 2.88 4.01 5.43 4.05-2.007 1.57-4.54 2.51-7.3 2.51-.475 0-.943-.03-1.405-.08 2.59 1.66 5.67 2.63 9.01 2.63 10.8 0 16.7-8.98 16.7-16.7v-.76c1.14-.82 2.13-1.85 2.92-3.03z"></path></svg>
-                        </a>
-                    </div>
+                    <h4>Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                    </ul>
                 </div>
             </div>
             
-            <div class="border-t border-gray-300 dark:border-gray-700 pt-8 text-center md:text-left">
-                <p class="opacity-70 text-sm">&copy; <span id="current-year"></span> Kaif Survey & Consulting. All Rights Reserved.</p>
+            <div class="footer-bottom">
+                &copy; <span id="year"></span> Kaif Survey & Consulting. All rights reserved.
             </div>
         </div>
     </footer>
-    
-    
 
-    <!-- JavaScript -->
-    <script src="script.js"></script>
+    <!-- Form Success Modal -->
+    <div class="modal-overlay" id="success-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <div class="modal-content">
+            <div class="success-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </div>
+            <h3 id="modal-title">Request Received!</h3>
+            <p>Thank you for reaching out. A consultant will review your project and get back to you shortly.</p>
+            <button class="btn btn-primary" id="close-modal">Close</button>
+        </div>
+    </div>
 
+    <!-- Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            /* Set Copyright Year */
+            document.getElementById('year').textContent = new Date().getFullYear();
+
+            /* =========================================================
+               Mobile Menu Toggle
+               ========================================================= */
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const navLinks = document.getElementById('nav-links');
+            const navItems = document.querySelectorAll('.nav-link');
+
+            mobileMenuBtn.addEventListener('click', () => {
+                const isActive = navLinks.classList.toggle('active');
+                mobileMenuBtn.setAttribute('aria-expanded', isActive);
+            });
+
+            navItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                    mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                });
+            });
+
+            /* =========================================================
+               Theme Toggle (Light/Dark Mode)
+               ========================================================= */
+            const themeToggleBtn = document.getElementById('theme-toggle');
+            const iconSun = document.getElementById('theme-icon-sun');
+            const iconMoon = document.getElementById('theme-icon-moon');
+            
+            // Check local storage or system preference
+            const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+            let currentTheme = localStorage.getItem("theme");
+            
+            if (currentTheme == "dark" || (!currentTheme && prefersDarkScheme.matches)) {
+                document.documentElement.setAttribute("data-theme", "dark");
+                iconSun.style.display = "block";
+                iconMoon.style.display = "none";
+            }
+
+            themeToggleBtn.addEventListener("click", () => {
+                let theme = document.documentElement.getAttribute("data-theme");
+                if (theme === "dark") {
+                    document.documentElement.removeAttribute("data-theme");
+                    localStorage.setItem("theme", "light");
+                    iconSun.style.display = "none";
+                    iconMoon.style.display = "block";
+                } else {
+                    document.documentElement.setAttribute("data-theme", "dark");
+                    localStorage.setItem("theme", "dark");
+                    iconSun.style.display = "block";
+                    iconMoon.style.display = "none";
+                }
+            });
+
+            /* =========================================================
+               Scroll Behavior: Navbar background & Active Link
+               ========================================================= */
+            const header = document.getElementById('header');
+            const sections = document.querySelectorAll('section');
+            
+            window.addEventListener('scroll', () => {
+                // Header style
+                if (window.scrollY > 50) {
+                    header.style.boxShadow = "var(--shadow-md)";
+                } else {
+                    header.style.boxShadow = "none";
+                }
+
+                // Active nav link
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (scrollY >= (sectionTop - 200)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navItems.forEach(item => {
+                    item.classList.remove('active');
+                    if (item.getAttribute('href').includes(current)) {
+                        item.classList.add('active');
+                    }
+                });
+            });
+
+            /* =========================================================
+               Intersection Observer (Fade/Slide Animations & Counters)
+               ========================================================= */
+            const animateElements = document.querySelectorAll('.animate-up');
+            const counters = document.querySelectorAll('.counter');
+            
+            const observerOptions = {
+                root: null,
+                threshold: 0.1,
+                rootMargin: "0px 0px -50px 0px"
+            };
+
+            const runCounter = (counter) => {
+                const target = +counter.getAttribute('data-target');
+                const duration = 2000; // 2 seconds
+                const increment = target / (duration / 16); // 60fps
+                
+                let current = 0;
+                const updateCounter = () => {
+                    current += increment;
+                    if (current < target) {
+                        counter.innerText = Math.ceil(current);
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        counter.innerText = target + (target > 50 ? '+' : '');
+                    }
+                };
+                updateCounter();
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        
+                        // Check if it's the stats container
+                        if (entry.target.classList.contains('stats-container')) {
+                            counters.forEach(counter => {
+                                if (!counter.classList.contains('counted')) {
+                                    runCounter(counter);
+                                    counter.classList.add('counted');
+                                }
+                            });
+                        }
+                        // Optional: stop observing once visible
+                        // observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            animateElements.forEach(el => observer.observe(el));
+
+            /* =========================================================
+               Form Validation & Simulated Async Submission
+               ========================================================= */
+            const form = document.getElementById('contact-form');
+            const submitBtn = document.getElementById('submit-btn');
+            const btnText = submitBtn.querySelector('.btn-text');
+            const spinner = submitBtn.querySelector('.spinner');
+            const modalOverlay = document.getElementById('success-modal');
+            const closeModalBtn = document.getElementById('close-modal');
+
+            const validateEmail = (email) => {
+                return String(email)
+                    .toLowerCase()
+                    .match(
+                        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+                    );
+            };
+
+            const showError = (input, messageId) => {
+                input.classList.add('error');
+                const errorEl = document.getElementById(messageId);
+                errorEl.style.display = 'block';
+                input.setAttribute('aria-invalid', 'true');
+            };
+
+            const removeError = (input, messageId) => {
+                input.classList.remove('error');
+                const errorEl = document.getElementById(messageId);
+                errorEl.style.display = 'none';
+                input.setAttribute('aria-invalid', 'false');
+            };
+
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                let isValid = true;
+
+                // Validate Name
+                const nameInput = document.getElementById('name');
+                if (!nameInput.value.trim()) {
+                    showError(nameInput, 'name-error');
+                    isValid = false;
+                } else {
+                    removeError(nameInput, 'name-error');
+                }
+
+                // Validate Email
+                const emailInput = document.getElementById('email');
+                if (!emailInput.value.trim() || !validateEmail(emailInput.value.trim())) {
+                    showError(emailInput, 'email-error');
+                    isValid = false;
+                } else {
+                    removeError(emailInput, 'email-error');
+                }
+
+                // Validate Message
+                const messageInput = document.getElementById('message');
+                if (!messageInput.value.trim()) {
+                    showError(messageInput, 'message-error');
+                    isValid = false;
+                } else {
+                    removeError(messageInput, 'message-error');
+                }
+
+                if (isValid) {
+                    // Simulate Async Submission
+                    btnText.style.display = 'none';
+                    spinner.style.display = 'block';
+                    submitBtn.disabled = true;
+                    
+                    // Announce to screen readers
+                    const liveRegion = document.createElement('div');
+                    liveRegion.setAttribute('aria-live', 'assertive');
+                    liveRegion.className = 'sr-only'; // Ensure this class hides it visually if needed, though we append to body temporarily
+                    liveRegion.style.position = 'absolute';
+                    liveRegion.style.left = '-9999px';
+                    document.body.appendChild(liveRegion);
+                    liveRegion.textContent = 'Submitting form...';
+
+                    setTimeout(() => {
+                        // Success State
+                        btnText.style.display = 'block';
+                        spinner.style.display = 'none';
+                        submitBtn.disabled = false;
+                        form.reset();
+                        
+                        // Show Modal
+                        modalOverlay.classList.add('active');
+                        document.body.style.overflow = 'hidden'; // Prevent scrolling
+                        
+                        liveRegion.textContent = 'Form submitted successfully.';
+                        setTimeout(() => liveRegion.remove(), 1000);
+                        
+                    }, 1000);
+                }
+            });
+
+            // Close Modal
+            const closeModal = () => {
+                modalOverlay.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            };
+
+            closeModalBtn.addEventListener('click', closeModal);
+            modalOverlay.addEventListener('click', (e) => {
+                if (e.target === modalOverlay) closeModal();
+            });
+
+            // Input Event Listeners for inline validation clear
+            document.querySelectorAll('.form-control[required]').forEach(input => {
+                input.addEventListener('input', () => {
+                    if (input.classList.contains('error')) {
+                        removeError(input, input.id + '-error');
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
