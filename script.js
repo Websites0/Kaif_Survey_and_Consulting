@@ -4,15 +4,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const themeToggleBtns = [
         document.getElementById('theme-toggle'),
         document.getElementById('theme-toggle-mobile')
-    ];
+    ].filter(Boolean);
     const lightIcons = [
-        document.getElementById('theme-icon-light'),
-        document.getElementById('theme-icon-light-mobile')
-    ];
+        document.getElementById('theme-icon-sun'),
+        document.getElementById('theme-icon-sun-mobile')
+    ].filter(Boolean);
     const darkIcons = [
-        document.getElementById('theme-icon-dark'),
-        document.getElementById('theme-icon-dark-mobile')
-    ];
+        document.getElementById('theme-icon-moon'),
+        document.getElementById('theme-icon-moon-mobile')
+    ].filter(Boolean);
     const statusMessage = document.getElementById('status-message');
 
     let currentTheme = localStorage.getItem('theme');
@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
         btn.addEventListener('click', () => {
             const newTheme = document.documentElement.classList.contains('dark') ? 'light' : 'dark';
             applyTheme(newTheme);
-            statusMessage.textContent = `Theme changed to ${newTheme} mode.`;
+            if (statusMessage) statusMessage.textContent = `Theme changed to ${newTheme} mode.`;
         });
     });
 
@@ -75,17 +75,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const mobileMenu = document.getElementById('mobile-menu');
     const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
 
+    if (mobileMenuBtn) {
     mobileMenuBtn.addEventListener('click', () => {
         const isExpanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true';
         mobileMenuBtn.setAttribute('aria-expanded', !isExpanded);
-        mobileMenu.classList.toggle('hidden');
+        if (mobileMenu) mobileMenu.classList.toggle('hidden');
     });
+}
 
     // Close mobile menu when a link is clicked
     mobileNavLinks.forEach(link => {
         link.addEventListener('click', () => {
             mobileMenuBtn.setAttribute('aria-expanded', 'false');
-            mobileMenu.classList.add('hidden');
+            if (mobileMenu) mobileMenu.classList.add('hidden');
         });
     });
 
@@ -155,16 +157,16 @@ document.addEventListener('DOMContentLoaded', () => {
     // === 7. CONTACT FORM VALIDATION & SUBMISSION ===
     const form = document.getElementById('contact-form');
     const submitBtn = document.getElementById('submit-btn');
-    const submitText = document.getElementById('submit-text');
-    const submitSpinner = document.getElementById('submit-spinner');
+    const submitText = document.getElementById('btn-text');
+    const submitSpinner = document.getElementById('spinner');
     const successModal = document.getElementById('success-modal');
-    const closeModalBtn = document.getElementById('close-modal-btn');
+    const closeModalBtn = document.getElementById('close-modal');
 
     // Input fields and error messages
     const inputs = {
         name: document.getElementById('name'),
         email: document.getElementById('email'),
-        description: document.getElementById('description')
+        description: document.getElementById('message')
     };
 
     function showError(fieldId, message) {
@@ -211,14 +213,15 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // Validate Description
-        if (inputs.description.value.trim() === '') {
-            showError('description', 'Please describe your project.');
+        if (inputs.message.value.trim() === '') {
+            showError('message', 'Please describe your project.');
             isValid = false;
         }
 
         return isValid;
     }
 
+    if (form) {
     form.addEventListener('submit', (e) => {
         e.preventDefault();
 
@@ -227,7 +230,7 @@ document.addEventListener('DOMContentLoaded', () => {
             submitText.classList.add('hidden');
             submitSpinner.classList.remove('hidden');
             submitBtn.disabled = true;
-            statusMessage.textContent = 'Submitting your request...';
+            if (statusMessage) statusMessage.textContent = 'Submitting your request...';
 
             // Simulate API call (1 second delay)
             setTimeout(() => {
@@ -240,13 +243,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 successModal.classList.remove('opacity-0', 'pointer-events-none');
                 successModal.classList.add('open');
                 closeModalBtn.focus();
-                statusMessage.textContent = 'Submission successful. Modal opened.';
+                if (statusMessage) statusMessage.textContent = 'Submission successful. Modal opened.';
 
                 // Reset form
                 form.reset();
             }, 1000);
         } else {
-            statusMessage.textContent = 'Form validation failed. Please check the errors.';
+            if (statusMessage) statusMessage.textContent = 'Form validation failed. Please check the errors.';
             // Focus the first invalid field
             const firstInvalid = form.querySelector('.invalid');
             if (firstInvalid) {
@@ -254,26 +257,34 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     });
+}
 
     // Close modal
     function closeModal() {
         successModal.classList.add('opacity-0', 'pointer-events-none');
         successModal.classList.remove('open');
-        statusMessage.textContent = 'Modal closed.';
+        if (statusMessage) statusMessage.textContent = 'Modal closed.';
     }
-    closeModalBtn.addEventListener('click', closeModal);
-    successModal.addEventListener('click', (e) => {
+    if (closeModalBtn) {
+        closeModalBtn.addEventListener('click', closeModal);
+    }
+    if (successModal) {
+        successModal.addEventListener('click', (e) => {
         if (e.target === successModal) {
             closeModal();
         }
     });
+    }
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && successModal.classList.contains('open')) {
+        if (e.key === 'Escape' && successModal && successModal.classList.contains('open')) {
             closeModal();
         }
     });
 
     // === 8. SET CURRENT YEAR IN FOOTER ===
-    document.getElementById('current-year').textContent = new Date().getFullYear();
+    const yearEl = document.getElementById('year');
+    if (yearEl) {
+        yearEl.textContent = new Date().getFullYear();
+    }
 
 });
