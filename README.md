@@ -51,5 +51,10 @@ Kaif Survey and Consulting is a trusted partner for accurate and comprehensive s
 To view the website locally:
 1. Clone this repository.
 2. Open the `index.html` file in your web browser.
+3. Alternatively, you can start a local development server using Python:
+   ```bash
+   python3 -m http.server 8000
+   ```
+   Then, navigate to `http://localhost:8000` in your browser.
 
 You can also visit one of the deployed links listed above.
