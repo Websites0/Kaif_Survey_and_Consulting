@@ -46,6 +46,25 @@
                 </button>
             </div>
         </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden mobile-menu">
+            <nav>
+                <ul class="mobile-nav-links">
+                    <li><a href="#home" class="mobile-nav-link">Home</a></li>
+                    <li><a href="#services" class="mobile-nav-link">Services</a></li>
+                    <li><a href="#how-it-works" class="mobile-nav-link">How It Works</a></li>
+                    <li><a href="#pricing" class="mobile-nav-link">Pricing</a></li>
+                    <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-nav-actions">
+                <button class="theme-toggle" id="theme-toggle-mobile" aria-label="Toggle dark mode">
+                    <svg id="theme-icon-sun-mobile" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                    <svg id="theme-icon-moon-mobile" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                </button>
+            </div>
+        </div>
     </header>
 
     <main>
@@ -469,17 +488,17 @@
                 </div>
 
                 <!-- Animated Stats -->
-                <div class="stats-container animate-up">
+                <div id="stats" class="stats-container animate-up">
                     <div class="stat-item">
-                        <h4 class="counter" data-target="150">0</h4>
+                        <h4 class="stat-counter" data-target="150">0</h4>
                         <p>Enterprise Clients</p>
                     </div>
                     <div class="stat-item">
-                        <h4 class="counter" data-target="2">0</h4>
+                        <h4 class="stat-counter" data-target="2">0</h4>
                         <p>Million+ Responses</p>
                     </div>
                     <div class="stat-item">
-                        <h4 class="counter" data-target="99">0</h4>
+                        <h4 class="stat-counter" data-target="99">0</h4>
                         <p>Client Satisfaction %</p>
                     </div>
                 </div>
@@ -677,8 +696,8 @@
                         </div>
 
                         <button type="submit" class="btn btn-primary" id="submit-btn" style="margin-top: 1rem;">
-                            <span class="btn-text">Send Message</span>
-                            <span class="spinner"></span>
+                            <span id="btn-text" class="btn-text">Send Message</span>
+                            <span id="spinner" class="spinner"></span>
                         </button>
                     </form>
                 </div>

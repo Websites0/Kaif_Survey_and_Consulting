@@ -171,7 +171,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function showError(fieldId, message) {
         const field = inputs[fieldId];
-        const errorEl = document.getElementById(`error-${fieldId}`);
+        const errorEl = document.getElementById(`${fieldId}-error`);
         if (field && errorEl) {
             field.classList.add('invalid');
             field.setAttribute('aria-invalid', 'true');
@@ -182,7 +182,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function hideError(fieldId) {
         const field = inputs[fieldId];
-        const errorEl = document.getElementById(`error-${fieldId}`);
+        const errorEl = document.getElementById(`${fieldId}-error`);
         if (field && errorEl) {
             field.classList.remove('invalid');
             field.setAttribute('aria-invalid', 'false');
