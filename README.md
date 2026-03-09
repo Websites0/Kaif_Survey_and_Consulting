@@ -1,60 +1,46 @@
-# Kaif Survey and Consulting
+# Kaif Survey and Consulting - Refactored Architecture
 
-This is the official website for Kaif Survey and Consulting, a company specializing in providing professional survey and consulting services.
+This is the officially refactored website for **Kaif Survey and Consulting**, a company specializing in providing professional survey and consulting services.
 
-## Deployed Links
+## Architecture Refactoring
 
-- [GitHub Pages](https://websites0.github.io/Kaif_Survey_and_Consulting/)
-- [Vercel (KSC)](https://kaif-survey-and-consulting-ksc.vercel.app/)
-- [Vercel](https://kaif-survey-and-consulting.vercel.app/)
-- [Netlify](https://kaifsurveyandconsulting.netlify.app/)
+The original monolithic HTML structure has been successfully modularized following modern frontend architecture principles. The goal of this refactor was to strictly separate concerns, improve code maintainability, and improve logical organization across multiple documents without relying on heavy frameworks.
 
-## Table of Contents
+### Changes Made
 
-- [About](#about)
-- [Features](#features)
-- [Technologies Used](#technologies-used)
-- [Project Structure](#project-structure)
-- [Getting Started](#getting-started)
+- **CSS Extraction:** All custom styles and root variables were extracted from inline `<style>` blocks into a unified `styles.css`.
+- **JavaScript Extraction:** Application logic such as theme toggling, intersection observers (scroll animations), stat counters, and form handling were shifted into a unified `script.js`.
+- **HTML Modularization:** The monolithic `index.html` file has been structurally divided into major domain sections (Services, Process, Testimonials, Pricing, Contact). Each HTML file maintains its semantic structure, header navigation, footers, and dynamically links to the extracted CSS and JS resources.
 
-## About
+## Project Directory Structure
 
-Kaif Survey and Consulting is a trusted partner for accurate and comprehensive surveying solutions. With a commitment to excellence and a passion for precision, we have been a trusted partner in the industry for over a decade. This website serves as a comprehensive guide to our services, methodologies, and commitment to quality. It is designed to be accessible, user-friendly, and informative for potential clients and partners.
+```text
+.
+├── README.md              # Project documentation and architectural overview
+├── index.html             # Homepage featuring Hero Section and Quick Stats
+├── services.html          # Detailed view of available surveying services
+├── process.html           # Step-by-step workflow overview
+├── testimonials.html      # Client feedback and reviews
+├── pricing.html           # Transparent pricing tiers and packages
+├── contact.html           # Contact information and interactive quote form
+├── styles.css             # Unified CSS styles, themes, and animations
+└── script.js              # Interactivity, form logic, and UI behavior
+```
 
 ## Features
 
-- **Responsive Design:** The website is fully responsive and works on all devices, ensuring a seamless experience whether you are on a desktop, tablet, or mobile phone.
-- **Dark Mode:** The website has a dark mode feature that can be toggled by the user, providing a comfortable viewing experience in low-light environments.
-- **Dynamic Copyright Year:** The copyright year in the footer is automatically updated to ensure the website is always current.
-- **Interactive Elements:** The website includes interactive elements such as a theme toggler, smooth scrolling, and animated statistics to enhance user engagement.
-- **Contact Form:** A fully functional contact form with validation is available for users to request a quote or get in touch with us.
-
-## Technologies Used
-
-- **HTML:** The structure of the website is built with HTML.
-- **Tailwind CSS:** The website is styled using Tailwind CSS.
-- **JavaScript:** The website uses JavaScript for dynamic features like the theme toggler and copyright year.
-
-## Project Structure
-
-```
-.
-├── README.md      # Project documentation
-├── index.html     # Main HTML structure and content
-├── logo.png       # Company logo image
-├── script.js      # JavaScript for interactivity and logic
-└── style.css      # Custom CSS styles and animations
-```
+- **Responsive Design:** Fully responsive layout with fallback mechanisms adapting fluidly to varying screen sizes.
+- **Dark Mode Configuration:** Automatic user-preference detection coupled with manual toggling logic.
+- **Dynamic Elements:** High-performance intersection observers reveal components dynamically during scroll.
+- **Accessible Validation:** Interactive form components include rigorous validation and A11y-compliant polite announcements for screen readers.
 
 ## Getting Started
 
-To view the website locally:
-1. Clone this repository.
-2. Open the `index.html` file in your web browser.
-3. Alternatively, you can start a local development server using Python:
-   ```bash
-   python3 -m http.server 8000
-   ```
-   Then, navigate to `http://localhost:8000` in your browser.
+To run the project locally without CORS restrictions for module/script loading, launch a simple HTTP server from the project root.
 
-You can also visit one of the deployed links listed above.
+```bash
+# Using Python 3
+python3 -m http.server 8000
+```
+
+Navigate to `http://localhost:8000` in your web browser.
