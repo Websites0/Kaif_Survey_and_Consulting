@@ -2,6 +2,32 @@
 
 This is the officially refactored website for **Kaif Survey and Consulting**, a company specializing in providing professional survey and consulting services.
 
+## Table of Contents
+
+- [Features](#features)
+- [Getting Started](#getting-started)
+- [Architecture Refactoring](#architecture-refactoring)
+  - [Changes Made](#changes-made)
+- [Project Directory Structure](#project-directory-structure)
+
+## Features
+
+- **Responsive Design:** Fully responsive layout with fallback mechanisms adapting fluidly to varying screen sizes.
+- **Dark Mode Configuration:** Automatic user-preference detection coupled with manual toggling logic.
+- **Dynamic Elements:** High-performance intersection observers reveal components dynamically during scroll.
+- **Accessible Validation:** Interactive form components include rigorous validation and A11y-compliant polite announcements for screen readers.
+
+## Getting Started
+
+To run the project locally without CORS restrictions for module/script loading, launch a simple HTTP server from the project root.
+
+```bash
+# Using Python 3
+python3 -m http.server 8000
+```
+
+Navigate to `http://localhost:8000` in your web browser.
+
 ## Architecture Refactoring
 
 The original monolithic HTML structure has been successfully modularized following modern frontend architecture principles. The goal of this refactor was to strictly separate concerns, improve code maintainability, and improve logical organization across multiple documents without relying on heavy frameworks.
@@ -26,21 +52,3 @@ The original monolithic HTML structure has been successfully modularized followi
 ├── styles.css             # Unified CSS styles, themes, and animations
 └── script.js              # Interactivity, form logic, and UI behavior
 ```
-
-## Features
-
-- **Responsive Design:** Fully responsive layout with fallback mechanisms adapting fluidly to varying screen sizes.
-- **Dark Mode Configuration:** Automatic user-preference detection coupled with manual toggling logic.
-- **Dynamic Elements:** High-performance intersection observers reveal components dynamically during scroll.
-- **Accessible Validation:** Interactive form components include rigorous validation and A11y-compliant polite announcements for screen readers.
-
-## Getting Started
-
-To run the project locally without CORS restrictions for module/script loading, launch a simple HTTP server from the project root.
-
-```bash
-# Using Python 3
-python3 -m http.server 8000
-```
-
-Navigate to `http://localhost:8000` in your web browser.
