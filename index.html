@@ -1,461 +1,1660 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kaif Survey & Consulting | Professional Surveying Insights</title>
-  <meta name="description" content="Professional surveying and consulting services by Kaif Survey & Consulting. Expert analytics, data insights, and real-time feedback.">
-  
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kaif Survey & Consulting</title>
+    <meta name="description" content="Professional surveying and consulting company by MD. Ruknuzzaman Alamgir.">
+    
+    <!-- Preconnect to Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* ==========================================================================
+           1. DESIGN SYSTEM & VARIABLES
+           ========================================================================== */
+        :root {
+            /* Light Theme (Default) */
+            --bg-color: #f8fafc;
+            --surface-color: #ffffff;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --border-color: #e2e8f0;
+            --primary-brand: #0f78c7;
+            --secondary-brand: #00c6a7;
+            --gradient: linear-gradient(135deg, #0f78c7 0%, #00c6a7 100%);
+            --error-color: #ef4444;
+            --success-color: #10b981;
+            
+            /* Shadows & Effects */
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --glass-bg: rgba(255, 255, 255, 0.8);
+            --glass-border: rgba(255, 255, 255, 0.3);
+            
+            /* Typography */
+            --font-main: 'Inter', system-ui, -apple-system, sans-serif;
+            --transition-speed: 0.3s;
+            --radius-md: 0.75rem;
+            --radius-lg: 1rem;
+            --radius-full: 9999px;
+        }
+
+        [data-theme="dark"] {
+            /* Dark Theme Overrides */
+            --bg-color: #0b1436;
+            --surface-color: #12204f;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --border-color: #1e293b;
+            --primary-brand: #3cdfff;
+            --glass-bg: rgba(18, 32, 79, 0.85);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+            --shadow-lg: 0 10px 25px -3px rgba(0, 0, 0, 0.5);
+        }
+
+        /* ==========================================================================
+           2. RESET & BASE STYLES
+           ========================================================================== */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+        }
+
+        img, svg {
+            display: block;
+            max-width: 100%;
+            height: auto;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button {
+            font-family: inherit;
+            cursor: pointer;
+            border: none;
+            background: none;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Screen Reader Only (Accessibility) */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            border: 0;
+        }
+
+        /* Typography Defaults */
+        h1, h2, h3, h4 {
+            line-height: 1.2;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        h1 { font-size: clamp(2.5rem, 5vw, 4rem); }
+        h2 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 1rem; }
+        h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .section-header p {
+            color: var(--text-secondary);
+            font-size: 1.125rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Focus Styles (Accessibility) */
+        :focus-visible {
+            outline: 2px solid var(--primary-brand);
+            outline-offset: 4px;
+            border-radius: 4px;
+        }
+
+        /* ==========================================================================
+           3. COMPONENTS
+           ========================================================================== */
+        
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.875rem 1.75rem;
+            border-radius: var(--radius-full);
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.2s ease;
+            text-align: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: var(--gradient);
+            color: white;
+            box-shadow: 0 4px 15px rgba(15, 120, 199, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(15, 120, 199, 0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text-primary);
+            border: 2px solid var(--border-color);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--primary-brand);
+            color: var(--primary-brand);
+        }
+
+        /* Cards */
+        .card {
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: var(--shadow-sm);
+            height: 100%;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: var(--radius-md);
+            background: var(--gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+
+        /* ==========================================================================
+           4. LAYOUT SECTIONS
+           ========================================================================== */
+
+        /* Header / Navbar */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--glass-border);
+            transition: all var(--transition-speed) ease;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo img {
+            height: 40px;
+            width: auto;
+        }
+
+        .logo span {
+            font-weight: 700;
+            font-size: 1.25rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-brand);
+        }
+
+        .nav-controls {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .theme-toggle {
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-primary);
+            transition: all 0.2s;
+        }
+        
+        .theme-toggle:hover {
+            background: var(--border-color);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding-top: 120px;
+            padding-bottom: 4rem;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-content {
+            z-index: 2;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            padding: 0.25rem 1rem;
+            background: rgba(15, 120, 199, 0.1);
+            color: var(--primary-brand);
+            border-radius: var(--radius-full);
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero p {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            margin: 1.5rem 0 2.5rem;
+            max-width: 540px;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-visual {
+            position: relative;
+            width: 100%;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-2xl);
+        }
+
+        /* Sections General */
+        section {
+            padding: 6rem 0;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card p {
+            color: var(--text-secondary);
+            margin-top: 1rem;
+        }
+
+        /* How It Works */
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            position: relative;
+        }
+
+        .process-step {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--surface-color);
+            border: 2px solid var(--primary-brand);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-brand);
+            margin: 0 auto 1.5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .process-step h3 {
+            margin-bottom: 1rem;
+        }
+
+        .process-step p {
+            color: var(--text-secondary);
+        }
+
+        /* Testimonials */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .stars {
+            color: #fbbf24;
+            display: flex;
+            gap: 0.25rem;
+        }
+
+        .client-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-top: auto;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .client-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--primary-brand);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        /* Pricing / Packages */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .pricing-card {
+            border: 2px solid var(--border-color);
+        }
+
+        .pricing-card.popular {
+            border-color: var(--primary-brand);
+            position: relative;
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gradient);
+            color: white;
+            padding: 0.25rem 1rem;
+            border-radius: var(--radius-full);
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        .package-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .package-desc {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            min-height: 48px;
+        }
+
+        .package-features {
+            margin-bottom: 2.5rem;
+        }
+
+        .package-features li {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+        }
+
+        .package-features li svg {
+            color: var(--success-color);
+            flex-shrink: 0;
+        }
+
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            background: var(--surface-color);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border-color);
+        }
+
+        .contact-info {
+            background: var(--gradient);
+            color: white;
+            padding: 4rem 3rem;
+        }
+
+        .contact-info h3 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-info p {
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .info-item svg {
+            flex-shrink: 0;
+            margin-top: 0.25rem;
+        }
+
+        .contact-form-wrapper {
+            padding: 4rem 3rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            background: var(--bg-color);
+            color: var(--text-primary);
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-brand);
+            box-shadow: 0 0 0 3px rgba(15, 120, 199, 0.1);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .error-message {
+            color: var(--error-color);
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .form-control.invalid {
+            border-color: var(--error-color);
+        }
+
+        .form-control.invalid + .error-message {
+            display: block;
+        }
+
+        /* Footer */
+        footer {
+            background: #060c23;
+            color: #94a3b8;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand h4 {
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-heading {
+            color: white;
+            font-size: 1.125rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-brand);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: all 0.2s;
+        }
+
+        .social-link:hover {
+            background: var(--primary-brand);
+            transform: translateY(-2px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(4px);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal {
+            background: var(--surface-color);
+            padding: 3rem;
+            border-radius: var(--radius-lg);
+            max-width: 400px;
+            width: 90%;
+            text-align: center;
+            transform: scale(0.9);
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .modal-overlay.active .modal {
+            transform: scale(1);
+        }
+
+        .modal-icon {
+            width: 64px;
+            height: 64px;
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--success-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+        }
+
+        /* ==========================================================================
+           5. ANIMATIONS & RESPONSIVENESS
+           ========================================================================== */
+        
+        /* Reveal Animations via Intersection Observer */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Loading Spinner */
+        .spinner {
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            border-top: 2px solid white;
+            width: 16px;
+            height: 16px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        /* Media Queries */
+        @media (max-width: 992px) {
+            .hero-grid { grid-template-columns: 1fr; text-align: center; }
+            .hero-actions { justify-content: center; }
+            .hero p { margin: 1.5rem auto 2.5rem; }
+            .contact-container { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background: var(--surface-color);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                border-bottom: 1px solid var(--border-color);
+                clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+                transition: clip-path 0.3s ease-in-out;
+            }
+            .nav-links.active {
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            }
+            .mobile-menu-btn { display: block; }
+            .process-grid::after { display: none; }
+            .contact-info, .contact-form-wrapper { padding: 2rem 1.5rem; }
+            .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+        }
+
+        /* Reduced Motion Accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+            .reveal { opacity: 1; transform: none; transition: none; }
+        }
+    </style>
 </head>
 <body>
 
-  <!-- Live Region for Form Announcements (A11y) -->
-  <div aria-live="polite" id="a11y-announcer" class="sr-only"></div>
+    <!-- Accessibility Announcement Region -->
+    <div id="aria-live-region" aria-live="polite" class="sr-only"></div>
 
-  <!-- Header & Navigation -->
-  <header>
-    <div class="container nav-container">
-      <a href="index.html" class="logo" aria-label="Kaif Survey & Consulting Home">
-        <img src="https://uploads.onecompiler.io/43y3by72c/4428darze/1000007296.png" alt="Kaif Survey Logo">
-        <span>Kaif Survey</span>
-      </a>
+    <!-- Header Navigation -->
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="logo" aria-label="Kaif Survey & Consulting Home">
+                <img src="https://uploads.onecompiler.io/43y3by72c/4428darze/1000007296.png" alt="Kaif Survey Logo">
+                <span>Kaif Consulting</span>
+            </a>
+            
+            <nav>
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="#services" class="nav-link">Services</a></li>
+                    <li><a href="#how-it-works" class="nav-link">Workflow</a></li>
+                    <li><a href="#testimonials" class="nav-link">Case Studies</a></li>
+                    <li><a href="#pricing" class="nav-link">Packages</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
 
-      <nav>
-        <ul class="nav-links" id="nav-links">
-          <li><a href="services.html">Services</a></li>
-          <li><a href="process.html">Process</a></li>
-          <li><a href="testimonials.html">Testimonials</a></li>
-          <li><a href="pricing.html">Pricing</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
+            <div class="nav-controls">
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Dark Mode">
+                    <!-- Sun/Moon icon injected via JS -->
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                </button>
+                <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                </button>
+            </div>
+        </div>
+    </header>
 
-      <div class="nav-controls">
-        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Dark Mode">
-          <!-- Sun Icon default -->
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-sun"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-        </button>
-        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Navigation Menu" aria-expanded="false" aria-controls="nav-links">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
-        </button>
-      </div>
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="container hero-grid">
+                <div class="hero-content reveal">
+                    <span class="hero-tag">Certified Survey Experts</span>
+                    <h1>Precision in Every Measurement</h1>
+                    <p>Kaif Survey & Consulting, led by MD. Ruknuzzaman Alamgir, delivers industry-leading land surveying, digital mapping, and consulting solutions tailored for your commercial and residential projects.</p>
+                    <div class="hero-actions">
+                        <a href="#contact" class="btn btn-primary">
+                            Request Quote
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
+                        <a href="#services" class="btn btn-outline">Explore Services</a>
+                    </div>
+                </div>
+                <div class="hero-visual reveal" style="transition-delay: 0.2s;">
+                    <!-- PROVIDED SVG - PRESERVED EXACTLY -->
+                    <svg width="100%" height="100%" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+                      <defs>
+                        <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+                          <stop offset="0%" stop-color="#0b1436"/>
+                          <stop offset="55%" stop-color="#12357f"/>
+                          <stop offset="100%" stop-color="#1a59c8"/>
+                        </linearGradient>
+
+                        <radialGradient id="blobA" cx="0.5" cy="0.5" r="0.5">
+                          <stop offset="0%" stop-color="#48e7ff" stop-opacity="0.55"/>
+                          <stop offset="100%" stop-color="#48e7ff" stop-opacity="0"/>
+                        </radialGradient>
+
+                        <radialGradient id="blobB" cx="0.5" cy="0.5" r="0.5">
+                          <stop offset="0%" stop-color="#8f6bff" stop-opacity="0.45"/>
+                          <stop offset="100%" stop-color="#8f6bff" stop-opacity="0"/>
+                        </radialGradient>
+
+                        <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1">
+                          <stop offset="0%" stop-color="#ffffff" stop-opacity="0.18"/>
+                          <stop offset="100%" stop-color="#ffffff" stop-opacity="0.06"/>
+                        </linearGradient>
+
+                        <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1">
+                          <stop offset="0%" stop-color="#12204f" stop-opacity="0.95"/>
+                          <stop offset="100%" stop-color="#0d1a44" stop-opacity="0.95"/>
+                        </linearGradient>
+
+                        <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+                          <stop offset="0%" stop-color="#46ecff"/>
+                          <stop offset="100%" stop-color="#7c5cff"/>
+                        </linearGradient>
+
+                        <linearGradient id="accentWarm" x1="0" y1="0" x2="1" y2="1">
+                          <stop offset="0%" stop-color="#ffd96a"/>
+                          <stop offset="100%" stop-color="#ff9d5c"/>
+                        </linearGradient>
+
+                        <linearGradient id="shimmer" x1="0" y1="0" x2="1" y2="0">
+                          <stop offset="0%" stop-color="#ffffff" stop-opacity="0"/>
+                          <stop offset="50%" stop-color="#ffffff" stop-opacity="0.22"/>
+                          <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+                        </linearGradient>
+
+                        <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                          <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#d7e7ff" stroke-opacity="0.10" stroke-width="1"/>
+                        </pattern>
+
+                        <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+                          <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#06102f" flood-opacity="0.45"/>
+                        </filter>
+
+                        <filter id="softBlur" x="-50%" y="-50%" width="200%" height="200%">
+                          <feGaussianBlur stdDeviation="22"/>
+                        </filter>
+
+                        <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+                          <feGaussianBlur stdDeviation="5" result="b"/>
+                          <feMerge>
+                            <feMergeNode in="b"/>
+                            <feMergeNode in="SourceGraphic"/>
+                          </feMerge>
+                        </filter>
+
+                        <clipPath id="mainClip">
+                          <rect x="120" y="105" width="560" height="370" rx="32"/>
+                        </clipPath>
+
+                        <symbol id="star" viewBox="0 0 24 24">
+                          <polygon points="12,1.8 15.1,8.2 22.1,9.2 17,14.1 18.2,21 12,17.7 5.8,21 7,14.1 1.9,9.2 8.9,8.2" />
+                        </symbol>
+                      </defs>
+
+                      <rect x="0" y="0" width="800" height="600" fill="url(#bg)"/>
+                      <rect x="0" y="0" width="800" height="600" fill="url(#grid)"/>
+
+                      <g filter="url(#softBlur)">
+                        <circle cx="150" cy="120" r="110" fill="url(#blobA)">
+                          <animateTransform attributeName="transform" type="translate" values="0 0; 18 12; 0 0" dur="10s" repeatCount="indefinite"/>
+                        </circle>
+                        <circle cx="655" cy="135" r="95" fill="url(#blobB)">
+                          <animateTransform attributeName="transform" type="translate" values="0 0; -22 18; 0 0" dur="12s" repeatCount="indefinite"/>
+                        </circle>
+                        <circle cx="660" cy="480" r="135" fill="url(#blobA)">
+                          <animateTransform attributeName="transform" type="translate" values="0 0; -16 -12; 0 0" dur="11s" repeatCount="indefinite"/>
+                        </circle>
+                        <circle cx="120" cy="490" r="120" fill="url(#blobB)">
+                          <animateTransform attributeName="transform" type="translate" values="0 0; 14 -10; 0 0" dur="13s" repeatCount="indefinite"/>
+                        </circle>
+                      </g>
+
+                      <g opacity="0.45">
+                        <circle cx="92" cy="88" r="4" fill="#ffffff">
+                          <animate attributeName="opacity" values="0.15;0.7;0.15" dur="3s" repeatCount="indefinite"/>
+                        </circle>
+                        <circle cx="705" cy="82" r="3" fill="#46ecff">
+                          <animate attributeName="opacity" values="0.15;0.9;0.15" dur="2.5s" repeatCount="indefinite"/>
+                        </circle>
+                        <circle cx="732" cy="515" r="5" fill="#ffffff">
+                          <animate attributeName="opacity" values="0.15;0.8;0.15" dur="3.8s" repeatCount="indefinite"/>
+                        </circle>
+                        <circle cx="118" cy="540" r="3" fill="#46ecff">
+                          <animate attributeName="opacity" values="0.2;1;0.2" dur="2.8s" repeatCount="indefinite"/>
+                        </circle>
+                      </g>
+
+                      <g filter="url(#shadow)">
+                        <g>
+                          <animateTransform attributeName="transform" type="translate" values="0 0; 0 -8; 0 0" dur="6s" repeatCount="indefinite"/>
+
+                          <rect x="120" y="105" width="560" height="370" rx="32" fill="url(#glass)" stroke="#ffffff" stroke-opacity="0.16" stroke-width="1.5"/>
+                          <rect x="145" y="130" width="510" height="320" rx="26" fill="url(#panel)" stroke="#ffffff" stroke-opacity="0.08" stroke-width="1"/>
+
+                          <rect x="145" y="130" width="510" height="40" rx="26" fill="#ffffff" fill-opacity="0.04"/>
+                          <circle cx="170" cy="150" r="5" fill="#ff7a7a"/>
+                          <circle cx="188" cy="150" r="5" fill="#ffd96a"/>
+                          <circle cx="206" cy="150" r="5" fill="#52e6a8"/>
+
+                          <line x1="406" y1="185" x2="406" y2="425" stroke="#ffffff" stroke-opacity="0.08"/>
+
+                          <text x="165" y="194" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="700">Survey Insights</text>
+                          <text x="165" y="214" fill="#dbe8ff" fill-opacity="0.72" font-family="Arial, Helvetica, sans-serif" font-size="12" letter-spacing="0.6">real-time feedback, happier customers</text>
+
+                          <!-- Checklist rows -->
+                          <g>
+                            <rect x="160" y="228" width="220" height="48" rx="16" fill="#17306d" fill-opacity="0.72" stroke="#ffffff" stroke-opacity="0.06"/>
+                            <circle cx="190" cy="252" r="14" fill="#204594">
+                              <animate attributeName="fill" values="#204594;#39dfff;#204594" dur="6s" repeatCount="indefinite"/>
+                            </circle>
+                            <path d="M 182 252 l 7 8 l 16 -17" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="40" stroke-dashoffset="40">
+                              <animate attributeName="stroke-dashoffset" values="40;0;0;40" keyTimes="0;0.16;0.76;1" dur="6s" repeatCount="indefinite"/>
+                            </path>
+                            <rect x="216" y="242" width="110" height="8" rx="4" fill="#ffffff" fill-opacity="0.86"/>
+                            <rect x="216" y="255" width="78" height="6" rx="3" fill="#c7d9ff" fill-opacity="0.55"/>
+                            <rect x="326" y="240" width="38" height="20" rx="10" fill="#46ecff" fill-opacity="0.18" stroke="#46ecff" stroke-opacity="0.45"/>
+                          </g>
+
+                          <g>
+                            <rect x="160" y="288" width="220" height="48" rx="16" fill="#17306d" fill-opacity="0.72" stroke="#ffffff" stroke-opacity="0.06"/>
+                            <circle cx="190" cy="312" r="14" fill="#204594">
+                              <animate attributeName="fill" values="#204594;#7c5cff;#204594" dur="6s" begin="0.7s" repeatCount="indefinite"/>
+                            </circle>
+                            <path d="M 182 312 l 7 8 l 16 -17" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="40" stroke-dashoffset="40">
+                              <animate attributeName="stroke-dashoffset" values="40;0;0;40" keyTimes="0;0.16;0.76;1" dur="6s" begin="0.7s" repeatCount="indefinite"/>
+                            </path>
+                            <rect x="216" y="302" width="128" height="8" rx="4" fill="#ffffff" fill-opacity="0.86"/>
+                            <rect x="216" y="315" width="92" height="6" rx="3" fill="#c7d9ff" fill-opacity="0.55"/>
+                            <rect x="326" y="300" width="24" height="20" rx="10" fill="#7c5cff" fill-opacity="0.18" stroke="#7c5cff" stroke-opacity="0.45"/>
+                          </g>
+
+                          <g>
+                            <rect x="160" y="348" width="220" height="48" rx="16" fill="#17306d" fill-opacity="0.72" stroke="#ffffff" stroke-opacity="0.06"/>
+                            <circle cx="190" cy="372" r="14" fill="#204594">
+                              <animate attributeName="fill" values="#204594;#ffd96a;#204594" dur="6s" begin="1.4s" repeatCount="indefinite"/>
+                            </circle>
+                            <path d="M 182 372 l 7 8 l 16 -17" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="40" stroke-dashoffset="40">
+                              <animate attributeName="stroke-dashoffset" values="40;0;0;40" keyTimes="0;0.16;0.76;1" dur="6s" begin="1.4s" repeatCount="indefinite"/>
+                            </path>
+                            <rect x="216" y="362" width="118" height="8" rx="4" fill="#ffffff" fill-opacity="0.86"/>
+                            <rect x="216" y="375" width="84" height="6" rx="3" fill="#c7d9ff" fill-opacity="0.55"/>
+                            <rect x="326" y="360" width="32" height="20" rx="10" fill="#ffd96a" fill-opacity="0.18" stroke="#ffd96a" stroke-opacity="0.45"/>
+                          </g>
+
+                          <!-- Rating -->
+                          <text x="165" y="420" fill="#dbe8ff" fill-opacity="0.82" font-family="Arial, Helvetica, sans-serif" font-size="12" letter-spacing="0.5">Average satisfaction</text>
+                          <g transform="translate(160 432)">
+                            <rect x="0" y="0" width="220" height="18" rx="9" fill="#10255e" fill-opacity="0.8"/>
+                            <rect x="8" y="3" width="156" height="12" rx="6" fill="url(#accent)">
+                              <animate attributeName="width" values="20;156;148;156" dur="5s" repeatCount="indefinite"/>
+                            </rect>
+                            <g transform="translate(176 -4)">
+                              <use href="#star" x="0" y="0" width="16" height="16" fill="#ffd96a">
+                                <animate attributeName="opacity" values="0.35;1;1;0.35" keyTimes="0;0.2;0.8;1" dur="5s" repeatCount="indefinite"/>
+                              </use>
+                              <use href="#star" x="16" y="0" width="16" height="16" fill="#ffd96a">
+                                <animate attributeName="opacity" values="0.2;1;1;0.2" keyTimes="0;0.28;0.8;1" dur="5s" repeatCount="indefinite"/>
+                              </use>
+                              <use href="#star" x="32" y="0" width="16" height="16" fill="#ffd96a">
+                                <animate attributeName="opacity" values="0.2;1;1;0.2" keyTimes="0;0.36;0.8;1" dur="5s" repeatCount="indefinite"/>
+                              </use>
+                            </g>
+                          </g>
+
+                          <!-- Right panel title -->
+                          <text x="435" y="194" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700">Response Score</text>
+                          <text x="435" y="214" fill="#dbe8ff" fill-opacity="0.72" font-family="Arial, Helvetica, sans-serif" font-size="12" letter-spacing="0.6">live analytics dashboard</text>
+
+                          <!-- Donut chart -->
+                          <circle cx="535" cy="255" r="62" fill="none" stroke="#ffffff" stroke-opacity="0.08" stroke-width="22"/>
+                          <circle cx="535" cy="255" r="62" fill="none" stroke="url(#accent)" stroke-width="22" stroke-linecap="round" stroke-dasharray="250 140" transform="rotate(-90 535 255)">
+                            <animate attributeName="stroke-dashoffset" values="18;0;18" dur="6s" repeatCount="indefinite"/>
+                          </circle>
+                          <circle cx="535" cy="255" r="62" fill="none" stroke="url(#accentWarm)" stroke-width="22" stroke-linecap="round" stroke-dasharray="72 318" stroke-dashoffset="-168" transform="rotate(-90 535 255)">
+                            <animate attributeName="stroke-dashoffset" values="-168;-182;-168" dur="6s" repeatCount="indefinite"/>
+                          </circle>
+
+                          <g filter="url(#glow)">
+                            <circle cx="535" cy="255" r="39" fill="#0f1f4f" stroke="#ffffff" stroke-opacity="0.08"/>
+                            <text x="535" y="252" text-anchor="middle" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="700">87%</text>
+                            <text x="535" y="272" text-anchor="middle" fill="#dbe8ff" fill-opacity="0.75" font-family="Arial, Helvetica, sans-serif" font-size="11" letter-spacing="0.5">positive</text>
+                          </g>
+
+                          <g transform="rotate(0 535 255)">
+                            <animateTransform attributeName="transform" type="rotate" values="0 535 255;360 535 255" dur="9s" repeatCount="indefinite"/>
+                            <circle cx="535" cy="183" r="6" fill="#46ecff"/>
+                          </g>
+
+                          <!-- Bar chart -->
+                          <text x="435" y="338" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700">Weekly trend</text>
+                          <line x1="448" y1="404" x2="625" y2="404" stroke="#ffffff" stroke-opacity="0.12"/>
+                          <line x1="448" y1="379" x2="625" y2="379" stroke="#ffffff" stroke-opacity="0.06"/>
+                          <line x1="448" y1="354" x2="625" y2="354" stroke="#ffffff" stroke-opacity="0.06"/>
+
+                          <rect x="460" y="372" width="22" height="32" rx="8" fill="#3cdfff">
+                            <animate attributeName="y" values="404;372;378;372" dur="5s" repeatCount="indefinite"/>
+                            <animate attributeName="height" values="0;32;26;32" dur="5s" repeatCount="indefinite"/>
+                          </rect>
+                          <rect x="496" y="352" width="22" height="52" rx="8" fill="#55c7ff">
+                            <animate attributeName="y" values="404;352;360;352" dur="5s" begin="0.2s" repeatCount="indefinite"/>
+                            <animate attributeName="height" values="0;52;44;52" dur="5s" begin="0.2s" repeatCount="indefinite"/>
+                          </rect>
+                          <rect x="532" y="330" width="22" height="74" rx="8" fill="#7c5cff">
+                            <animate attributeName="y" values="404;330;338;330" dur="5s" begin="0.35s" repeatCount="indefinite"/>
+                            <animate attributeName="height" values="0;74;66;74" dur="5s" begin="0.35s" repeatCount="indefinite"/>
+                          </rect>
+                          <rect x="568" y="346" width="22" height="58" rx="8" fill="#9a78ff">
+                            <animate attributeName="y" values="404;346;354;346" dur="5s" begin="0.5s" repeatCount="indefinite"/>
+                            <animate attributeName="height" values="0;58;50;58" dur="5s" begin="0.5s" repeatCount="indefinite"/>
+                          </rect>
+                          <rect x="604" y="316" width="22" height="88" rx="8" fill="#ffd96a">
+                            <animate attributeName="y" values="404;316;324;316" dur="5s" begin="0.65s" repeatCount="indefinite"/>
+                            <animate attributeName="height" values="0;88;80;88" dur="5s" begin="0.65s" repeatCount="indefinite"/>
+                          </rect>
+
+                          <path d="M 471 373 C 492 360 506 351 507 351 C 526 351 531 325 543 325 C 561 325 568 344 579 344 C 594 344 603 310 615 310"
+                                fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="220" stroke-dashoffset="220">
+                            <animate attributeName="stroke-dashoffset" values="220;0;0;220" keyTimes="0;0.28;0.75;1" dur="6s" repeatCount="indefinite"/>
+                          </path>
+                          <circle cx="615" cy="310" r="4" fill="#ffffff">
+                            <animate attributeName="opacity" values="0.2;1;0.2" dur="2s" repeatCount="indefinite"/>
+                          </circle>
+
+                          <!-- Shimmer -->
+                          <g clip-path="url(#mainClip)">
+                            <rect x="-260" y="80" width="120" height="520" fill="url(#shimmer)" transform="rotate(15 400 300)">
+                              <animate attributeName="x" values="-260;880" dur="7s" repeatCount="indefinite"/>
+                            </rect>
+                          </g>
+                        </g>
+                      </g>
+
+                      <!-- Floating review bubble -->
+                      <g transform="translate(580 78)" filter="url(#shadow)">
+                        <animateTransform attributeName="transform" type="translate" values="580 78;580 68;580 78" dur="5s" repeatCount="indefinite"/>
+                        <rect x="0" y="0" width="150" height="100" rx="22" fill="url(#glass)" stroke="#ffffff" stroke-opacity="0.16"/>
+                        <path d="M 30 100 L 48 118 L 53 100 Z" fill="url(#glass)" stroke="#ffffff" stroke-opacity="0.16"/>
+                        <circle cx="122" cy="22" r="6" fill="#46ecff">
+                          <animate attributeName="r" values="5;7;5" dur="2s" repeatCount="indefinite"/>
+                          <animate attributeName="opacity" values="0.5;1;0.5" dur="2s" repeatCount="indefinite"/>
+                        </circle>
+                        <g transform="translate(16 18)">
+                          <use href="#star" x="0" y="0" width="18" height="18" fill="#ffd96a">
+                            <animate attributeName="opacity" values="0.3;1;0.3" dur="2.5s" repeatCount="indefinite"/>
+                          </use>
+                          <use href="#star" x="20" y="0" width="18" height="18" fill="#ffd96a">
+                            <animate attributeName="opacity" values="0.3;1;0.3" dur="2.5s" begin="0.15s" repeatCount="indefinite"/>
+                          </use>
+                          <use href="#star" x="40" y="0" width="18" height="18" fill="#ffd96a">
+                            <animate attributeName="opacity" values="0.3;1;0.3" dur="2.5s" begin="0.3s" repeatCount="indefinite"/>
+                          </use>
+                          <use href="#star" x="60" y="0" width="18" height="18" fill="#ffd96a">
+                            <animate attributeName="opacity" values="0.3;1;0.3" dur="2.5s" begin="0.45s" repeatCount="indefinite"/>
+                          </use>
+                          <use href="#star" x="80" y="0" width="18" height="18" fill="#ffd96a">
+                            <animate attributeName="opacity" values="0.3;1;0.3" dur="2.5s" begin="0.6s" repeatCount="indefinite"/>
+                          </use>
+                        </g>
+                        <rect x="18" y="50" width="102" height="8" rx="4" fill="#ffffff" fill-opacity="0.85"/>
+                        <rect x="18" y="65" width="86" height="6" rx="3" fill="#d7e6ff" fill-opacity="0.58"/>
+                        <rect x="18" y="78" width="62" height="6" rx="3" fill="#d7e6ff" fill-opacity="0.42"/>
+                      </g>
+
+                      <!-- Floating mini insights card -->
+                      <g transform="translate(68 392)" filter="url(#shadow)">
+                        <animateTransform attributeName="transform" type="translate" values="68 392;68 402;68 392" dur="5.8s" repeatCount="indefinite"/>
+                        <rect x="0" y="0" width="185" height="128" rx="24" fill="url(#glass)" stroke="#ffffff" stroke-opacity="0.16"/>
+                        <text x="20" y="28" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700">Audience</text>
+                        <text x="20" y="46" fill="#dbe8ff" fill-opacity="0.72" font-family="Arial, Helvetica, sans-serif" font-size="11" letter-spacing="0.5">engagement up</text>
+
+                        <line x1="20" y1="104" x2="160" y2="104" stroke="#ffffff" stroke-opacity="0.12"/>
+                        <rect x="24" y="84" width="18" height="20" rx="6" fill="#46ecff">
+                          <animate attributeName="height" values="8;20;12;20" dur="4.5s" repeatCount="indefinite"/>
+                          <animate attributeName="y" values="96;84;92;84" dur="4.5s" repeatCount="indefinite"/>
+                        </rect>
+                        <rect x="52" y="70" width="18" height="34" rx="6" fill="#72c7ff">
+                          <animate attributeName="height" values="14;34;24;34" dur="4.5s" begin="0.15s" repeatCount="indefinite"/>
+                          <animate attributeName="y" values="90;70;80;70" dur="4.5s" begin="0.15s" repeatCount="indefinite"/>
+                        </rect>
+                        <rect x="80" y="60" width="18" height="44" rx="6" fill="#7c5cff">
+                          <animate attributeName="height" values="18;44;36;44" dur="4.5s" begin="0.3s" repeatCount="indefinite"/>
+                          <animate attributeName="y" values="86;60;68;60" dur="4.5s" begin="0.3s" repeatCount="indefinite"/>
+                        </rect>
+                        <rect x="108" y="74" width="18" height="30" rx="6" fill="#9f82ff">
+                          <animate attributeName="height" values="12;30;22;30" dur="4.5s" begin="0.45s" repeatCount="indefinite"/>
+                          <animate attributeName="y" values="92;74;82;74" dur="4.5s" begin="0.45s" repeatCount="indefinite"/>
+                        </rect>
+
+                        <path d="M 28 82 C 46 78 50 72 61 72 C 72 72 79 56 89 56 C 100 56 112 74 122 74 C 136 74 145 54 156 54"
+                              fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="180" stroke-dashoffset="180">
+                          <animate attributeName="stroke-dashoffset" values="180;0;0;180" keyTimes="0;0.3;0.78;1" dur="5.8s" repeatCount="indefinite"/>
+                        </path>
+                        <circle cx="156" cy="54" r="4" fill="#ffd96a"/>
+                      </g>
+
+                      <!-- Decorative connecting dots -->
+                      <g opacity="0.5">
+                        <path d="M 258 160 C 280 120 338 92 412 96" fill="none" stroke="#ffffff" stroke-opacity="0.10" stroke-width="1.5" stroke-dasharray="5 8"/>
+                        <path d="M 635 205 C 708 228 726 290 694 356" fill="none" stroke="#46ecff" stroke-opacity="0.18" stroke-width="1.5" stroke-dasharray="5 10"/>
+                        <path d="M 130 430 C 95 352 115 280 158 230" fill="none" stroke="#ffffff" stroke-opacity="0.08" stroke-width="1.5" stroke-dasharray="5 10"/>
+                      </g>
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services">
+            <div class="container">
+                <div class="section-header reveal">
+                    <h2>Our Services</h2>
+                    <p>Comprehensive surveying and consulting solutions combining modern technology with proven expertise.</p>
+                </div>
+                <div class="services-grid">
+                    <!-- Card 1 -->
+                    <div class="card service-card reveal">
+                        <div class="card-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h4l3-9 5 18 3-9h5"/></svg>
+                        </div>
+                        <h3>Topographic Survey</h3>
+                        <p>Detailed mapping of natural and man-made features using advanced GIS and remote sensing tools.</p>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="card service-card reveal" style="transition-delay: 0.1s;">
+                        <div class="card-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"></polygon><line x1="9" y1="3" x2="9" y2="21"></line><line x1="15" y1="3" x2="15" y2="21"></line></svg>
+                        </div>
+                        <h3>Cadastral Mapping</h3>
+                        <p>Precise boundary surveys to establish property lines securely, compliant with local regulations.</p>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="card service-card reveal" style="transition-delay: 0.2s;">
+                        <div class="card-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                        </div>
+                        <h3>Risk Consulting</h3>
+                        <p>Project viability assessments, risk management, and comprehensive environmental impact studies.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section id="how-it-works" style="background-color: var(--surface-color);">
+            <div class="container">
+                <div class="section-header reveal">
+                    <h2>How It Works</h2>
+                    <p>Our streamlined process ensures maximum accuracy and efficient delivery for every project.</p>
+                </div>
+                <div class="process-grid">
+                    <div class="process-step reveal">
+                        <div class="step-number">1</div>
+                        <h3>Initial Consultation</h3>
+                        <p>We discuss your goals, define the project scope, and provide tailored technical advice.</p>
+                    </div>
+                    <div class="process-step reveal" style="transition-delay: 0.1s;">
+                        <div class="step-number">2</div>
+                        <h3>Field Data Collection</h3>
+                        <p>Our expert team deploys to the site utilizing state-of-the-art surveying instruments.</p>
+                    </div>
+                    <div class="process-step reveal" style="transition-delay: 0.2s;">
+                        <div class="step-number">3</div>
+                        <h3>Data Processing</h3>
+                        <p>Raw data is meticulously analyzed and converted into high-fidelity digital maps and models.</p>
+                    </div>
+                    <div class="process-step reveal" style="transition-delay: 0.3s;">
+                        <div class="step-number">4</div>
+                        <h3>Delivery & Insights</h3>
+                        <p>You receive actionable reports, detailed CAD files, and a comprehensive project breakdown.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials">
+            <div class="container">
+                <div class="section-header reveal">
+                    <h2>Client Feedback</h2>
+                    <p>Don't just take our word for it. Here is what our partners have to say about Kaif Consulting.</p>
+                </div>
+                <div class="testimonials-grid">
+                    <article class="card testimonial-card reveal">
+                        <div class="stars" aria-label="5 out of 5 stars">
+                            ★★★★★
+                        </div>
+                        <p>"Kaif Survey provided exceptional topographical data for our commercial development. Their accuracy saved us weeks in the planning phase."</p>
+                        <div class="client-info">
+                            <div class="client-avatar">A</div>
+                            <div>
+                                <h4>Ahmed Rahman</h4>
+                                <p style="font-size: 0.875rem; color: var(--text-secondary);">Director, Apex Developments</p>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="card testimonial-card reveal" style="transition-delay: 0.1s;">
+                        <div class="stars" aria-label="5 out of 5 stars">
+                            ★★★★★
+                        </div>
+                        <p>"Professional, punctual, and highly communicative. MD. Ruknuzzaman Alamgir and his team truly understand the nuances of land surveying."</p>
+                        <div class="client-info">
+                            <div class="client-avatar">S</div>
+                            <div>
+                                <h4>Sarah Haque</h4>
+                                <p style="font-size: 0.875rem; color: var(--text-secondary);">Lead Architect, StudioV</p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section id="pricing" style="background-color: var(--surface-color);">
+            <div class="container">
+                <div class="section-header reveal">
+                    <h2>Surveying Packages</h2>
+                    <p>Transparent service tiers designed to fit projects of any scale. Contact us to unlock exact pricing for your specific needs.</p>
+                </div>
+                <div class="pricing-grid">
+                    <!-- Standard HTML element with hidden price in dataset -->
+                    <div class="card pricing-card reveal" data-price="25000 BDT">
+                        <h3 class="package-name">Basic Assessment</h3>
+                        <p class="package-desc">Ideal for small residential boundary checks and minor disputes.</p>
+                        <ul class="package-features">
+                            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Standard Boundary Survey</li>
+                            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> 2D Map Generation</li>
+                            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> 5-Day Turnaround</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-outline" style="width: 100%;">Inquire Now</a>
+                    </div>
+
+                    <div class="card pricing-card popular reveal" data-price="75000 BDT" style="transition-delay: 0.1s;">
+                        <div class="popular-badge">Most Requested</div>
+                        <h3 class="package-name">Commercial Pro</h3>
+                        <p class="package-desc">Comprehensive topographic and utility mapping for developments.</p>
+                        <ul class="package-features">
+                            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Full Topographic Survey</li>
+                            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> 3D Terrain Modeling</li>
+                            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Priority Processing</li>
+                            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Expert Consultation</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-primary" style="width: 100%;">Inquire Now</a>
+                    </div>
+
+                    <div class="card pricing-card reveal" data-price="Custom BDT" style="transition-delay: 0.2s;">
+                        <h3 class="package-name">Enterprise</h3>
+                        <p class="package-desc">Large-scale infrastructural analysis and ongoing risk consulting.</p>
+                        <ul class="package-features">
+                            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Multi-acre GIS Mapping</li>
+                            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Drone Survey Integration</li>
+                            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Dedicated Project Manager</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-outline" style="width: 100%;">Contact Sales</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <div class="container">
+                <div class="contact-container reveal">
+                    <div class="contact-info">
+                        <h3>Get in Touch</h3>
+                        <p>Ready to start your project? Contact us for a precise quote and professional consultation.</p>
+                        
+                        <div class="info-item">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                            <div>
+                                <strong>Head Office</strong><br>
+                                Plot-229, Zaman Tower<br>
+                                Azampur Road, Uttarkhan<br>
+                                Uttara, Dhaka-1230
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                            <div>
+                                <strong>Phone</strong><br>
+                                +880 1712-345678
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                            <div>
+                                <strong>Email</strong><br>
+                                alamgirwss@gmail.com
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-form-wrapper">
+                        <form id="contactForm" novalidate>
+                            <div class="form-group">
+                                <label for="name" class="form-label">Full Name *</label>
+                                <input type="text" id="name" class="form-control" required aria-required="true">
+                                <div class="error-message">Please enter your name.</div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="company" class="form-label">Company Name</label>
+                                <input type="text" id="company" class="form-control">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email" class="form-label">Email Address *</label>
+                                <input type="email" id="email" class="form-control" required aria-required="true" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+                                <div class="error-message">Please enter a valid email address.</div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="phone" class="form-label">Phone Number *</label>
+                                <input type="tel" id="phone" class="form-control" required aria-required="true">
+                                <div class="error-message">Please enter a valid phone number.</div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="method" class="form-label">Preferred Contact Method</label>
+                                <select id="method" class="form-control">
+                                    <option value="email">Email</option>
+                                    <option value="phone">Phone</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message" class="form-label">Project Description *</label>
+                                <textarea id="message" class="form-control" required aria-required="true"></textarea>
+                                <div class="error-message">Please provide a brief description of your project.</div>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary" id="submitBtn" style="width: 100%;">
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h4>Kaif Survey & Consulting</h4>
+                    <p>Providing precision and reliability in land surveying and digital mapping since inception. Managed by MD. Ruknuzzaman Alamgir.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="LinkedIn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Twitter">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Facebook">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="footer-heading">Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="#services">Topographic Surveys</a></li>
+                        <li><a href="#services">Cadastral Mapping</a></li>
+                        <li><a href="#services">GIS Consulting</a></li>
+                        <li><a href="#services">Risk Assessment</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="footer-heading">Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#how-it-works">Workflow</a></li>
+                        <li><a href="#pricing">Pricing Packages</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="footer-heading">Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; <span id="year"></span> Kaif Survey & Consulting. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Success Modal -->
+    <div class="modal-overlay" id="successModal" aria-hidden="true">
+        <div class="modal" role="dialog" aria-labelledby="modalTitle" aria-describedby="modalDesc">
+            <div class="modal-icon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </div>
+            <h3 id="modalTitle">Message Sent!</h3>
+            <p id="modalDesc" style="color: var(--text-secondary); margin: 1rem 0 2rem;">Thank you for reaching out. Our team will get back to you shortly.</p>
+            <button class="btn btn-primary" onclick="closeModal()" style="width: 100%;">Close</button>
+        </div>
     </div>
-  </header>
 
-  <main>
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-      <div class="hero-bg-glow"></div>
-      <div class="container hero-grid">
-        <div class="hero-content reveal">
-          <h1>Precision Data for <span>Smart Decisions</span></h1>
-          <p>Expert surveying and consulting services by MD. Ruknuzzaman Alamgir. We provide real-time analytics, accurate topography, and data insights to power your next big project.</p>
-          <div class="hero-buttons">
-            <a href="contact.html" class="btn btn-primary">Request Quote</a>
-            <a href="services.html" class="btn btn-outline">Explore Services</a>
-          </div>
-        </div>
-        <div class="hero-image reveal delay-200" aria-hidden="true">
-          <!-- Inserted SVG exactly as requested -->
-          <svg width="100%" height="100%" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0%" stop-color="#0b1436"/>
-                <stop offset="55%" stop-color="#12357f"/>
-                <stop offset="100%" stop-color="#1a59c8"/>
-              </linearGradient>
-          
-              <radialGradient id="blobA" cx="0.5" cy="0.5" r="0.5">
-                <stop offset="0%" stop-color="#48e7ff" stop-opacity="0.55"/>
-                <stop offset="100%" stop-color="#48e7ff" stop-opacity="0"/>
-              </radialGradient>
-          
-              <radialGradient id="blobB" cx="0.5" cy="0.5" r="0.5">
-                <stop offset="0%" stop-color="#8f6bff" stop-opacity="0.45"/>
-                <stop offset="100%" stop-color="#8f6bff" stop-opacity="0"/>
-              </radialGradient>
-          
-              <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0%" stop-color="#ffffff" stop-opacity="0.18"/>
-                <stop offset="100%" stop-color="#ffffff" stop-opacity="0.06"/>
-              </linearGradient>
-          
-              <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0%" stop-color="#12204f" stop-opacity="0.95"/>
-                <stop offset="100%" stop-color="#0d1a44" stop-opacity="0.95"/>
-              </linearGradient>
-          
-              <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0%" stop-color="#46ecff"/>
-                <stop offset="100%" stop-color="#7c5cff"/>
-              </linearGradient>
-          
-              <linearGradient id="accentWarm" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0%" stop-color="#ffd96a"/>
-                <stop offset="100%" stop-color="#ff9d5c"/>
-              </linearGradient>
-          
-              <linearGradient id="shimmer" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0%" stop-color="#ffffff" stop-opacity="0"/>
-                <stop offset="50%" stop-color="#ffffff" stop-opacity="0.22"/>
-                <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
-              </linearGradient>
-          
-              <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-                <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#d7e7ff" stroke-opacity="0.10" stroke-width="1"/>
-              </pattern>
-          
-              <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
-                <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#06102f" flood-opacity="0.45"/>
-              </filter>
-          
-              <filter id="softBlur" x="-50%" y="-50%" width="200%" height="200%">
-                <feGaussianBlur stdDeviation="22"/>
-              </filter>
-          
-              <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
-                <feGaussianBlur stdDeviation="5" result="b"/>
-                <feMerge>
-                  <feMergeNode in="b"/>
-                  <feMergeNode in="SourceGraphic"/>
-                </feMerge>
-              </filter>
-          
-              <clipPath id="mainClip">
-                <rect x="120" y="105" width="560" height="370" rx="32"/>
-              </clipPath>
-          
-              <symbol id="star" viewBox="0 0 24 24">
-                <polygon points="12,1.8 15.1,8.2 22.1,9.2 17,14.1 18.2,21 12,17.7 5.8,21 7,14.1 1.9,9.2 8.9,8.2" />
-              </symbol>
-            </defs>
-          
-            <rect x="0" y="0" width="800" height="600" fill="url(#bg)"/>
-            <rect x="0" y="0" width="800" height="600" fill="url(#grid)"/>
-          
-            <g filter="url(#softBlur)">
-              <circle cx="150" cy="120" r="110" fill="url(#blobA)">
-                <animateTransform attributeName="transform" type="translate" values="0 0; 18 12; 0 0" dur="10s" repeatCount="indefinite"/>
-              </circle>
-              <circle cx="655" cy="135" r="95" fill="url(#blobB)">
-                <animateTransform attributeName="transform" type="translate" values="0 0; -22 18; 0 0" dur="12s" repeatCount="indefinite"/>
-              </circle>
-              <circle cx="660" cy="480" r="135" fill="url(#blobA)">
-                <animateTransform attributeName="transform" type="translate" values="0 0; -16 -12; 0 0" dur="11s" repeatCount="indefinite"/>
-              </circle>
-              <circle cx="120" cy="490" r="120" fill="url(#blobB)">
-                <animateTransform attributeName="transform" type="translate" values="0 0; 14 -10; 0 0" dur="13s" repeatCount="indefinite"/>
-              </circle>
-            </g>
-          
-            <g opacity="0.45">
-              <circle cx="92" cy="88" r="4" fill="#ffffff">
-                <animate attributeName="opacity" values="0.15;0.7;0.15" dur="3s" repeatCount="indefinite"/>
-              </circle>
-              <circle cx="705" cy="82" r="3" fill="#46ecff">
-                <animate attributeName="opacity" values="0.15;0.9;0.15" dur="2.5s" repeatCount="indefinite"/>
-              </circle>
-              <circle cx="732" cy="515" r="5" fill="#ffffff">
-                <animate attributeName="opacity" values="0.15;0.8;0.15" dur="3.8s" repeatCount="indefinite"/>
-              </circle>
-              <circle cx="118" cy="540" r="3" fill="#46ecff">
-                <animate attributeName="opacity" values="0.2;1;0.2" dur="2.8s" repeatCount="indefinite"/>
-              </circle>
-            </g>
-          
-            <g filter="url(#shadow)">
-              <g>
-                <animateTransform attributeName="transform" type="translate" values="0 0; 0 -8; 0 0" dur="6s" repeatCount="indefinite"/>
-          
-                <rect x="120" y="105" width="560" height="370" rx="32" fill="url(#glass)" stroke="#ffffff" stroke-opacity="0.16" stroke-width="1.5"/>
-                <rect x="145" y="130" width="510" height="320" rx="26" fill="url(#panel)" stroke="#ffffff" stroke-opacity="0.08" stroke-width="1"/>
-          
-                <rect x="145" y="130" width="510" height="40" rx="26" fill="#ffffff" fill-opacity="0.04"/>
-                <circle cx="170" cy="150" r="5" fill="#ff7a7a"/>
-                <circle cx="188" cy="150" r="5" fill="#ffd96a"/>
-                <circle cx="206" cy="150" r="5" fill="#52e6a8"/>
-          
-                <line x1="406" y1="185" x2="406" y2="425" stroke="#ffffff" stroke-opacity="0.08"/>
-          
-                <text x="165" y="194" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="700">Survey Insights</text>
-                <text x="165" y="214" fill="#dbe8ff" fill-opacity="0.72" font-family="Arial, Helvetica, sans-serif" font-size="12" letter-spacing="0.6">real-time feedback, happier customers</text>
-          
-                <!-- Checklist rows -->
-                <g>
-                  <rect x="160" y="228" width="220" height="48" rx="16" fill="#17306d" fill-opacity="0.72" stroke="#ffffff" stroke-opacity="0.06"/>
-                  <circle cx="190" cy="252" r="14" fill="#204594">
-                    <animate attributeName="fill" values="#204594;#39dfff;#204594" dur="6s" repeatCount="indefinite"/>
-                  </circle>
-                  <path d="M 182 252 l 7 8 l 16 -17" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="40" stroke-dashoffset="40">
-                    <animate attributeName="stroke-dashoffset" values="40;0;0;40" keyTimes="0;0.16;0.76;1" dur="6s" repeatCount="indefinite"/>
-                  </path>
-                  <rect x="216" y="242" width="110" height="8" rx="4" fill="#ffffff" fill-opacity="0.86"/>
-                  <rect x="216" y="255" width="78" height="6" rx="3" fill="#c7d9ff" fill-opacity="0.55"/>
-                  <rect x="326" y="240" width="38" height="20" rx="10" fill="#46ecff" fill-opacity="0.18" stroke="#46ecff" stroke-opacity="0.45"/>
-                </g>
-          
-                <g>
-                  <rect x="160" y="288" width="220" height="48" rx="16" fill="#17306d" fill-opacity="0.72" stroke="#ffffff" stroke-opacity="0.06"/>
-                  <circle cx="190" cy="312" r="14" fill="#204594">
-                    <animate attributeName="fill" values="#204594;#7c5cff;#204594" dur="6s" begin="0.7s" repeatCount="indefinite"/>
-                  </circle>
-                  <path d="M 182 312 l 7 8 l 16 -17" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="40" stroke-dashoffset="40">
-                    <animate attributeName="stroke-dashoffset" values="40;0;0;40" keyTimes="0;0.16;0.76;1" dur="6s" begin="0.7s" repeatCount="indefinite"/>
-                  </path>
-                  <rect x="216" y="302" width="128" height="8" rx="4" fill="#ffffff" fill-opacity="0.86"/>
-                  <rect x="216" y="315" width="92" height="6" rx="3" fill="#c7d9ff" fill-opacity="0.55"/>
-                  <rect x="326" y="300" width="24" height="20" rx="10" fill="#7c5cff" fill-opacity="0.18" stroke="#7c5cff" stroke-opacity="0.45"/>
-                </g>
-          
-                <g>
-                  <rect x="160" y="348" width="220" height="48" rx="16" fill="#17306d" fill-opacity="0.72" stroke="#ffffff" stroke-opacity="0.06"/>
-                  <circle cx="190" cy="372" r="14" fill="#204594">
-                    <animate attributeName="fill" values="#204594;#ffd96a;#204594" dur="6s" begin="1.4s" repeatCount="indefinite"/>
-                  </circle>
-                  <path d="M 182 372 l 7 8 l 16 -17" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="40" stroke-dashoffset="40">
-                    <animate attributeName="stroke-dashoffset" values="40;0;0;40" keyTimes="0;0.16;0.76;1" dur="6s" begin="1.4s" repeatCount="indefinite"/>
-                  </path>
-                  <rect x="216" y="362" width="118" height="8" rx="4" fill="#ffffff" fill-opacity="0.86"/>
-                  <rect x="216" y="375" width="84" height="6" rx="3" fill="#c7d9ff" fill-opacity="0.55"/>
-                  <rect x="326" y="360" width="32" height="20" rx="10" fill="#ffd96a" fill-opacity="0.18" stroke="#ffd96a" stroke-opacity="0.45"/>
-                </g>
-          
-                <!-- Rating -->
-                <text x="165" y="420" fill="#dbe8ff" fill-opacity="0.82" font-family="Arial, Helvetica, sans-serif" font-size="12" letter-spacing="0.5">Average satisfaction</text>
-                <g transform="translate(160 432)">
-                  <rect x="0" y="0" width="220" height="18" rx="9" fill="#10255e" fill-opacity="0.8"/>
-                  <rect x="8" y="3" width="156" height="12" rx="6" fill="url(#accent)">
-                    <animate attributeName="width" values="20;156;148;156" dur="5s" repeatCount="indefinite"/>
-                  </rect>
-                  <g transform="translate(176 -4)">
-                    <use href="#star" x="0" y="0" width="16" height="16" fill="#ffd96a">
-                      <animate attributeName="opacity" values="0.35;1;1;0.35" keyTimes="0;0.2;0.8;1" dur="5s" repeatCount="indefinite"/>
-                    </use>
-                    <use href="#star" x="16" y="0" width="16" height="16" fill="#ffd96a">
-                      <animate attributeName="opacity" values="0.2;1;1;0.2" keyTimes="0;0.28;0.8;1" dur="5s" repeatCount="indefinite"/>
-                    </use>
-                    <use href="#star" x="32" y="0" width="16" height="16" fill="#ffd96a">
-                      <animate attributeName="opacity" values="0.2;1;1;0.2" keyTimes="0;0.36;0.8;1" dur="5s" repeatCount="indefinite"/>
-                    </use>
-                  </g>
-                </g>
-          
-                <!-- Right panel title -->
-                <text x="435" y="194" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700">Response Score</text>
-                <text x="435" y="214" fill="#dbe8ff" fill-opacity="0.72" font-family="Arial, Helvetica, sans-serif" font-size="12" letter-spacing="0.6">live analytics dashboard</text>
-          
-                <!-- Donut chart -->
-                <circle cx="535" cy="255" r="62" fill="none" stroke="#ffffff" stroke-opacity="0.08" stroke-width="22"/>
-                <circle cx="535" cy="255" r="62" fill="none" stroke="url(#accent)" stroke-width="22" stroke-linecap="round" stroke-dasharray="250 140" transform="rotate(-90 535 255)">
-                  <animate attributeName="stroke-dashoffset" values="18;0;18" dur="6s" repeatCount="indefinite"/>
-                </circle>
-                <circle cx="535" cy="255" r="62" fill="none" stroke="url(#accentWarm)" stroke-width="22" stroke-linecap="round" stroke-dasharray="72 318" stroke-dashoffset="-168" transform="rotate(-90 535 255)">
-                  <animate attributeName="stroke-dashoffset" values="-168;-182;-168" dur="6s" repeatCount="indefinite"/>
-                </circle>
-          
-                <g filter="url(#glow)">
-                  <circle cx="535" cy="255" r="39" fill="#0f1f4f" stroke="#ffffff" stroke-opacity="0.08"/>
-                  <text x="535" y="252" text-anchor="middle" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="700">87%</text>
-                  <text x="535" y="272" text-anchor="middle" fill="#dbe8ff" fill-opacity="0.75" font-family="Arial, Helvetica, sans-serif" font-size="11" letter-spacing="0.5">positive</text>
-                </g>
-          
-                <g transform="rotate(0 535 255)">
-                  <animateTransform attributeName="transform" type="rotate" values="0 535 255;360 535 255" dur="9s" repeatCount="indefinite"/>
-                  <circle cx="535" cy="183" r="6" fill="#46ecff"/>
-                </g>
-          
-                <!-- Bar chart -->
-                <text x="435" y="338" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700">Weekly trend</text>
-                <line x1="448" y1="404" x2="625" y2="404" stroke="#ffffff" stroke-opacity="0.12"/>
-                <line x1="448" y1="379" x2="625" y2="379" stroke="#ffffff" stroke-opacity="0.06"/>
-                <line x1="448" y1="354" x2="625" y2="354" stroke="#ffffff" stroke-opacity="0.06"/>
-          
-                <rect x="460" y="372" width="22" height="32" rx="8" fill="#3cdfff">
-                  <animate attributeName="y" values="404;372;378;372" dur="5s" repeatCount="indefinite"/>
-                  <animate attributeName="height" values="0;32;26;32" dur="5s" repeatCount="indefinite"/>
-                </rect>
-                <rect x="496" y="352" width="22" height="52" rx="8" fill="#55c7ff">
-                  <animate attributeName="y" values="404;352;360;352" dur="5s" begin="0.2s" repeatCount="indefinite"/>
-                  <animate attributeName="height" values="0;52;44;52" dur="5s" begin="0.2s" repeatCount="indefinite"/>
-                </rect>
-                <rect x="532" y="330" width="22" height="74" rx="8" fill="#7c5cff">
-                  <animate attributeName="y" values="404;330;338;330" dur="5s" begin="0.35s" repeatCount="indefinite"/>
-                  <animate attributeName="height" values="0;74;66;74" dur="5s" begin="0.35s" repeatCount="indefinite"/>
-                </rect>
-                <rect x="568" y="346" width="22" height="58" rx="8" fill="#9a78ff">
-                  <animate attributeName="y" values="404;346;354;346" dur="5s" begin="0.5s" repeatCount="indefinite"/>
-                  <animate attributeName="height" values="0;58;50;58" dur="5s" begin="0.5s" repeatCount="indefinite"/>
-                </rect>
-                <rect x="604" y="316" width="22" height="88" rx="8" fill="#ffd96a">
-                  <animate attributeName="y" values="404;316;324;316" dur="5s" begin="0.65s" repeatCount="indefinite"/>
-                  <animate attributeName="height" values="0;88;80;88" dur="5s" begin="0.65s" repeatCount="indefinite"/>
-                </rect>
-          
-                <path d="M 471 373 C 492 360 506 351 507 351 C 526 351 531 325 543 325 C 561 325 568 344 579 344 C 594 344 603 310 615 310"
-                      fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="220" stroke-dashoffset="220">
-                  <animate attributeName="stroke-dashoffset" values="220;0;0;220" keyTimes="0;0.28;0.75;1" dur="6s" repeatCount="indefinite"/>
-                </path>
-                <circle cx="615" cy="310" r="4" fill="#ffffff">
-                  <animate attributeName="opacity" values="0.2;1;0.2" dur="2s" repeatCount="indefinite"/>
-                </circle>
-          
-                <!-- Shimmer -->
-                <g clip-path="url(#mainClip)">
-                  <rect x="-260" y="80" width="120" height="520" fill="url(#shimmer)" transform="rotate(15 400 300)">
-                    <animate attributeName="x" values="-260;880" dur="7s" repeatCount="indefinite"/>
-                  </rect>
-                </g>
-              </g>
-            </g>
-          
-            <!-- Floating review bubble -->
-            <g transform="translate(580 78)" filter="url(#shadow)">
-              <animateTransform attributeName="transform" type="translate" values="580 78;580 68;580 78" dur="5s" repeatCount="indefinite"/>
-              <rect x="0" y="0" width="150" height="100" rx="22" fill="url(#glass)" stroke="#ffffff" stroke-opacity="0.16"/>
-              <path d="M 30 100 L 48 118 L 53 100 Z" fill="url(#glass)" stroke="#ffffff" stroke-opacity="0.16"/>
-              <circle cx="122" cy="22" r="6" fill="#46ecff">
-                <animate attributeName="r" values="5;7;5" dur="2s" repeatCount="indefinite"/>
-                <animate attributeName="opacity" values="0.5;1;0.5" dur="2s" repeatCount="indefinite"/>
-              </circle>
-              <g transform="translate(16 18)">
-                <use href="#star" x="0" y="0" width="18" height="18" fill="#ffd96a">
-                  <animate attributeName="opacity" values="0.3;1;0.3" dur="2.5s" repeatCount="indefinite"/>
-                </use>
-                <use href="#star" x="20" y="0" width="18" height="18" fill="#ffd96a">
-                  <animate attributeName="opacity" values="0.3;1;0.3" dur="2.5s" begin="0.15s" repeatCount="indefinite"/>
-                </use>
-                <use href="#star" x="40" y="0" width="18" height="18" fill="#ffd96a">
-                  <animate attributeName="opacity" values="0.3;1;0.3" dur="2.5s" begin="0.3s" repeatCount="indefinite"/>
-                </use>
-                <use href="#star" x="60" y="0" width="18" height="18" fill="#ffd96a">
-                  <animate attributeName="opacity" values="0.3;1;0.3" dur="2.5s" begin="0.45s" repeatCount="indefinite"/>
-                </use>
-                <use href="#star" x="80" y="0" width="18" height="18" fill="#ffd96a">
-                  <animate attributeName="opacity" values="0.3;1;0.3" dur="2.5s" begin="0.6s" repeatCount="indefinite"/>
-                </use>
-              </g>
-              <rect x="18" y="50" width="102" height="8" rx="4" fill="#ffffff" fill-opacity="0.85"/>
-              <rect x="18" y="65" width="86" height="6" rx="3" fill="#d7e6ff" fill-opacity="0.58"/>
-              <rect x="18" y="78" width="62" height="6" rx="3" fill="#d7e6ff" fill-opacity="0.42"/>
-            </g>
-          
-            <!-- Floating mini insights card -->
-            <g transform="translate(68 392)" filter="url(#shadow)">
-              <animateTransform attributeName="transform" type="translate" values="68 392;68 402;68 392" dur="5.8s" repeatCount="indefinite"/>
-              <rect x="0" y="0" width="185" height="128" rx="24" fill="url(#glass)" stroke="#ffffff" stroke-opacity="0.16"/>
-              <text x="20" y="28" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700">Audience</text>
-              <text x="20" y="46" fill="#dbe8ff" fill-opacity="0.72" font-family="Arial, Helvetica, sans-serif" font-size="11" letter-spacing="0.5">engagement up</text>
-          
-              <line x1="20" y1="104" x2="160" y2="104" stroke="#ffffff" stroke-opacity="0.12"/>
-              <rect x="24" y="84" width="18" height="20" rx="6" fill="#46ecff">
-                <animate attributeName="height" values="8;20;12;20" dur="4.5s" repeatCount="indefinite"/>
-                <animate attributeName="y" values="96;84;92;84" dur="4.5s" repeatCount="indefinite"/>
-              </rect>
-              <rect x="52" y="70" width="18" height="34" rx="6" fill="#72c7ff">
-                <animate attributeName="height" values="14;34;24;34" dur="4.5s" begin="0.15s" repeatCount="indefinite"/>
-                <animate attributeName="y" values="90;70;80;70" dur="4.5s" begin="0.15s" repeatCount="indefinite"/>
-              </rect>
-              <rect x="80" y="60" width="18" height="44" rx="6" fill="#7c5cff">
-                <animate attributeName="height" values="18;44;36;44" dur="4.5s" begin="0.3s" repeatCount="indefinite"/>
-                <animate attributeName="y" values="86;60;68;60" dur="4.5s" begin="0.3s" repeatCount="indefinite"/>
-              </rect>
-              <rect x="108" y="74" width="18" height="30" rx="6" fill="#9f82ff">
-                <animate attributeName="height" values="12;30;22;30" dur="4.5s" begin="0.45s" repeatCount="indefinite"/>
-                <animate attributeName="y" values="92;74;82;74" dur="4.5s" begin="0.45s" repeatCount="indefinite"/>
-              </rect>
-          
-              <path d="M 28 82 C 46 78 50 72 61 72 C 72 72 79 56 89 56 C 100 56 112 74 122 74 C 136 74 145 54 156 54"
-                    fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="180" stroke-dashoffset="180">
-                <animate attributeName="stroke-dashoffset" values="180;0;0;180" keyTimes="0;0.3;0.78;1" dur="5.8s" repeatCount="indefinite"/>
-              </path>
-              <circle cx="156" cy="54" r="4" fill="#ffd96a"/>
-            </g>
-          
-            <!-- Decorative connecting dots -->
-            <g opacity="0.5">
-              <path d="M 258 160 C 280 120 338 92 412 96" fill="none" stroke="#ffffff" stroke-opacity="0.10" stroke-width="1.5" stroke-dasharray="5 8"/>
-              <path d="M 635 205 C 708 228 726 290 694 356" fill="none" stroke="#46ecff" stroke-opacity="0.18" stroke-width="1.5" stroke-dasharray="5 10"/>
-              <path d="M 130 430 C 95 352 115 280 158 230" fill="none" stroke="#ffffff" stroke-opacity="0.08" stroke-width="1.5" stroke-dasharray="5 10"/>
-            </g>
-          </svg>
-        </div>
-      </div>
-    </section>
-    <!-- Stats Bar -->
-    <section class="stats-section">
-      <div class="container stats-grid reveal">
-        <div class="stat-card">
-          <div class="stat-number" data-target="500">0</div>
-          <div class="stat-label">Projects Completed</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-number" data-target="150">0</div>
-          <div class="stat-label">Corporate Clients</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-number" data-target="15">0</div>
-          <div class="stat-label">Years Experience</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-number" data-target="98">0</div>
-          <div class="stat-label">Satisfaction Rate (%)</div>
-        </div>
-      </div>
-    </section>
-  </main>
+    <!-- JavaScript Logic -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // --- 1. Dynamic Year ---
+            document.getElementById('year').textContent = new Date().getFullYear();
 
-  <!-- Footer -->
-  <footer>
-    <div class="container footer-grid">
-      <div class="footer-brand">
-        <a href="index.html" class="logo" style="color: white;">
-          <img src="https://uploads.onecompiler.io/43y3by72c/4428darze/1000007296.png" alt="Kaif Survey Logo" style="filter: brightness(0) invert(1);">
-          <span>Kaif Survey & Consulting</span>
-        </a>
-        <p>Owned by MD. Ruknuzzaman Alamgir. We deliver precision, reliability, and actionable data insights for all your surveying needs across Bangladesh.</p>
-        <div class="social-links">
-          <a href="index.html" aria-label="Facebook"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path></svg></a>
-          <a href="index.html" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path><circle cx="4" cy="4" r="2"></circle></svg></a>
-        </div>
-      </div>
-      
-      <div>
-        <h4 class="footer-heading">Quick Links</h4>
-        <ul class="footer-links">
-          <li><a href="services.html">Our Services</a></li>
-          <li><a href="process.html">How We Work</a></li>
-          <li><a href="pricing.html">Pricing</a></li>
-          <li><a href="contact.html">Contact Us</a></li>
-        </ul>
-      </div>
+            // --- 2. Theme Toggle (Light/Dark Mode) ---
+            const themeToggleBtn = document.getElementById('theme-toggle');
+            const htmlElement = document.documentElement;
+            const ariaLive = document.getElementById('aria-live-region');
+            
+            // SVG Icons for Theme Toggle
+            const sunIcon = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>`;
+            const moonIcon = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>`;
 
-      <div>
-        <h4 class="footer-heading">Legal</h4>
-        <ul class="footer-links">
-          <li><a href="index.html">Privacy Policy</a></li>
-          <li><a href="index.html">Terms of Service</a></li>
-        </ul>
-      </div>
-    </div>
-    
-    <div class="container footer-bottom">
-      &copy; <span id="year"></span> Kaif Survey & Consulting. All rights reserved.
-    </div>
-  </footer>
+            // Check preference
+            const savedTheme = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            
+            if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+                htmlElement.setAttribute('data-theme', 'dark');
+                themeToggleBtn.innerHTML = sunIcon;
+            } else {
+                htmlElement.setAttribute('data-theme', 'light');
+                themeToggleBtn.innerHTML = moonIcon;
+            }
 
-  <!-- Success Modal -->
-  <div class="modal-overlay" id="successModal" aria-hidden="true" role="dialog" aria-labelledby="modalTitle">
-    <div class="modal-content">
-      <div class="modal-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-      </div>
-      <h3 id="modalTitle">Request Sent Successfully!</h3>
-      <p>Thank you for reaching out to Kaif Survey & Consulting. Our team will review your project details and get back to you shortly.</p>
-      <button class="btn btn-primary" id="closeModal" style="margin-top: 1.5rem;">Close</button>
-    </div>
-  </div>
+            // Toggle function
+            themeToggleBtn.addEventListener('click', () => {
+                const currentTheme = htmlElement.getAttribute('data-theme');
+                if (currentTheme === 'dark') {
+                    htmlElement.setAttribute('data-theme', 'light');
+                    localStorage.setItem('theme', 'light');
+                    themeToggleBtn.innerHTML = moonIcon;
+                    ariaLive.textContent = 'Light mode enabled';
+                } else {
+                    htmlElement.setAttribute('data-theme', 'dark');
+                    localStorage.setItem('theme', 'dark');
+                    themeToggleBtn.innerHTML = sunIcon;
+                    ariaLive.textContent = 'Dark mode enabled';
+                }
+            });
 
-  <script src="script.js"></script>
+            // --- 3. Mobile Menu Toggle ---
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const navLinks = document.getElementById('nav-links');
+            
+            mobileMenuBtn.addEventListener('click', () => {
+                const isExpanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true';
+                mobileMenuBtn.setAttribute('aria-expanded', !isExpanded);
+                navLinks.classList.toggle('active');
+            });
+
+            // Close menu on link click
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                    mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                });
+            });
+
+            // --- 4. Intersection Observer for Scroll Animations ---
+            const revealElements = document.querySelectorAll('.reveal');
+            
+            // Respect prefers-reduced-motion
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            if (!prefersReducedMotion && 'IntersectionObserver' in window) {
+                const revealObserver = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('active');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, {
+                    root: null,
+                    threshold: 0.15,
+                    rootMargin: "0px 0px -50px 0px"
+                });
+
+                revealElements.forEach(el => revealObserver.observe(el));
+            } else {
+                // If reduced motion is preferred or observer not supported, reveal immediately
+                revealElements.forEach(el => el.classList.add('active'));
+            }
+
+            // --- 5. Form Validation & Async Submission Mock ---
+            const form = document.getElementById('contactForm');
+            const submitBtn = document.getElementById('submitBtn');
+            const inputs = form.querySelectorAll('[required]');
+
+            // Live validation on blur
+            inputs.forEach(input => {
+                input.addEventListener('blur', () => validateInput(input));
+                input.addEventListener('input', () => {
+                    if (input.classList.contains('invalid')) {
+                        validateInput(input);
+                    }
+                });
+            });
+
+            function validateInput(input) {
+                const isValid = input.checkValidity();
+                if (!isValid) {
+                    input.classList.add('invalid');
+                } else {
+                    input.classList.remove('invalid');
+                }
+                return isValid;
+            }
+
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                let isFormValid = true;
+                inputs.forEach(input => {
+                    if (!validateInput(input)) {
+                        isFormValid = false;
+                    }
+                });
+
+                if (isFormValid) {
+                    // Simulate Async Request
+                    const originalBtnText = submitBtn.innerHTML;
+                    submitBtn.disabled = true;
+                    submitBtn.innerHTML = '<span class="spinner"></span> Sending...';
+                    
+                    setTimeout(() => {
+                        // Success Action
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = originalBtnText;
+                        form.reset();
+                        
+                        // Show modal
+                        const modal = document.getElementById('successModal');
+                        modal.classList.add('active');
+                        modal.setAttribute('aria-hidden', 'false');
+                        
+                        // Accessibility Announcement
+                        ariaLive.textContent = 'Your message has been sent successfully.';
+                    }, 1500); // 1.5s delay
+                } else {
+                    // Focus first invalid element
+                    const firstInvalid = form.querySelector('.invalid');
+                    if (firstInvalid) firstInvalid.focus();
+                    ariaLive.textContent = 'Please correct the errors in the form.';
+                }
+            });
+
+            // Global modal close function
+            window.closeModal = function() {
+                const modal = document.getElementById('successModal');
+                modal.classList.remove('active');
+                modal.setAttribute('aria-hidden', 'true');
+            };
+
+            // Close modal on outside click
+            document.getElementById('successModal').addEventListener('click', (e) => {
+                if (e.target.id === 'successModal') {
+                    closeModal();
+                }
+            });
+            
+            // Close modal on Escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    closeModal();
+                }
+            });
+        });
+    </script>
 </body>
 </html>
