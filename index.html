@@ -1,51 +1,73 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kaif Survey & Consulting</title>
-    <meta name="description" content="Professional surveying and consulting services by Kaif Survey & Consulting. Precision, analytics, and expert insights.">
+    <meta name="description" content="Precision surveying and strategic consulting services by Kaif Survey & Consulting.">
     
-    <!-- CSS Styles -->
+    <!-- CSS Section (Normally styles.css) -->
     <style>
         /* ==========================================================================
-           1. CSS Custom Properties (Tokens) & Theming
+           1. CSS VARIABLES & DESIGN SYSTEM
            ========================================================================== */
         :root {
-            /* Brand Colors */
-            --brand: #0f78c7;
-            --accent: #00c6a7;
-            --gradient: linear-gradient(135deg, var(--brand) 0%, var(--accent) 100%);
+            /* Light Theme Colors */
+            --bg-base: #f8fafc;
+            --bg-surface: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #475569;
+            --primary: #0f78c7;
+            --primary-hover: #0d6ab0;
+            --secondary: #00c6a7;
+            --secondary-hover: #00a88e;
+            --border-color: #e2e8f0;
+            --glass-bg: rgba(255, 255, 255, 0.7);
+            --glass-border: rgba(255, 255, 255, 0.4);
+            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
             
-            /* Light Theme (Default) */
-            --bg: #ffffff;
-            --surface: #f9fafb;
-            --surface-glass: rgba(255, 255, 255, 0.85);
-            --text-main: #111827;
-            --text-muted: #4b5563;
-            --border: #e5e7eb;
-            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            --card-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-            --error: #ef4444;
-            --success: #10b981;
+            /* Typography */
+            --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+            --h1-size: clamp(2.5rem, 5vw, 4rem);
+            --h2-size: clamp(2rem, 4vw, 3rem);
+            --h3-size: clamp(1.5rem, 3vw, 2rem);
+            --text-base: clamp(1rem, 1.5vw, 1.125rem);
+            
+            /* Spacing */
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 2rem;
+            --space-lg: 4rem;
+            --space-xl: 6rem;
+            --container-max: 1280px;
+            
+            /* Transitions */
+            --transition-fast: 0.2s ease;
+            --transition-base: 0.3s ease;
         }
 
         [data-theme="dark"] {
-            /* Dark Theme Overrides */
-            --bg: #0f172a;
-            --surface: #1e293b;
-            --surface-glass: rgba(15, 23, 42, 0.85);
+            /* Dark Theme Colors */
+            --bg-base: #020617;
+            --bg-surface: #0f172a;
             --text-main: #f8fafc;
             --text-muted: #94a3b8;
-            --border: #334155;
-            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
-            --card-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+            --primary: #46ecff;
+            --primary-hover: #2cdbf0;
+            --secondary: #7c5cff;
+            --secondary-hover: #6a4deb;
+            --border-color: #1e293b;
+            --glass-bg: rgba(15, 23, 42, 0.7);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+            --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
         }
 
         /* ==========================================================================
-           2. Base Reset & Typography
+           2. RESET & BASE STYLES
            ========================================================================== */
-        * {
+        *, *::before, *::after {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
@@ -53,268 +75,165 @@
 
         html {
             scroll-behavior: smooth;
-            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
         }
 
         body {
-            background-color: var(--bg);
+            font-family: var(--font-sans);
+            background-color: var(--bg-base);
             color: var(--text-main);
             line-height: 1.6;
+            transition: background-color var(--transition-base), color var(--transition-base);
             overflow-x: hidden;
-            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
-        h1, h2, h3, h4 {
-            line-height: 1.2;
-            font-weight: 700;
-            color: var(--text-main);
-            margin-bottom: 1rem;
-            transition: color 0.3s ease;
+        img, svg {
+            max-width: 100%;
+            height: auto;
+            display: block;
         }
 
-        h1 { font-size: clamp(2.5rem, 5vw, 4rem); }
-        h2 { font-size: clamp(2rem, 4vw, 2.5rem); }
-        h3 { font-size: 1.25rem; }
-        
-        p { margin-bottom: 1rem; color: var(--text-muted); }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
 
-        a { text-decoration: none; color: inherit; }
+        ul {
+            list-style: none;
+        }
 
-        img { max-width: 100%; height: auto; display: block; }
+        button {
+            cursor: pointer;
+            border: none;
+            background: none;
+            font-family: inherit;
+        }
 
-        /* Focus outline for accessibility */
+        /* Accessibility: Reduced Motion */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+
+        /* Accessibility: Focus Rings */
         :focus-visible {
-            outline: 2px solid var(--accent);
-            outline-offset: 4px;
+            outline: 3px solid var(--primary);
+            outline-offset: 2px;
+            border-radius: 4px;
         }
 
         /* ==========================================================================
-           3. Layout Utility Classes
+           3. LAYOUT UTILITIES
            ========================================================================== */
         .container {
-            width: 100%;
-            max-width: 1200px;
+            width: 90%;
+            max-width: var(--container-max);
             margin: 0 auto;
-            padding: 0 5%;
         }
 
-        .section { padding: 6rem 0; }
-        
-        .bg-alt { background-color: var(--surface); }
-
-        .grid {
-            display: grid;
-            gap: 2rem;
-        }
-        
-        .grid-2 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
-        .grid-3 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
-        .grid-4 { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
-
-        .w-full { width: 100%; }
-        
-        .text-center { text-align: center; }
-
-        .sr-only {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            border: 0;
+        .section {
+            padding: var(--space-xl) 0;
         }
 
-        /* ==========================================================================
-           4. Components (Buttons, Cards, Forms)
-           ========================================================================== */
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--space-lg);
+        }
+
+        .section-title {
+            font-size: var(--h2-size);
+            font-weight: 700;
+            margin-bottom: var(--space-xs);
+        }
+
+        .section-subtitle {
+            color: var(--text-muted);
+            font-size: var(--text-base);
+        }
+
+        /* Glassmorphism Classes */
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: 1rem;
+            padding: var(--space-md);
+            box-shadow: var(--shadow-md);
+            transition: transform var(--transition-base), box-shadow var(--transition-base);
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Buttons */
         .btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 0.875rem 1.75rem;
-            border-radius: 8px;
-            font-weight: 600;
+            padding: 0.75rem 1.5rem;
             font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
+            font-weight: 600;
+            border-radius: 0.5rem;
+            transition: all var(--transition-fast);
         }
 
         .btn-primary {
-            background: var(--gradient);
-            color: white;
-            box-shadow: 0 4px 15px rgba(15, 120, 199, 0.3);
+            background-color: var(--primary);
+            color: #fff;
+            box-shadow: 0 4px 14px 0 rgba(15, 120, 199, 0.39);
         }
-        
+        [data-theme="dark"] .btn-primary {
+            color: #020617;
+            box-shadow: 0 4px 14px 0 rgba(70, 236, 255, 0.39);
+        }
+
         .btn-primary:hover {
+            background-color: var(--primary-hover);
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(15, 120, 199, 0.4);
-            color: white;
         }
 
-        .btn-outline {
-            background: transparent;
-            border-color: var(--border);
+        .btn-secondary {
+            background-color: transparent;
             color: var(--text-main);
+            border: 2px solid var(--text-main);
         }
 
-        .btn-outline:hover {
-            border-color: var(--brand);
-            color: var(--brand);
-        }
-
-        /* Hero buttons require different contrast since background is a gradient */
-        .hero .btn-primary {
-            background: white;
-            color: var(--brand);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
-        .hero .btn-primary:hover {
-            background: transparent;
-            border-color: white;
-            color: white;
-        }
-
-        .hero .btn-secondary {
-            background: transparent;
-            border-color: white;
-            color: white;
-        }
-        .hero .btn-secondary:hover {
-            background: white;
-            color: var(--brand);
-        }
-
-        /* Loading Spinner */
-        .btn.loading {
-            opacity: 0.7;
-            pointer-events: none;
-        }
-        .btn.loading::after {
-            content: '';
-            width: 1em;
-            height: 1em;
-            margin-left: 0.5rem;
-            border: 2px solid currentColor;
-            border-right-color: transparent;
-            border-radius: 50%;
-            animation: spin 0.75s linear infinite;
-        }
-
-        /* Cards */
-        .card {
-            background-color: var(--bg);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 2.5rem;
-            box-shadow: var(--shadow);
-            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--card-shadow);
-            border-color: var(--accent);
-        }
-
-        /* Icons */
-        .icon-wrapper {
-            width: 56px;
-            height: 56px;
-            border-radius: 12px;
-            background: var(--gradient);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1.5rem;
-        }
-        .icon-wrapper svg {
-            width: 28px;
-            height: 28px;
-        }
-
-        /* Forms */
-        .form-group {
-            margin-bottom: 1.5rem;
-            display: flex;
-            flex-direction: column;
-            text-align: left;
-        }
-
-        .form-group label {
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-            font-size: 0.9rem;
-        }
-
-        .form-group input, 
-        .form-group select, 
-        .form-group textarea {
-            padding: 0.875rem 1rem;
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            background-color: var(--surface);
-            color: var(--text-main);
-            font-family: inherit;
-            font-size: 1rem;
-            transition: border-color 0.3s, box-shadow 0.3s;
-        }
-
-        .form-group input:focus, 
-        .form-group select:focus, 
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--brand);
-            box-shadow: 0 0 0 3px rgba(15, 120, 199, 0.15);
-        }
-
-        .error-msg {
-            color: var(--error);
-            font-size: 0.875rem;
-            margin-top: 0.5rem;
-            display: none;
-        }
-
-        .form-group.error input, 
-        .form-group.error select, 
-        .form-group.error textarea {
-            border-color: var(--error);
-        }
-
-        .form-group.error .error-msg {
-            display: block;
+        .btn-secondary:hover {
+            background-color: var(--text-main);
+            color: var(--bg-base);
         }
 
         /* ==========================================================================
-           5. Sections (Nav, Hero, Services, Workflow, Footer)
+           4. NAVIGATION
            ========================================================================== */
-        /* Navigation */
-        .navbar {
+        header {
             position: fixed;
             top: 0;
             width: 100%;
-            height: 80px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 5%;
-            background: var(--surface-glass);
+            z-index: 100;
+            background: var(--glass-bg);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border);
-            z-index: 1000;
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
         }
 
         .logo {
             display: flex;
             align-items: center;
-            gap: 0.75rem;
-            font-weight: 800;
-            font-size: 1.25rem;
-            color: var(--text-main);
+            gap: 0.5rem;
         }
 
         .logo img {
@@ -322,106 +241,154 @@
             width: auto;
         }
 
+        .logo span {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-main);
+            display: none; /* Hide on very small screens, show on md */
+        }
+
+        @media (min-width: 768px) {
+            .logo span { display: block; }
+        }
+
         .nav-links {
-            display: flex;
+            display: none;
             gap: 2rem;
-            list-style: none;
+            align-items: center;
         }
 
         .nav-links a {
             font-weight: 500;
-            color: var(--text-main);
-            transition: color 0.3s ease;
+            transition: color var(--transition-fast);
         }
 
         .nav-links a:hover {
-            color: var(--brand);
+            color: var(--primary);
         }
 
-        .nav-actions {
+        .nav-controls {
             display: flex;
             align-items: center;
             gap: 1rem;
         }
 
         .theme-toggle {
-            background: transparent;
-            border: none;
-            color: var(--text-main);
-            cursor: pointer;
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
             padding: 0.5rem;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 50%;
-            transition: background 0.3s;
+            color: var(--text-main);
+            transition: all var(--transition-fast);
         }
-
+        
         .theme-toggle:hover {
-            background: var(--surface);
+            background: var(--border-color);
         }
 
         .theme-toggle svg {
-            width: 24px;
-            height: 24px;
+            width: 20px;
+            height: 20px;
         }
-
-        /* Manage SVG display based on theme */
-        [data-theme="dark"] .icon-sun { display: block; }
-        [data-theme="dark"] .icon-moon { display: none; }
-        :root .icon-sun { display: none; }
-        :root .icon-moon { display: block; }
 
         .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
+            display: block;
+            font-size: 1.5rem;
             color: var(--text-main);
-            cursor: pointer;
         }
 
-        /* Hero Section */
+        @media (min-width: 1024px) {
+            .nav-links { display: flex; }
+            .mobile-menu-btn { display: none; }
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 80px;
+            left: 0;
+            width: 100%;
+            background: var(--bg-surface);
+            padding: var(--space-md);
+            border-bottom: 1px solid var(--border-color);
+            transform: translateY(-150%);
+            transition: transform var(--transition-base);
+            z-index: 99;
+            box-shadow: var(--shadow-md);
+        }
+
+        .mobile-menu.active {
+            transform: translateY(0);
+        }
+
+        .mobile-menu nav {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            text-align: center;
+        }
+
+        .mobile-menu a {
+            font-size: 1.25rem;
+            font-weight: 500;
+            padding: 0.5rem;
+        }
+
+        /* ==========================================================================
+           5. HERO SECTION (STRICT SVG RULES)
+           ========================================================================== */
         .hero {
+            position: relative;
             min-height: 100vh;
             display: flex;
             align-items: center;
-            background: var(--gradient);
             padding-top: 80px;
-            position: relative;
             overflow: hidden;
+            /* Required Gradient */
+            background: linear-gradient(135deg, #0f78c7 0%, #00c6a7 100%);
+            color: #ffffff; /* Force white text over dark gradient */
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.15) 1px, transparent 0);
-            background-size: 30px 30px;
-            opacity: 0.5;
+        [data-theme="dark"] .hero {
+            /* Slight adjustment for dark mode to maintain gradient but darken base */
+            background: linear-gradient(135deg, #073a62 0%, #005c4e 100%);
         }
 
         .hero-container {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 4rem;
+            gap: var(--space-xl);
             align-items: center;
-            position: relative;
-            z-index: 10;
+            z-index: 2;
+        }
+
+        @media (min-width: 1024px) {
+            .hero-container {
+                grid-template-columns: 1fr 1fr; /* Desktop: SVG on Right */
+            }
         }
 
         .hero-content {
-            color: white;
+            padding: var(--space-md) 0;
+            /* Order 1 on mobile (above SVG) */
+            order: 1; 
         }
 
-        .hero-content h1 {
-            color: white;
+        .hero-title {
+            font-size: var(--h1-size);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: var(--space-sm);
         }
 
-        .hero-content p {
-            color: rgba(255, 255, 255, 0.9);
-            font-size: 1.125rem;
-            margin-bottom: 2rem;
-            max-width: 540px;
+        .hero-tagline {
+            font-size: var(--text-base);
+            margin-bottom: var(--space-md);
+            opacity: 0.9;
+            max-width: 600px;
         }
 
         .hero-buttons {
@@ -430,310 +397,507 @@
             flex-wrap: wrap;
         }
 
-        /* SVG Blending Trick: 
-           This hides the solid background of the provided SVG 1, 
-           allowing it to seamlessly blend with our Hero gradient! */
-        #hero-svg-container svg > rect:first-child {
-            display: none;
+        .hero-buttons .btn-secondary {
+            color: #ffffff;
+            border-color: #ffffff;
+        }
+        .hero-buttons .btn-secondary:hover {
+            background-color: #ffffff;
+            color: #0f78c7;
+        }
+        .hero-buttons .btn-primary {
+            background-color: #ffffff;
+            color: #0f78c7;
+        }
+        .hero-buttons .btn-primary:hover {
+            background-color: #f0f0f0;
         }
 
-        .hero-visual svg {
+        .hero-svg-wrapper {
             width: 100%;
             height: auto;
-            max-height: 600px;
-            filter: drop-shadow(0 25px 25px rgba(0,0,0,0.2));
-        }
-
-        /* Section Headers */
-        .section-header {
-            text-align: center;
-            max-width: 600px;
-            margin: 0 auto 4rem;
-        }
-
-        /* Workflow */
-        .workflow-visual {
-            width: 100%;
+            /* Order 2 on mobile (below content) */
+            order: 2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             border-radius: 16px;
             overflow: hidden;
-            box-shadow: var(--card-shadow);
-            background: #030811; /* Fallback for SVG */
-        }
-        
-        .workflow-step {
-            display: flex;
-            gap: 1.5rem;
-            margin-bottom: 2.5rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
         }
 
-        .step-num {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--brand);
-            opacity: 0.2;
-            line-height: 1;
+        @media (min-width: 1024px) {
+            .hero-content { order: 1; }
+            .hero-svg-wrapper { order: 2; }
         }
 
-        /* Stats */
-        .stats-grid {
-            text-align: center;
-            border-top: 1px solid var(--border);
-            border-bottom: 1px solid var(--border);
-            padding: 4rem 0;
+        /* ==========================================================================
+           6. MAIN BLUEPRINT SECTION (Second SVG)
+           ========================================================================== */
+        .blueprint-section {
+            background-color: var(--bg-surface);
+            padding: var(--space-xl) 0;
+        }
+
+        .blueprint-wrapper {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-color);
+        }
+
+        /* ==========================================================================
+           7. SERVICES SECTION
+           ========================================================================== */
+        .services-grid {
             display: grid;
-            gap: 2rem;
-            background: var(--surface);
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-md);
         }
 
-        .stat-number {
-            font-size: 3rem;
-            color: var(--brand);
-            margin-bottom: 0.5rem;
-        }
-
-        /* Pricing (Dev notes apply inside HTML) */
-        .pricing-card {
+        .service-card {
             display: flex;
             flex-direction: column;
-        }
-        
-        .pricing-card ul {
-            list-style: none;
-            margin: 2rem 0;
-            flex: 1;
+            gap: 1rem;
         }
 
-        .pricing-card li {
-            margin-bottom: 1rem;
+        .service-icon {
+            width: 64px;
+            height: 64px;
+            background: var(--bg-surface);
+            border-radius: 1rem;
             display: flex;
             align-items: center;
-            gap: 0.75rem;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 2rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .service-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .service-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* ==========================================================================
+           8. HOW IT WORKS SECTION
+           ========================================================================== */
+        .process-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-md);
+            position: relative;
+        }
+
+        @media (min-width: 768px) {
+            .process-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            .process-grid::before {
+                content: '';
+                position: absolute;
+                top: 40px;
+                left: 10%;
+                right: 10%;
+                height: 2px;
+                background: var(--border-color);
+                z-index: 0;
+            }
+        }
+
+        .process-step {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background: var(--bg-surface);
+            border: 4px solid var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 0 auto 1rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        /* ==========================================================================
+           9. TESTIMONIALS SECTION
+           ========================================================================== */
+        .testimonials {
+            background-color: var(--bg-surface);
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-md);
+        }
+
+        .testimonial-card p {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            color: var(--text-muted);
+            position: relative;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .author-info h4 {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+        .author-info span {
+            font-size: 0.875rem;
             color: var(--text-muted);
         }
 
-        .pricing-card li svg {
-            color: var(--success);
-            flex-shrink: 0;
+        /* ==========================================================================
+           10. PRICING SECTION (NO PRICES IN UI)
+           ========================================================================== */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-md);
         }
 
-        /* Footer */
-        .footer {
-            background-color: #0b1120;
-            color: #f8fafc;
-            padding: 5rem 5% 2rem;
-        }
-
-        .footer p, .footer a {
-            color: #94a3b8;
-        }
-
-        .footer h3 {
-            color: white;
-        }
-
-        .footer a:hover {
-            color: var(--accent);
-        }
-
-        .footer-bottom {
+        .pricing-card {
             text-align: center;
-            margin-top: 4rem;
-            padding-top: 2rem;
-            border-top: 1px solid #1e293b;
-            font-size: 0.875rem;
+            border: 2px solid transparent;
         }
 
-        /* Modal */
-        .modal {
+        .pricing-card.featured {
+            border-color: var(--primary);
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            .pricing-card.featured { transform: none; }
+        }
+
+        .pricing-header {
+            margin-bottom: 2rem;
+        }
+
+        .pricing-header h3 {
+            font-size: 1.5rem;
+            color: var(--text-main);
+        }
+
+        .pricing-features {
+            text-align: left;
+            margin-bottom: 2rem;
+        }
+
+        .pricing-features li {
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-muted);
+        }
+
+        .pricing-features svg {
+            color: var(--secondary);
+            flex-shrink: 0;
+            width: 20px;
+            height: 20px;
+        }
+
+        /* ==========================================================================
+           11. CONTACT SECTION
+           ========================================================================== */
+        .contact {
+            background-color: var(--bg-surface);
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-xl);
+        }
+
+        @media (min-width: 1024px) {
+            .contact-container {
+                grid-template-columns: 1fr 2fr;
+            }
+        }
+
+        .contact-info-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .contact-item svg {
+            width: 24px;
+            height: 24px;
+            color: var(--primary);
+            margin-top: 0.25rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .form-row {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 0.5rem;
+            background: var(--bg-base);
+            color: var(--text-main);
+            font-family: inherit;
+            transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(15, 120, 199, 0.2);
+        }
+
+        .error-message {
+            color: #ef4444;
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+            display: none;
+        }
+
+        input:invalid:not(:focus):not(:placeholder-shown),
+        textarea:invalid:not(:focus):not(:placeholder-shown) {
+            border-color: #ef4444;
+        }
+
+        input:invalid:not(:focus):not(:placeholder-shown) + .error-message,
+        textarea:invalid:not(:focus):not(:placeholder-shown) + .error-message {
+            display: block;
+        }
+
+        /* Success Modal */
+        .modal-overlay {
             position: fixed;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.6);
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
             backdrop-filter: blur(4px);
             display: flex;
             align-items: center;
             justify-content: center;
-            z-index: 2000;
+            z-index: 1000;
             opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s, visibility 0.3s;
+            pointer-events: none;
+            transition: opacity var(--transition-base);
         }
 
-        .modal.show {
+        .modal-overlay.active {
             opacity: 1;
-            visibility: visible;
+            pointer-events: all;
         }
 
         .modal-content {
-            background: var(--bg);
-            padding: 3rem 2rem;
-            border-radius: 16px;
+            background: var(--bg-surface);
+            padding: var(--space-md);
+            border-radius: 1rem;
+            text-align: center;
             max-width: 400px;
             width: 90%;
-            text-align: center;
-            transform: scale(0.9);
-            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: var(--card-shadow);
+            transform: translateY(20px);
+            transition: transform var(--transition-base);
+            box-shadow: var(--shadow-md);
         }
 
-        .modal.show .modal-content {
-            transform: scale(1);
+        .modal-overlay.active .modal-content {
+            transform: translateY(0);
         }
 
-        .modal-icon {
-            width: 80px;
-            height: 80px;
-            background: rgba(16, 185, 129, 0.1);
-            color: var(--success);
+        .success-icon {
+            width: 64px;
+            height: 64px;
+            background: #10b981;
             border-radius: 50%;
-            display: inline-flex;
+            display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 1.5rem;
+            margin: 0 auto 1rem;
+            color: white;
         }
 
         /* ==========================================================================
-           6. Animations & Responsiveness
+           12. FOOTER
            ========================================================================== */
-        @keyframes spin {
-            to { transform: rotate(360deg); }
+        footer {
+            background-color: var(--bg-surface);
+            border-top: 1px solid var(--border-color);
+            padding: var(--space-md) 0;
+            text-align: center;
+            color: var(--text-muted);
         }
 
+        .footer-social {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .footer-social a {
+            color: var(--text-muted);
+            transition: color var(--transition-fast);
+        }
+        
+        .footer-social a:hover {
+            color: var(--primary);
+        }
+
+        /* ==========================================================================
+           13. ANIMATIONS
+           ========================================================================== */
         .fade-in {
             opacity: 0;
-            transition: opacity 0.8s ease;
-        }
-        .fade-in.is-visible {
-            opacity: 1;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
         }
 
-        .slide-up {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 0.8s cubic-bezier(0.165, 0.84, 0.44, 1), transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
-        }
-        .slide-up.is-visible {
+        .fade-in.in-view {
             opacity: 1;
             transform: translateY(0);
         }
 
-        /* Reduced Motion */
-        @media (prefers-reduced-motion: reduce) {
-            *, ::before, ::after {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-                scroll-behavior: auto !important;
-            }
-        }
+        .delay-1 { transition-delay: 0.1s; }
+        .delay-2 { transition-delay: 0.2s; }
+        .delay-3 { transition-delay: 0.3s; }
 
-        /* Media Queries */
-        @media (min-width: 992px) {
-            .hero-container {
-                grid-template-columns: 1fr 1fr;
-            }
-            .stats-grid {
-                grid-template-columns: repeat(4, 1fr);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .nav-links {
-                position: absolute;
-                top: 80px;
-                left: 0;
-                right: 0;
-                background: var(--surface);
-                flex-direction: column;
-                align-items: center;
-                padding: 2rem;
-                box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
-                clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
-                transition: clip-path 0.4s ease;
-            }
-            .nav-links.active {
-                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-            }
-            .mobile-menu-btn {
-                display: block;
-            }
-            .hero {
-                text-align: center;
-                padding: 8rem 0 4rem;
-            }
-            .hero-content p {
-                margin: 0 auto 2rem;
-            }
-            .hero-buttons {
-                justify-content: center;
-            }
+        /* Status msg for accessibility */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
         }
     </style>
 </head>
 <body>
 
-    <!-- Accessible Status Announcer -->
-    <div aria-live="polite" id="form-status" class="sr-only"></div>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="logo" aria-label="Kaif Survey & Consulting Home">
+                <img src="https://uploads.onecompiler.io/43y3by72c/4428darze/1000007296.png" alt="Kaif Survey & Consulting Logo">
+                <span>Kaif Survey</span>
+            </a>
 
-    <!-- Navigation -->
-    <header class="navbar">
-        <a href="#" class="logo">
-            <img src="https://uploads.onecompiler.io/43y3by72c/4428darze/1000007296.png" alt="Kaif Survey & Consulting Logo">
-            <span>Kaif Survey</span>
-        </a>
-        
-        <nav>
-            <ul class="nav-links">
-                <li><a href="#services">Services</a></li>
-                <li><a href="#how-it-works">Workflow</a></li>
-                <li><a href="#packages">Packages</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
+            <nav class="nav-links" aria-label="Main Navigation">
+                <a href="#services">Services</a>
+                <a href="#how-it-works">Process</a>
+                <a href="#testimonials">Testimonials</a>
+                <a href="#pricing">Packages</a>
+                <a href="#contact">Contact</a>
+            </nav>
 
-        <div class="nav-actions">
-            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Dark Mode">
-                <!-- Sun Icon (Hidden in Light Mode) -->
-                <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <circle cx="12" cy="12" r="5"></circle>
-                    <line x1="12" y1="1" x2="12" y2="3"></line>
-                    <line x1="12" y1="21" x2="12" y2="23"></line>
-                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                    <line x1="1" y1="12" x2="3" y2="12"></line>
-                    <line x1="21" y1="12" x2="23" y2="12"></line>
-                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                </svg>
-                <!-- Moon Icon (Hidden in Dark Mode) -->
-                <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                </svg>
-            </button>
-            <a href="#contact" class="btn btn-primary" style="display: none;">Get Quote</a>
-            
-            <button class="mobile-menu-btn" aria-label="Open Menu">
-                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-            </button>
+            <div class="nav-controls">
+                <button class="theme-toggle" id="themeToggleBtn" aria-label="Toggle Dark Mode">
+                    <!-- Sun Icon (Default) -->
+                    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                    </svg>
+                </button>
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu">
+                    ☰
+                </button>
+            </div>
         </div>
     </header>
 
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+        <nav>
+            <a href="#services" class="mobile-link">Services</a>
+            <a href="#how-it-works" class="mobile-link">Process</a>
+            <a href="#testimonials" class="mobile-link">Testimonials</a>
+            <a href="#pricing" class="mobile-link">Packages</a>
+            <a href="#contact" class="mobile-link">Contact</a>
+        </nav>
+    </div>
+
     <main>
         <!-- Hero Section -->
-        <section class="hero" id="hero">
+        <section class="hero" id="home">
             <div class="container hero-container">
-                <div class="hero-content slide-up">
-                    <h1>Precision Surveying &amp; Actionable Insights</h1>
-                    <p>Empowering your projects with highly accurate geographical data, advanced analytics, and expert consulting in Bangladesh.</p>
+                <div class="hero-content fade-in">
+                    <h1 class="hero-title">Precision Surveying & Strategic Consulting</h1>
+                    <p class="hero-tagline">Delivering accurate geospatial data and actionable insights for infrastructure, real estate, and major engineering projects.</p>
                     <div class="hero-buttons">
-                        <a href="#services" class="btn btn-primary">Start Survey</a>
-                        <a href="#contact" class="btn btn-secondary">Request Quote</a>
+                        <a href="#contact" class="btn btn-primary">Request Quote</a>
+                        <a href="#services" class="btn btn-secondary">Start Survey</a>
                     </div>
                 </div>
                 
-                <div class="hero-visual fade-in" id="hero-svg-container">
-                    <!-- SVG 1: Hero Analytics Dashboard (Provided in prompt) -->
+                <div class="hero-svg-wrapper fade-in delay-2">
+                    <!-- Inline SVG 1: Survey Analytics Dashboard -->
                     <svg width="100%" height="100%" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
                       <defs>
                         <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
@@ -1059,612 +1223,688 @@
             </div>
         </section>
 
-        <!-- Stats Section -->
-        <section class="stats-grid container slide-up">
-            <div class="stat-item">
-                <div class="stat-number" data-target="10" data-suffix="+">0</div>
-                <p>Years Experience</p>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number" data-target="500" data-suffix="+">0</div>
-                <p>Projects Completed</p>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number" data-target="300" data-suffix="+">0</div>
-                <p>Happy Clients</p>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number" data-target="25" data-suffix="+">0</div>
-                <p>Expert Team</p>
+        <!-- Services Section -->
+        <section class="section" id="services">
+            <div class="container">
+                <div class="section-header fade-in">
+                    <h2 class="section-title">Our Expertise</h2>
+                    <p class="section-subtitle">Comprehensive surveying and consulting services tailored to your needs.</p>
+                </div>
+                
+                <div class="services-grid">
+                    <div class="glass-card service-card fade-in delay-1">
+                        <div class="service-icon" aria-hidden="true">🗺️</div>
+                        <h3>Land & Topographic</h3>
+                        <p>Detailed boundary definition and topographic mapping using state-of-the-art total stations and GNSS equipment.</p>
+                    </div>
+                    <div class="glass-card service-card fade-in delay-2">
+                        <div class="service-icon" aria-hidden="true">🏗️</div>
+                        <h3>Construction Layout</h3>
+                        <p>Precise site setting out, as-built surveys, and continuous monitoring to ensure your build matches the blueprint.</p>
+                    </div>
+                    <div class="glass-card service-card fade-in delay-3">
+                        <div class="service-icon" aria-hidden="true">🚁</div>
+                        <h3>Drone & GIS Mapping</h3>
+                        <p>High-resolution aerial photogrammetry and comprehensive Geographic Information Systems (GIS) analysis.</p>
+                    </div>
+                    <div class="glass-card service-card fade-in delay-1">
+                        <div class="service-icon" aria-hidden="true">📊</div>
+                        <h3>Strategic Consulting</h3>
+                        <p>Expert advisory for land development, feasibility studies, and navigating zoning and compliance regulations.</p>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <!-- Services Section -->
-        <section id="services" class="section bg-alt">
+        <!-- Blueprint Highlight Section (SVG 2) -->
+        <section class="blueprint-section">
             <div class="container">
                 <div class="section-header fade-in">
-                    <h2>Our Services</h2>
-                    <p>Comprehensive surveying and data consulting solutions tailored to project requirements.</p>
+                    <h2 class="section-title">High-Tech Precision</h2>
+                    <p class="section-subtitle">Leveraging modern geospatial technologies to map out exact coordinates.</p>
                 </div>
-                
-                <div class="grid grid-3">
-                    <div class="card fade-in">
-                        <div class="icon-wrapper">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 18l-5-5-4 4-4-4-5 5"/><path d="M16 8v3"/><path d="M20 5v3"/></svg>
-                        </div>
-                        <h3>Topographic Surveys</h3>
-                        <p>Detailed mapping of natural and man-made features to support engineering and architectural design.</p>
-                    </div>
+                <div class="blueprint-wrapper fade-in delay-1">
+                    <!-- Inline SVG 2: Tech Radar/Blueprint -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid meet">
+                        <defs>
+                            <style>
+                                /* Typography */
+                                .font-brand {
+                                    font-family: 'Montserrat', 'Inter', system-ui, -apple-system, sans-serif;
+                                }
+                                .text-kaif {
+                                    font-size: 52px;
+                                    font-weight: 800;
+                                    fill: #ffffff;
+                                    letter-spacing: 12px;
+                                }
+                                .text-sub {
+                                    font-size: 16px;
+                                    font-weight: 400;
+                                    fill: #00C2FF;
+                                    letter-spacing: 8px;
+                                }
+                                .text-coord {
+                                    font-size: 10px;
+                                    font-family: 'Fira Code', 'Courier New', monospace;
+                                    fill: #485c7b;
+                                    letter-spacing: 1px;
+                                }
 
-                    <div class="card fade-in" style="transition-delay: 100ms;">
-                        <div class="icon-wrapper">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                        </div>
-                        <h3>Boundary Surveys</h3>
-                        <p>Accurate property line establishment, dispute resolution, and right-of-way mapping.</p>
-                    </div>
+                                /* Animations */
+                                @keyframes rotate-slow {
+                                    0% { transform: rotate(0deg); }
+                                    100% { transform: rotate(360deg); }
+                                }
+                                @keyframes rotate-slow-rev {
+                                    0% { transform: rotate(0deg); }
+                                    100% { transform: rotate(-360deg); }
+                                }
+                                @keyframes radar-sweep {
+                                    0% { transform: rotate(0deg); }
+                                    100% { transform: rotate(360deg); }
+                                }
+                                @keyframes ripple {
+                                    0% { r: 5px; opacity: 1; stroke-width: 3px; }
+                                    100% { r: 70px; opacity: 0; stroke-width: 1px; }
+                                }
+                                @keyframes draw-terrain {
+                                    0% { stroke-dashoffset: 400; opacity: 0; }
+                                    20% { opacity: 1; }
+                                    80% { opacity: 1; }
+                                    100% { stroke-dashoffset: 0; opacity: 0; }
+                                }
+                                @keyframes scan {
+                                    0% { transform: translateY(0px); opacity: 0; }
+                                    15% { opacity: 0.8; }
+                                    85% { opacity: 0.8; }
+                                    100% { transform: translateY(210px); opacity: 0; }
+                                }
+                                @keyframes blink {
+                                    0%, 100% { opacity: 1; filter: drop-shadow(0 0 8px #00ffa3); }
+                                    50% { opacity: 0.3; filter: none; }
+                                }
+                                @keyframes dash-scroll {
+                                    from { stroke-dashoffset: 0; }
+                                    to { stroke-dashoffset: -200; }
+                                }
 
-                    <div class="card fade-in" style="transition-delay: 200ms;">
-                        <div class="icon-wrapper">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 21L3 3"/><path d="M16 11l-2 2"/><path d="M11 16l-2 2"/><path d="M6 21l-2-2"/><path d="M21 6l-2-2"/></svg>
-                        </div>
-                        <h3>Construction Staking</h3>
-                        <p>Translating blueprints into physical markers to ensure precise and compliant site construction.</p>
-                    </div>
+                                /* Hover Effects */
+                                .logo-group {
+                                    transform-origin: 400px 240px;
+                                    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.4s ease;
+                                }
+                                .logo-group:hover {
+                                    transform: scale(1.03);
+                                    filter: drop-shadow(0 0 20px rgba(0, 194, 255, 0.15));
+                                }
+                                .pin-body {
+                                    transition: fill 0.4s ease, filter 0.4s ease;
+                                }
+                                .logo-group:hover .pin-body {
+                                    fill: #00C2FF;
+                                    filter: drop-shadow(0 0 12px rgba(0, 194, 255, 0.8));
+                                }
 
-                    <div class="card fade-in" style="transition-delay: 300ms;">
-                        <div class="icon-wrapper">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-                        </div>
-                        <h3>Data Analytics &amp; Consulting</h3>
-                        <p>In-depth geographical analysis, volumetric calculations, and strategic insight formulation.</p>
-                    </div>
+                                /* Animation Class Assignments */
+                                .anim-spin {
+                                    transform-origin: 400px 240px;
+                                    animation: rotate-slow 40s linear infinite;
+                                }
+                                .anim-spin-rev {
+                                    transform-origin: 400px 240px;
+                                    animation: rotate-slow-rev 50s linear infinite;
+                                }
+                                .anim-radar {
+                                    transform-origin: 400px 240px;
+                                    animation: radar-sweep 4s linear infinite;
+                                }
+                                .anim-ripple {
+                                    transform-origin: 400px 240px;
+                                    animation: ripple 3s infinite linear;
+                                }
+                                .anim-ripple-delay {
+                                    transform-origin: 400px 240px;
+                                    animation: ripple 3s infinite linear 1.5s;
+                                }
+                                .anim-terrain {
+                                    stroke-dasharray: 400;
+                                    stroke-dashoffset: 400;
+                                    animation: draw-terrain 7s infinite alternate ease-in-out;
+                                }
+                                .anim-scan {
+                                    animation: scan 3.5s linear infinite;
+                                }
+                                .anim-blink {
+                                    animation: blink 2s infinite;
+                                }
+                                .anim-dash-scroll {
+                                    stroke-dasharray: 8 6;
+                                    animation: dash-scroll 10s linear infinite;
+                                }
+                            </style>
+
+                            <radialGradient id="bg-glow" cx="50%" cy="40%" r="65%">
+                                <stop offset="0%" stop-color="#0B192C" stop-opacity="1"/>
+                                <stop offset="100%" stop-color="#030811" stop-opacity="1"/>
+                            </radialGradient>
+
+                            <linearGradient id="radar-gradient" x1="491" y1="188" x2="400" y2="135" gradientUnits="userSpaceOnUse">
+                                <stop offset="0%" stop-color="#00C2FF" stop-opacity="0.4" />
+                                <stop offset="100%" stop-color="#00C2FF" stop-opacity="0" />
+                            </linearGradient>
+
+                            <filter id="glow-cyan" x="-30%" y="-30%" width="160%" height="160%">
+                                <feGaussianBlur stdDeviation="6" result="blur" />
+                                <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                            </filter>
+                            <filter id="glow-green" x="-30%" y="-30%" width="160%" height="160%">
+                                <feGaussianBlur stdDeviation="4" result="blur" />
+                                <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                            </filter>
+
+                            <pattern id="grid-large" width="80" height="80" patternUnits="userSpaceOnUse">
+                                <path d="M 80 0 L 0 0 0 80" fill="none" stroke="#ffffff" stroke-width="1" stroke-opacity="0.04"/>
+                            </pattern>
+                            <pattern id="grid-small" width="16" height="16" patternUnits="userSpaceOnUse">
+                                <path d="M 16 0 L 0 0 0 16" fill="none" stroke="#ffffff" stroke-width="0.5" stroke-opacity="0.02"/>
+                            </pattern>
+
+                            <clipPath id="circle-clip">
+                                <circle cx="400" cy="240" r="105" />
+                            </clipPath>
+                        </defs>
+
+                        <rect width="100%" height="100%" fill="#030811" />
+                        <rect width="100%" height="100%" fill="url(#bg-glow)" />
+                        <rect width="100%" height="100%" fill="url(#grid-small)" />
+                        <rect width="100%" height="100%" fill="url(#grid-large)" />
+
+                        <g stroke="#485c7b" stroke-width="1.5" fill="none" opacity="0.6">
+                            <path d="M 30 50 L 30 30 L 50 30" />
+                            <circle cx="30" cy="30" r="3" />
+                            <path d="M 770 50 L 770 30 L 750 30" />
+                            <circle cx="770" cy="30" r="3" />
+                            <path d="M 30 550 L 30 570 L 50 570" />
+                            <circle cx="30" cy="570" r="3" />
+                            <path d="M 770 550 L 770 570 L 750 570" />
+                            <circle cx="770" cy="570" r="3" />
+                        </g>
+
+                        <g class="text-coord">
+                            <text x="60" y="34">LAT 42° 21' 30" N</text>
+                            <text x="740" y="34" text-anchor="end">LON 71° 03' 37" W</text>
+                            <text x="60" y="574">ELEV 14.2M</text>
+                            <text x="740" y="574" text-anchor="end">GRID SEC-09A</text>
+                        </g>
+
+                        <g transform="translate(300, 540)" class="text-coord" opacity="0.7">
+                            <line x1="0" y1="0" x2="200" y2="0" stroke="#485c7b" stroke-width="1.5" />
+                            <line x1="0" y1="-4" x2="0" y2="4" stroke="#485c7b" stroke-width="1" />
+                            <line x1="50" y1="-2" x2="50" y2="2" stroke="#485c7b" stroke-width="1" />
+                            <line x1="100" y1="-4" x2="100" y2="4" stroke="#485c7b" stroke-width="1" />
+                            <line x1="150" y1="-2" x2="150" y2="2" stroke="#485c7b" stroke-width="1" />
+                            <line x1="200" y1="-4" x2="200" y2="4" stroke="#485c7b" stroke-width="1" />
+                            <text x="0" y="15" text-anchor="middle">0</text>
+                            <text x="100" y="15" text-anchor="middle">50M</text>
+                            <text x="200" y="15" text-anchor="middle">100M</text>
+                        </g>
+
+                        <g class="logo-group">
+                            <circle cx="400" cy="240" r="140" fill="none" stroke="#102a45" stroke-width="1" />
+                            <circle cx="400" cy="240" r="150" fill="none" stroke="#102a45" stroke-width="1" stroke-dasharray="2 6" />
+
+                            <g class="anim-spin">
+                                <circle cx="400" cy="240" r="125" fill="none" stroke="#00C2FF" stroke-width="3" stroke-dasharray="1 10 4 10" opacity="0.5"/>
+                                <path d="M 275 240 A 125 125 0 0 1 337.5 131.7" fill="none" stroke="#00FFA3" stroke-width="4" />
+                                <path d="M 525 240 A 125 125 0 0 1 462.5 348.3" fill="none" stroke="#00FFA3" stroke-width="4" />
+                            </g>
+
+                            <g class="anim-spin-rev">
+                                <circle cx="400" cy="240" r="105" fill="none" stroke="#485c7b" stroke-width="1.5" stroke-dasharray="8 6" opacity="0.7" />
+                                <path d="M 400 130 L 400 140 M 400 340 L 400 350 M 290 240 L 300 240 M 500 240 L 510 240" stroke="#00C2FF" stroke-width="2" fill="none" />
+                            </g>
+
+                            <g clip-path="url(#circle-clip)">
+                                <circle cx="400" cy="240" r="105" fill="#030a14" opacity="0.6"/>
+                                <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M 280 150 Q 330 190, 400 160 T 520 150" stroke="#1a3b5c" stroke-width="1.5"/>
+                                    <path d="M 260 190 Q 340 180, 400 210 T 540 190" stroke="#1a3b5c" stroke-width="1.5"/>
+                                    <path d="M 280 280 Q 350 240, 400 270 T 520 280" stroke="#1a3b5c" stroke-width="1.5"/>
+                                    <path d="M 270 230 Q 340 210, 400 240 T 530 230" stroke="#00C2FF" stroke-width="1" class="anim-dash-scroll" opacity="0.5"/>
+                                </g>
+                                <path class="anim-terrain" d="M 260 190 Q 340 180, 400 210 T 540 190" fill="none" stroke="#00FFA3" stroke-width="2" filter="url(#glow-green)" stroke-linecap="round"/>
+                                <g class="anim-scan">
+                                    <line x1="290" y1="135" x2="510" y2="135" stroke="#00C2FF" stroke-width="1.5" filter="url(#glow-cyan)" />
+                                    <polygon points="400,135 405,142 395,142" fill="#00C2FF" />
+                                </g>
+                            </g>
+
+                            <g stroke="#00C2FF" stroke-width="1" opacity="0.3">
+                                <line x1="220" y1="240" x2="580" y2="240" />
+                                <line x1="400" y1="60" x2="400" y2="420" />
+                            </g>
+
+                            <g class="anim-radar">
+                                <path d="M 400 240 L 400 135 A 105 105 0 0 1 490.9 187.5 Z" fill="url(#radar-gradient)" />
+                                <line x1="400" y1="240" x2="490.9" y2="187.5" stroke="#00C2FF" stroke-width="2" filter="url(#glow-cyan)" />
+                            </g>
+
+                            <circle cx="400" cy="240" r="5" fill="none" stroke="#00FFA3" class="anim-ripple" />
+                            <circle cx="400" cy="240" r="5" fill="none" stroke="#00FFA3" class="anim-ripple-delay" />
+
+                            <circle cx="400" cy="240" r="16" fill="none" stroke="#00C2FF" stroke-width="1.5" opacity="0.6"/>
+                            <line x1="392" y1="240" x2="408" y2="240" stroke="#00FFA3" stroke-width="1.5" />
+                            <line x1="400" y1="232" x2="400" y2="248" stroke="#00FFA3" stroke-width="1.5" />
+
+                            <g class="pin-group">
+                                <line x1="400" y1="230" x2="400" y2="240" stroke="#00FFA3" stroke-width="2" stroke-dasharray="2 3" />
+                                <path class="pin-body" d="M 400 230 c 25 -35 30 -50 30 -70 a 30 30 0 0 0 -60 0 c 0 20 5 35 30 70 z" fill="#0B192C" stroke="#00C2FF" stroke-width="1.5" filter="url(#glow-cyan)"/>
+                                <circle cx="400" cy="160" r="12" fill="#030811" stroke="#00C2FF" stroke-width="1"/>
+                                <circle cx="400" cy="160" r="4" fill="#00FFA3" class="anim-blink" />
+                            </g>
+                        </g>
+
+                        <g class="font-brand" text-anchor="middle">
+                            <g stroke="#00C2FF" stroke-width="2" fill="none" opacity="0.4">
+                                <path d="M 230 420 L 210 420 L 210 500 L 230 500" />
+                                <path d="M 570 420 L 590 420 L 590 500 L 570 500" />
+                                <line x1="210" y1="460" x2="160" y2="460" stroke="#485c7b" stroke-width="1" stroke-dasharray="2 4"/>
+                                <line x1="590" y1="460" x2="640" y2="460" stroke="#485c7b" stroke-width="1" stroke-dasharray="2 4"/>
+                            </g>
+                            <text x="406" y="455" class="text-kaif">KAIF</text>
+                            <text x="404" y="490" class="text-sub">SURVEY &amp; CONSULTING</text>
+                        </g>
+                    </svg>
                 </div>
             </div>
         </section>
 
         <!-- How It Works Section -->
-        <section id="how-it-works" class="section">
+        <section class="section" id="how-it-works">
             <div class="container">
                 <div class="section-header fade-in">
-                    <h2>How It Works</h2>
-                    <p>Our streamlined process for precision results and actionable data delivery.</p>
+                    <h2 class="section-title">How It Works</h2>
+                    <p class="section-subtitle">A streamlined process from initial discussion to final delivery.</p>
                 </div>
                 
-                <div class="grid grid-2" style="align-items: center; gap: 4rem;">
-                    
-                    <!-- SVG 2: Theodolite Blueprint -->
-                    <div class="workflow-visual slide-up">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid meet">
-                            <defs>
-                                <style>
-                                    .font-brand { font-family: 'Montserrat', 'Inter', system-ui, -apple-system, sans-serif; }
-                                    .text-kaif { font-size: 52px; font-weight: 800; fill: #ffffff; letter-spacing: 12px; }
-                                    .text-sub { font-size: 16px; font-weight: 400; fill: #00C2FF; letter-spacing: 8px; }
-                                    .text-coord { font-size: 10px; font-family: 'Fira Code', 'Courier New', monospace; fill: #485c7b; letter-spacing: 1px; }
-                                    @keyframes rotate-slow { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-                                    @keyframes rotate-slow-rev { 0% { transform: rotate(0deg); } 100% { transform: rotate(-360deg); } }
-                                    @keyframes radar-sweep { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-                                    @keyframes ripple { 0% { r: 5px; opacity: 1; stroke-width: 3px; } 100% { r: 70px; opacity: 0; stroke-width: 1px; } }
-                                    @keyframes draw-terrain { 0% { stroke-dashoffset: 400; opacity: 0; } 20% { opacity: 1; } 80% { opacity: 1; } 100% { stroke-dashoffset: 0; opacity: 0; } }
-                                    @keyframes scan { 0% { transform: translateY(0px); opacity: 0; } 15% { opacity: 0.8; } 85% { opacity: 0.8; } 100% { transform: translateY(210px); opacity: 0; } }
-                                    @keyframes blink { 0%, 100% { opacity: 1; filter: drop-shadow(0 0 8px #00ffa3); } 50% { opacity: 0.3; filter: none; } }
-                                    @keyframes dash-scroll { from { stroke-dashoffset: 0; } to { stroke-dashoffset: -200; } }
-                                    .logo-group { transform-origin: 400px 240px; transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.4s ease; }
-                                    .logo-group:hover { transform: scale(1.03); filter: drop-shadow(0 0 20px rgba(0, 194, 255, 0.15)); }
-                                    .pin-body { transition: fill 0.4s ease, filter 0.4s ease; }
-                                    .logo-group:hover .pin-body { fill: #00C2FF; filter: drop-shadow(0 0 12px rgba(0, 194, 255, 0.8)); }
-                                    .anim-spin { transform-origin: 400px 240px; animation: rotate-slow 40s linear infinite; }
-                                    .anim-spin-rev { transform-origin: 400px 240px; animation: rotate-slow-rev 50s linear infinite; }
-                                    .anim-radar { transform-origin: 400px 240px; animation: radar-sweep 4s linear infinite; }
-                                    .anim-ripple { transform-origin: 400px 240px; animation: ripple 3s infinite linear; }
-                                    .anim-ripple-delay { transform-origin: 400px 240px; animation: ripple 3s infinite linear 1.5s; }
-                                    .anim-terrain { stroke-dasharray: 400; stroke-dashoffset: 400; animation: draw-terrain 7s infinite alternate ease-in-out; }
-                                    .anim-scan { animation: scan 3.5s linear infinite; }
-                                    .anim-blink { animation: blink 2s infinite; }
-                                    .anim-dash-scroll { stroke-dasharray: 8 6; animation: dash-scroll 10s linear infinite; }
-                                </style>
-                                <radialGradient id="bg-glow" cx="50%" cy="40%" r="65%">
-                                    <stop offset="0%" stop-color="#0B192C" stop-opacity="1"/>
-                                    <stop offset="100%" stop-color="#030811" stop-opacity="1"/>
-                                </radialGradient>
-                                <linearGradient id="radar-gradient" x1="491" y1="188" x2="400" y2="135" gradientUnits="userSpaceOnUse">
-                                    <stop offset="0%" stop-color="#00C2FF" stop-opacity="0.4" />
-                                    <stop offset="100%" stop-color="#00C2FF" stop-opacity="0" />
-                                </linearGradient>
-                                <filter id="glow-cyan" x="-30%" y="-30%" width="160%" height="160%">
-                                    <feGaussianBlur stdDeviation="6" result="blur" />
-                                    <feComposite in="SourceGraphic" in2="blur" operator="over" />
-                                </filter>
-                                <filter id="glow-green" x="-30%" y="-30%" width="160%" height="160%">
-                                    <feGaussianBlur stdDeviation="4" result="blur" />
-                                    <feComposite in="SourceGraphic" in2="blur" operator="over" />
-                                </filter>
-                                <pattern id="grid-large" width="80" height="80" patternUnits="userSpaceOnUse">
-                                    <path d="M 80 0 L 0 0 0 80" fill="none" stroke="#ffffff" stroke-width="1" stroke-opacity="0.04"/>
-                                </pattern>
-                                <pattern id="grid-small" width="16" height="16" patternUnits="userSpaceOnUse">
-                                    <path d="M 16 0 L 0 0 0 16" fill="none" stroke="#ffffff" stroke-width="0.5" stroke-opacity="0.02"/>
-                                </pattern>
-                                <clipPath id="circle-clip">
-                                    <circle cx="400" cy="240" r="105" />
-                                </clipPath>
-                            </defs>
-                            <rect width="100%" height="100%" fill="#030811" />
-                            <rect width="100%" height="100%" fill="url(#bg-glow)" />
-                            <rect width="100%" height="100%" fill="url(#grid-small)" />
-                            <rect width="100%" height="100%" fill="url(#grid-large)" />
-                            <g stroke="#485c7b" stroke-width="1.5" fill="none" opacity="0.6">
-                                <path d="M 30 50 L 30 30 L 50 30" /><circle cx="30" cy="30" r="3" />
-                                <path d="M 770 50 L 770 30 L 750 30" /><circle cx="770" cy="30" r="3" />
-                                <path d="M 30 550 L 30 570 L 50 570" /><circle cx="30" cy="570" r="3" />
-                                <path d="M 770 550 L 770 570 L 750 570" /><circle cx="770" cy="570" r="3" />
-                            </g>
-                            <g class="text-coord">
-                                <text x="60" y="34">LAT 42° 21' 30" N</text>
-                                <text x="740" y="34" text-anchor="end">LON 71° 03' 37" W</text>
-                                <text x="60" y="574">ELEV 14.2M</text>
-                                <text x="740" y="574" text-anchor="end">GRID SEC-09A</text>
-                            </g>
-                            <g transform="translate(300, 540)" class="text-coord" opacity="0.7">
-                                <line x1="0" y1="0" x2="200" y2="0" stroke="#485c7b" stroke-width="1.5" />
-                                <line x1="0" y1="-4" x2="0" y2="4" stroke="#485c7b" stroke-width="1" />
-                                <line x1="50" y1="-2" x2="50" y2="2" stroke="#485c7b" stroke-width="1" />
-                                <line x1="100" y1="-4" x2="100" y2="4" stroke="#485c7b" stroke-width="1" />
-                                <line x1="150" y1="-2" x2="150" y2="2" stroke="#485c7b" stroke-width="1" />
-                                <line x1="200" y1="-4" x2="200" y2="4" stroke="#485c7b" stroke-width="1" />
-                                <text x="0" y="15" text-anchor="middle">0</text><text x="100" y="15" text-anchor="middle">50M</text><text x="200" y="15" text-anchor="middle">100M</text>
-                            </g>
-                            <g class="logo-group">
-                                <circle cx="400" cy="240" r="140" fill="none" stroke="#102a45" stroke-width="1" />
-                                <circle cx="400" cy="240" r="150" fill="none" stroke="#102a45" stroke-width="1" stroke-dasharray="2 6" />
-                                <g class="anim-spin">
-                                    <circle cx="400" cy="240" r="125" fill="none" stroke="#00C2FF" stroke-width="3" stroke-dasharray="1 10 4 10" opacity="0.5"/>
-                                    <path d="M 275 240 A 125 125 0 0 1 337.5 131.7" fill="none" stroke="#00FFA3" stroke-width="4" />
-                                    <path d="M 525 240 A 125 125 0 0 1 462.5 348.3" fill="none" stroke="#00FFA3" stroke-width="4" />
-                                </g>
-                                <g class="anim-spin-rev">
-                                    <circle cx="400" cy="240" r="105" fill="none" stroke="#485c7b" stroke-width="1.5" stroke-dasharray="8 6" opacity="0.7" />
-                                    <path d="M 400 130 L 400 140 M 400 340 L 400 350 M 290 240 L 300 240 M 500 240 L 510 240" stroke="#00C2FF" stroke-width="2" fill="none" />
-                                </g>
-                                <g clip-path="url(#circle-clip)">
-                                    <circle cx="400" cy="240" r="105" fill="#030a14" opacity="0.6"/>
-                                    <g fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M 280 150 Q 330 190, 400 160 T 520 150" stroke="#1a3b5c" stroke-width="1.5"/>
-                                        <path d="M 260 190 Q 340 180, 400 210 T 540 190" stroke="#1a3b5c" stroke-width="1.5"/>
-                                        <path d="M 280 280 Q 350 240, 400 270 T 520 280" stroke="#1a3b5c" stroke-width="1.5"/>
-                                        <path d="M 270 230 Q 340 210, 400 240 T 530 230" stroke="#00C2FF" stroke-width="1" class="anim-dash-scroll" opacity="0.5"/>
-                                    </g>
-                                    <path class="anim-terrain" d="M 260 190 Q 340 180, 400 210 T 540 190" fill="none" stroke="#00FFA3" stroke-width="2" filter="url(#glow-green)" stroke-linecap="round"/>
-                                    <g class="anim-scan">
-                                        <line x1="290" y1="135" x2="510" y2="135" stroke="#00C2FF" stroke-width="1.5" filter="url(#glow-cyan)" />
-                                        <polygon points="400,135 405,142 395,142" fill="#00C2FF" />
-                                    </g>
-                                </g>
-                                <g stroke="#00C2FF" stroke-width="1" opacity="0.3">
-                                    <line x1="220" y1="240" x2="580" y2="240" />
-                                    <line x1="400" y1="60" x2="400" y2="420" />
-                                </g>
-                                <g class="anim-radar">
-                                    <path d="M 400 240 L 400 135 A 105 105 0 0 1 490.9 187.5 Z" fill="url(#radar-gradient)" />
-                                    <line x1="400" y1="240" x2="490.9" y2="187.5" stroke="#00C2FF" stroke-width="2" filter="url(#glow-cyan)" />
-                                </g>
-                                <circle cx="400" cy="240" r="5" fill="none" stroke="#00FFA3" class="anim-ripple" />
-                                <circle cx="400" cy="240" r="5" fill="none" stroke="#00FFA3" class="anim-ripple-delay" />
-                                <circle cx="400" cy="240" r="16" fill="none" stroke="#00C2FF" stroke-width="1.5" opacity="0.6"/>
-                                <line x1="392" y1="240" x2="408" y2="240" stroke="#00FFA3" stroke-width="1.5" />
-                                <line x1="400" y1="232" x2="400" y2="248" stroke="#00FFA3" stroke-width="1.5" />
-                                <g class="pin-group">
-                                    <line x1="400" y1="230" x2="400" y2="240" stroke="#00FFA3" stroke-width="2" stroke-dasharray="2 3" />
-                                    <path class="pin-body" d="M 400 230 c 25 -35 30 -50 30 -70 a 30 30 0 0 0 -60 0 c 0 20 5 35 30 70 z" fill="#0B192C" stroke="#00C2FF" stroke-width="1.5" filter="url(#glow-cyan)"/>
-                                    <circle cx="400" cy="160" r="12" fill="#030811" stroke="#00C2FF" stroke-width="1"/>
-                                    <circle cx="400" cy="160" r="4" fill="#00FFA3" class="anim-blink" />
-                                </g>
-                            </g>
-                            <g class="font-brand" text-anchor="middle">
-                                <g stroke="#00C2FF" stroke-width="2" fill="none" opacity="0.4">
-                                    <path d="M 230 420 L 210 420 L 210 500 L 230 500" />
-                                    <path d="M 570 420 L 590 420 L 590 500 L 570 500" />
-                                    <line x1="210" y1="460" x2="160" y2="460" stroke="#485c7b" stroke-width="1" stroke-dasharray="2 4"/>
-                                    <line x1="590" y1="460" x2="640" y2="460" stroke="#485c7b" stroke-width="1" stroke-dasharray="2 4"/>
-                                </g>
-                                <text x="406" y="455" class="text-kaif">KAIF</text>
-                                <text x="404" y="490" class="text-sub">SURVEY &amp; CONSULTING</text>
-                            </g>
-                        </svg>
+                <div class="process-grid">
+                    <div class="process-step fade-in delay-1">
+                        <div class="step-number">1</div>
+                        <h3>Consultation</h3>
+                        <p>We discuss your specific project needs and define scope.</p>
                     </div>
-
-                    <div class="workflow-steps">
-                        <div class="workflow-step fade-in" style="transition-delay: 100ms;">
-                            <div class="step-num">01</div>
-                            <div>
-                                <h3>Consultation &amp; Planning</h3>
-                                <p>We evaluate your requirements, assess the terrain constraints, and develop a specialized execution strategy.</p>
-                            </div>
-                        </div>
-                        <div class="workflow-step fade-in" style="transition-delay: 200ms;">
-                            <div class="step-num">02</div>
-                            <div>
-                                <h3>Precision Field Survey</h3>
-                                <p>Our field operators deploy state-of-the-art surveying technology to capture highly accurate environmental data.</p>
-                            </div>
-                        </div>
-                        <div class="workflow-step fade-in" style="transition-delay: 300ms;">
-                            <div class="step-num">03</div>
-                            <div>
-                                <h3>Data Processing</h3>
-                                <p>We import the raw coordinates into advanced analytics software for structural modeling and volumetric assessment.</p>
-                            </div>
-                        </div>
-                        <div class="workflow-step fade-in" style="transition-delay: 400ms;">
-                            <div class="step-num">04</div>
-                            <div>
-                                <h3>Final Delivery</h3>
-                                <p>You receive comprehensive CAD files, PDF blueprints, and strategic insight reports optimized for your operations.</p>
-                            </div>
-                        </div>
+                    <div class="process-step fade-in delay-2">
+                        <div class="step-number">2</div>
+                        <h3>Field Work</h3>
+                        <p>Our experts collect accurate data on-site using advanced tech.</p>
                     </div>
-
+                    <div class="process-step fade-in delay-3">
+                        <div class="step-number">3</div>
+                        <h3>Analysis</h3>
+                        <p>Data processing, modeling, and detailed map generation.</p>
+                    </div>
+                    <div class="process-step fade-in delay-1">
+                        <div class="step-number">4</div>
+                        <h3>Delivery</h3>
+                        <p>Final robust reports and high-fidelity CAD/GIS files handed over.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Case Studies / Testimonials Section -->
-        <section id="testimonials" class="section bg-alt">
+        <!-- Testimonials Section -->
+        <section class="section testimonials" id="testimonials">
             <div class="container">
                 <div class="section-header fade-in">
-                    <h2>Client Feedback</h2>
-                    <p>Trusted by industry leaders to deliver unwavering precision and professional integrity.</p>
+                    <h2 class="section-title">Client Success Stories</h2>
+                    <p class="section-subtitle">Trusted by leading developers and engineering firms.</p>
                 </div>
                 
-                <div class="grid grid-3">
-                    <div class="card fade-in">
-                        <div style="color: #f59e0b; margin-bottom: 1rem;">★★★★★</div>
-                        <p>“Kaif Survey & Consulting provided incredibly accurate topographical data for our new commercial site. Their team was professional, prompt, and detailed.”</p>
-                        <div style="margin-top: 1.5rem;">
-                            <h4 style="margin-bottom: 0.2rem;">Abdul Rahman</h4>
-                            <p style="font-size: 0.875rem; margin: 0;">Project Manager, BuildCo</p>
+                <div class="testimonial-grid">
+                    <div class="glass-card testimonial-card fade-in delay-1">
+                        <p>"Kaif Survey delivered exactly what we needed, on time and with perfect accuracy. Highly recommend Alamgir and his team."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">BR</div>
+                            <div class="author-info">
+                                <h4>BuildRight Corp.</h4>
+                                <span>Commercial Real Estate</span>
+                            </div>
                         </div>
                     </div>
-                    
-                    <div class="card fade-in" style="transition-delay: 100ms;">
-                        <div style="color: #f59e0b; margin-bottom: 1rem;">★★★★★</div>
-                        <p>“We relied on their boundary surveying to resolve a complex property dispute. Their technological approach and clear reporting made all the difference.”</p>
-                        <div style="margin-top: 1.5rem;">
-                            <h4 style="margin-bottom: 0.2rem;">Samiha Chowdhury</h4>
-                            <p style="font-size: 0.875rem; margin: 0;">Lead Architect, Apex Designs</p>
-                        </div>
-                    </div>
-
-                    <div class="card fade-in" style="transition-delay: 200ms;">
-                        <div style="color: #f59e0b; margin-bottom: 1rem;">★★★★★</div>
-                        <p>“Excellent service and rapid delivery. MD. Alamgir's team demonstrated unparalleled expertise in construction staking for our highway project.”</p>
-                        <div style="margin-top: 1.5rem;">
-                            <h4 style="margin-bottom: 0.2rem;">Kamrul Hasan</h4>
-                            <p style="font-size: 0.875rem; margin: 0;">Director of Infrastructure</p>
+                    <div class="glass-card testimonial-card fade-in delay-2">
+                        <p>"Alamgir's consulting insights saved us countless hours during the feasibility and planning phase. A true professional partner."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">ND</div>
+                            <div class="author-info">
+                                <h4>NextGen Developers</h4>
+                                <span>Urban Infrastructure</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Pricing / Packages Section -->
-        <section id="packages" class="section">
+        <!-- Pricing Section -->
+        <section class="section" id="pricing">
             <div class="container">
                 <div class="section-header fade-in">
-                    <h2>Service Packages</h2>
-                    <p>Scalable surveying solutions aligned with the scope of your commercial or residential needs.</p>
+                    <h2 class="section-title">Service Packages</h2>
+                    <p class="section-subtitle">Flexible surveying options adapted to the size and scale of your project.</p>
                 </div>
                 
-                <div class="grid grid-3">
-                    <div class="card pricing-card fade-in">
-                        <h3>Basic Package</h3>
-                        <p>Ideal for residential property line identification and basic mapping.</p>
-                        <!-- DEV NOTE: Pricing hidden from public view. 
-                             Cost: ৳ 15,000 / project
-                        -->
-                        <ul>
-                            <li><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Boundary Mapping</li>
-                            <li><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Area Calculation</li>
-                            <li><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Standard Digital Delivery</li>
+                <div class="pricing-grid">
+                    <div class="glass-card pricing-card fade-in delay-1">
+                        <div class="pricing-header">
+                            <h3>Basic</h3>
+                        </div>
+                        <ul class="pricing-features">
+                            <li><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Boundary Definition</li>
+                            <li><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Simple Topography</li>
+                            <li><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Standard Report</li>
                         </ul>
-                        <a href="#contact" class="btn btn-outline w-full">Select Package</a>
-                    </div>
-                    
-                    <div class="card pricing-card fade-in" style="border-color: var(--brand); box-shadow: var(--card-shadow); transform: scale(1.02); z-index: 1;">
-                        <h3>Professional Package</h3>
-                        <p>Comprehensive topographic surveys for new commercial developments.</p>
-                        <!-- DEV NOTE: Pricing hidden from public view. 
-                             Cost: ৳ 35,000 / project
-                        -->
-                        <ul>
-                            <li><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Everything in Basic</li>
-                            <li><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Full Topographical Data</li>
-                            <li><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Elevation Contours</li>
-                            <li><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> AutoCAD (DWG) Delivery</li>
-                        </ul>
-                        <a href="#contact" class="btn btn-primary w-full">Select Package</a>
+                        <button class="btn btn-secondary" style="width: 100%;" onclick="document.getElementById('contact').scrollIntoView()">Inquire Now</button>
                     </div>
 
-                    <div class="card pricing-card fade-in">
-                        <h3>Enterprise Consulting</h3>
-                        <p>Extensive strategic analysis and construction staking for large sites.</p>
-                        <!-- DEV NOTE: Pricing hidden from public view. 
-                             Cost: ৳ 75,000+ / project
-                        -->
-                        <ul>
-                            <li><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Everything in Professional</li>
-                            <li><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Construction Staking</li>
-                            <li><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Volumetric Analytics</li>
-                            <li><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Dedicated Consultant</li>
+                    <div class="glass-card pricing-card featured fade-in delay-2">
+                        <div class="pricing-header">
+                            <h3>Professional</h3>
+                        </div>
+                        <ul class="pricing-features">
+                            <li><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Full Site Survey</li>
+                            <li><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> 3D Terrain Modeling</li>
+                            <li><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Consultation Hours</li>
+                            <li><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Priority Support</li>
                         </ul>
-                        <a href="#contact" class="btn btn-outline w-full">Select Package</a>
+                        <button class="btn btn-primary" style="width: 100%;" onclick="document.getElementById('contact').scrollIntoView()">Inquire Now</button>
+                    </div>
+
+                    <div class="glass-card pricing-card fade-in delay-3">
+                        <div class="pricing-header">
+                            <h3>Enterprise</h3>
+                        </div>
+                        <ul class="pricing-features">
+                            <li><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Drone & Aerial Mapping</li>
+                            <li><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Advanced GIS Analysis</li>
+                            <li><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Dedicated Consultant</li>
+                            <li><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Daily Progress Updates</li>
+                        </ul>
+                        <button class="btn btn-secondary" style="width: 100%;" onclick="document.getElementById('contact').scrollIntoView()">Inquire Now</button>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Contact Form Section -->
-        <section id="contact" class="section bg-alt">
+        <!-- Contact Section -->
+        <section class="section contact" id="contact">
             <div class="container">
                 <div class="section-header fade-in">
-                    <h2>Request a Quote</h2>
-                    <p>Contact us to discuss your project requirements and let our experts guide you.</p>
+                    <h2 class="section-title">Get in Touch</h2>
+                    <p class="section-subtitle">Reach out for inquiries, consulting, or project quotes.</p>
                 </div>
                 
-                <div class="card fade-in" style="max-width: 800px; margin: 0 auto; padding: 3rem;">
-                    <form id="contact-form" novalidate>
-                        <div class="grid grid-2" style="gap: 1.5rem; margin-bottom: 0;">
-                            <div class="form-group">
-                                <label for="name">Full Name <span aria-hidden="true" style="color:var(--error)">*</span></label>
-                                <input type="text" id="name" name="name" required aria-required="true" placeholder="John Doe">
-                                <span class="error-msg">Please enter your full name.</span>
-                            </div>
-                            <div class="form-group">
-                                <label for="company">Company</label>
-                                <input type="text" id="company" name="company" placeholder="Acme Corp">
+                <div class="contact-container">
+                    <!-- Contact Info -->
+                    <div class="contact-info fade-in delay-1">
+                        <div class="glass-card" style="height: 100%;">
+                            <img src="https://uploads.onecompiler.io/43y3by72c/4428darze/1000007296.png" alt="Logo" style="max-height: 80px; margin-bottom: 1rem;">
+                            <h3>MD. Ruknuzzaman Alamgir</h3>
+                            <p style="color: var(--text-muted); margin-bottom: 2rem;">Owner, Kaif Survey & Consulting</p>
+                            
+                            <div class="contact-info-list">
+                                <div class="contact-item">
+                                    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                                    <div>
+                                        <strong>Head Office</strong>
+                                        <p>Plot-229, Zaman Tower<br>Azampur Road, Uttarkhan<br>Uttara, Dhaka-1230</p>
+                                    </div>
+                                </div>
+                                <div class="contact-item">
+                                    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                                    <div>
+                                        <strong>Mobile</strong>
+                                        <p>+880 1712-345678</p>
+                                    </div>
+                                </div>
+                                <div class="contact-item">
+                                    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                                    <div>
+                                        <strong>Email</strong>
+                                        <p>alamgirwss@gmail.com</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+                    </div>
 
-                        <div class="grid grid-2" style="gap: 1.5rem; margin-bottom: 0;">
-                            <div class="form-group">
-                                <label for="email">Email Address <span aria-hidden="true" style="color:var(--error)">*</span></label>
-                                <input type="email" id="email" name="email" required aria-required="true" placeholder="john@example.com">
-                                <span class="error-msg">Please enter a valid email address.</span>
+                    <!-- Contact Form -->
+                    <div class="glass-card fade-in delay-2">
+                        <form id="contactForm" novalidate>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="name">Full Name *</label>
+                                    <input type="text" id="name" name="name" required aria-required="true" placeholder="John Doe">
+                                    <span class="error-message">Please enter your full name.</span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="company">Company</label>
+                                    <input type="text" id="company" name="company" placeholder="Your Company Ltd.">
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label for="phone">Phone Number <span aria-hidden="true" style="color:var(--error)">*</span></label>
-                                <input type="tel" id="phone" name="phone" required aria-required="true" placeholder="+880 1XXX-XXXXXX">
-                                <span class="error-msg">Please enter your phone number.</span>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="email">Email Address *</label>
+                                    <input type="email" id="email" name="email" required aria-required="true" placeholder="john@example.com">
+                                    <span class="error-message">Please enter a valid email address.</span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Phone Number *</label>
+                                    <input type="tel" id="phone" name="phone" required aria-required="true" placeholder="+880 1XXXXXXXXX">
+                                    <span class="error-message">Please enter a valid phone number.</span>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="form-group">
-                            <label for="method">Preferred Contact Method <span aria-hidden="true" style="color:var(--error)">*</span></label>
-                            <select id="method" name="method" required aria-required="true">
-                                <option value="">Select a method</option>
-                                <option value="email">Email</option>
-                                <option value="phone">Phone</option>
-                            </select>
-                            <span class="error-msg">Please select a preferred contact method.</span>
-                        </div>
+                            <div class="form-group">
+                                <label for="method">Preferred Contact Method</label>
+                                <select id="method" name="method">
+                                    <option value="email">Email</option>
+                                    <option value="phone">Phone Call</option>
+                                    <option value="whatsapp">WhatsApp</option>
+                                </select>
+                            </div>
 
-                        <div class="form-group">
-                            <label for="project">Project Description <span aria-hidden="true" style="color:var(--error)">*</span></label>
-                            <textarea id="project" name="project" rows="5" required aria-required="true" placeholder="Briefly describe your survey requirements..."></textarea>
-                            <span class="error-msg">Please provide a brief project description.</span>
-                        </div>
+                            <div class="form-group">
+                                <label for="message">Project Description *</label>
+                                <textarea id="message" name="message" rows="4" required aria-required="true" placeholder="Tell us about your surveying or consulting needs..."></textarea>
+                                <span class="error-message">Please describe your project.</span>
+                            </div>
 
-                        <button type="submit" class="btn btn-primary w-full" style="margin-top: 1rem;">Submit Request</button>
-                    </form>
+                            <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="container grid grid-4 footer-grid">
-            <div>
-                <a href="#" class="logo" style="margin-bottom: 1.5rem; display: inline-flex;">
-                    <img src="https://uploads.onecompiler.io/43y3by72c/4428darze/1000007296.png" alt="Logo" style="filter: brightness(0) invert(1);">
-                    <span style="color: white;">Kaif Survey</span>
-                </a>
-                <p>Empowering development through exact geographical data and consultative insights.</p>
-            </div>
-            
-            <div>
-                <h3>Head Office</h3>
-                <p>Plot-229, Zaman Tower<br>
-                   Azampur Road, Uttarkhan<br>
-                   Uttara, Dhaka-1230</p>
-            </div>
-            
-            <div>
-                <h3>Contact</h3>
-                <p><strong>MD. Ruknuzzaman Alamgir</strong></p>
-                <p><a href="tel:+8801712345678">+880 1712-345678</a></p>
-                <p><a href="mailto:alamgirwss@gmail.com">alamgirwss@gmail.com</a></p>
-            </div>
-            
-            <div>
-                <h3>Quick Links</h3>
-                <ul style="list-style: none;">
-                    <li style="margin-bottom: 0.5rem;"><a href="#services">Services</a></li>
-                    <li style="margin-bottom: 0.5rem;"><a href="#how-it-works">How It Works</a></li>
-                    <li style="margin-bottom: 0.5rem;"><a href="#packages">Pricing Packages</a></li>
-                </ul>
-            </div>
-        </div>
-        
-        <div class="container footer-bottom">
-            <p>&copy; 2026 Kaif Survey &amp; Consulting. All rights reserved.</p>
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Kaif Survey & Consulting. All rights reserved.</p>
         </div>
     </footer>
 
-    <!-- Success Modal -->
-    <div class="modal" id="success-modal" aria-hidden="true">
-        <div class="modal-content" role="dialog" aria-labelledby="modal-title">
-            <div class="modal-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+    <!-- Form Success Modal -->
+    <div class="modal-overlay" id="successModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <div class="modal-content">
+            <div class="success-icon">
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" width="32" height="32"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
             </div>
-            <h2 id="modal-title">Request Submitted!</h2>
-            <p style="margin-bottom: 2rem;">Thank you for contacting Kaif Survey & Consulting. Our team will get back to you shortly.</p>
-            <button class="btn btn-primary w-full" onclick="closeModal()">Done</button>
+            <h3 id="modalTitle" style="margin-bottom: 0.5rem; font-size: 1.5rem;">Message Sent!</h3>
+            <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Thank you for contacting Kaif Survey & Consulting. We will get back to you shortly.</p>
+            <button class="btn btn-primary" id="closeModalBtn">Close</button>
         </div>
     </div>
+    
+    <!-- Accessibility Live Region -->
+    <div aria-live="polite" class="sr-only" id="formStatus"></div>
 
-    <!-- JavaScript -->
+    <!-- JavaScript Section (Normally script.js) -->
     <script>
-        // --- 1. Mobile Menu Toggle ---
-        const mobileBtn = document.querySelector('.mobile-menu-btn');
-        const navLinks = document.querySelector('.nav-links');
+        /* ==========================================================================
+           1. PRICING DATA (Hidden in code as requested)
+           ========================================================================== */
+        const packages = {
+            basic: { name: 'Basic', price: 5000, currency: 'BDT' },
+            professional: { name: 'Professional', price: 15000, currency: 'BDT' },
+            enterprise: { name: 'Enterprise', price: 50000, currency: 'BDT' }
+        };
 
-        mobileBtn.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
+        /* ==========================================================================
+           2. THEME TOGGLE FUNCTIONALITY
+           ========================================================================== */
+        const themeToggleBtn = document.getElementById('themeToggleBtn');
+        const htmlElement = document.documentElement;
 
-        // Close menu on link click
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-            });
-        });
-
-        // --- 2. Theme Management (Light/Dark Mode) ---
-        const themeToggle = document.getElementById('theme-toggle');
-        const root = document.documentElement;
-
-        // Check local storage or system preference
+        // Initialize Theme from localStorage or system preference
         const savedTheme = localStorage.getItem('theme');
         if (savedTheme) {
-            root.setAttribute('data-theme', savedTheme);
-        } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            root.setAttribute('data-theme', 'dark');
+            htmlElement.setAttribute('data-theme', savedTheme);
+        } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            htmlElement.setAttribute('data-theme', 'dark');
         }
 
-        themeToggle.addEventListener('click', () => {
-            const currentTheme = root.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            root.setAttribute('data-theme', newTheme);
+        // Toggle Event
+        themeToggleBtn.addEventListener('click', () => {
+            const currentTheme = htmlElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            htmlElement.setAttribute('data-theme', newTheme);
             localStorage.setItem('theme', newTheme);
         });
 
-        // --- 3. Intersection Observer for Scroll Animations ---
-        // Respects reduced motion settings
-        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        /* ==========================================================================
+           3. MOBILE MENU TOGGLE
+           ========================================================================== */
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
 
-        if (!prefersReducedMotion) {
-            const observerOptions = { threshold: 0.15, rootMargin: "0px 0px -50px 0px" };
-            
-            const scrollObserver = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('is-visible');
-                        observer.unobserve(entry.target); // Trigger once
-                    }
-                });
-            }, observerOptions);
-
-            document.querySelectorAll('.fade-in, .slide-up').forEach(el => {
-                scrollObserver.observe(el);
-            });
-
-            // --- 4. Animated Counters ---
-            const counterObserver = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const target = entry.target;
-                        const finalVal = parseInt(target.getAttribute('data-target'), 10);
-                        const suffix = target.getAttribute('data-suffix') || '';
-                        
-                        let startTimestamp = null;
-                        const duration = 2000; // 2 seconds
-
-                        const step = (timestamp) => {
-                            if (!startTimestamp) startTimestamp = timestamp;
-                            const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-                            
-                            // easeOutExpo function for smooth deceleration
-                            const easeProgress = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
-                            
-                            target.innerText = Math.floor(easeProgress * finalVal) + suffix;
-                            
-                            if (progress < 1) {
-                                window.requestAnimationFrame(step);
-                            }
-                        };
-                        window.requestAnimationFrame(step);
-                        observer.unobserve(target);
-                    }
-                });
-            }, { threshold: 0.5 });
-
-            document.querySelectorAll('.stat-number').forEach(counter => {
-                counterObserver.observe(counter);
-            });
-        } else {
-            // Immediately show elements if reduced motion is requested
-            document.querySelectorAll('.fade-in, .slide-up').forEach(el => el.classList.add('is-visible'));
-            document.querySelectorAll('.stat-number').forEach(counter => {
-                counter.innerText = counter.getAttribute('data-target') + (counter.getAttribute('data-suffix') || '');
-            });
+        function toggleMenu() {
+            const isActive = mobileMenu.classList.toggle('active');
+            mobileMenuBtn.setAttribute('aria-expanded', isActive);
+            mobileMenuBtn.textContent = isActive ? '✕' : '☰';
         }
 
-        // --- 5. Form Validation & Submission Logic ---
-        const contactForm = document.getElementById('contact-form');
-        const formStatus = document.getElementById('form-status');
-        const successModal = document.getElementById('success-modal');
+        mobileMenuBtn.addEventListener('click', toggleMenu);
 
-        contactForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            let isValid = true;
-
-            // Clear previous errors
-            document.querySelectorAll('.form-group.error').forEach(el => el.classList.remove('error'));
-
-            // Validate Required Fields
-            const requiredFields = contactForm.querySelectorAll('[required]');
-            requiredFields.forEach(field => {
-                const isEmail = field.type === 'email';
-                const hasValue = field.value.trim() !== '';
-                const emailValid = isEmail ? /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(field.value) : true;
-
-                if (!hasValue || !emailValid) {
-                    field.parentElement.classList.add('error');
-                    isValid = false;
+        // Close menu on link click
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (mobileMenu.classList.contains('active')) {
+                    toggleMenu();
                 }
             });
+        });
 
-            if (!isValid) {
-                formStatus.textContent = "Please fix the errors in the form before submitting.";
+        /* ==========================================================================
+           4. SCROLL ANIMATIONS (INTERSECTION OBSERVER)
+           ========================================================================== */
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.15
+        };
+
+        const scrollObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                // Respect prefers-reduced-motion
+                const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                
+                if (entry.isIntersecting && !prefersReducedMotion) {
+                    entry.target.classList.add('in-view');
+                    // Stop observing once animated
+                    observer.unobserve(entry.target);
+                } else if (prefersReducedMotion) {
+                    // Force visible if user prefers reduced motion
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'none';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            scrollObserver.observe(el);
+        });
+
+        /* ==========================================================================
+           5. FORM VALIDATION & FAKE ASYNC SUBMISSION
+           ========================================================================== */
+        const form = document.getElementById('contactForm');
+        const modal = document.getElementById('successModal');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const formStatus = document.getElementById('formStatus');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            // Basic HTML5 validation trigger
+            if (!form.checkValidity()) {
+                // Focus first invalid element for accessibility
+                const firstInvalid = form.querySelector(':invalid');
+                if (firstInvalid) firstInvalid.focus();
+                formStatus.textContent = "Please correct the errors in the form.";
                 return;
             }
 
-            // Valid state: Simulate Async Submission
-            const submitBtn = contactForm.querySelector('button[type="submit"]');
-            submitBtn.classList.add('loading');
-            submitBtn.textContent = 'Sending Request...';
-            formStatus.textContent = "Submitting form...";
+            // Fake Async Submission
+            submitBtn.disabled = true;
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Sending...';
+            formStatus.textContent = "Sending message...";
 
-            // Simulate 1 second network delay
-            await new Promise(resolve => setTimeout(resolve, 1000));
-
-            // Success State
-            submitBtn.classList.remove('loading');
-            submitBtn.textContent = 'Submit Request';
-            
-            successModal.classList.add('show');
-            successModal.setAttribute('aria-hidden', 'false');
-            formStatus.textContent = "Form submitted successfully.";
-            
-            contactForm.reset();
+            setTimeout(() => {
+                // Restore button state
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalText;
+                
+                // Clear form
+                form.reset();
+                
+                // Show Modal
+                modal.classList.add('active');
+                
+                // Accessible announcement
+                formStatus.textContent = 'Message sent successfully!';
+                
+                // Move focus to modal
+                closeModalBtn.focus();
+            }, 1000);
         });
 
-        function closeModal() {
-            successModal.classList.remove('show');
-            successModal.setAttribute('aria-hidden', 'true');
-        }
+        // Close Modal
+        const closeModal = () => {
+            modal.classList.remove('active');
+            // Return focus to trigger (or a logical place like contact title)
+            document.querySelector('.contact .section-title').focus();
+        };
+
+        closeModalBtn.addEventListener('click', closeModal);
+
+        // Close on Esc key or clicking outside
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('active')) {
+                closeModal();
+            }
+        });
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
     </script>
 </body>
 </html>
